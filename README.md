@@ -1,6 +1,6 @@
 # antiqueNetwork
 
-> My mind-blowing Nuxt.js project
+> Front End for ANTnet
 
 ## Build Setup
 
