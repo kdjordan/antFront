@@ -1,7 +1,7 @@
 {
   "name": "antique-network",
   "version": "1.0.0",
-  "description": "My mind-blowing Nuxt.js project",
+  "description": "ANTnet Front End",
   "author": "kevin jordan",
   "private": true,
   "scripts": {
