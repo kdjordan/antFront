@@ -12,7 +12,8 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Oswald|Roboto&display=swap' }
     ]
   },
   /*
@@ -37,10 +38,10 @@ export default {
   /*
   ** Nuxt.js modules
   */
-  modules: ['@nuxtjs/axios','@nuxtjs/style-resources'],
+  modules: ["@nuxtjs/axios","@nuxtjs/style-resources"],
     styleResources: {
       scss: [
-        '~/assets/scss/base.scss'
+        "~assets/scss/variables.scss"
       ]
     },
   /*
@@ -58,5 +59,13 @@ export default {
     */
     extend (config, ctx) {
     }
-  }
+  },
+  render: {
+    bundleRenderer: {
+      shouldPreload: (file, type) => {
+        return ['script', 'style', 'font'].includes(type)
+      }
+    }
+
+  },
 }
