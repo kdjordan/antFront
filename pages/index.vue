@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-   <h1>EVENTS</h1>
+   <!-- <h1>MAP</h1> -->
   </div>
 </template>
 
@@ -8,9 +8,7 @@
 
 
 export default {
-  components: {
-    
-  }
+  
 }
 </script>
 

@@ -2,8 +2,12 @@
   <div class="topnav">
       <div class="topnav__top">
         <div class="topnav__top--images">
-          <img src="~/assets/images/logo.png" alt="iowa antique network logo">
-          <img src="~/assets/images/this-is-iowa.jpg" alt="iowa antique network logo">
+            
+              <img src="~/assets/images/logo.png" class="left" alt="iowa antique network logo">
+            
+            
+              <img src="~/assets/images/this-is-iowa.jpg" class="right" alt="iowa antique network logo">
+            
         </div>
       </div>
       <nav>
@@ -28,21 +32,22 @@ export default {
 
 <style lang="scss">
 .topnav {
-    background-image: url('~assets/images/top-bg.jpg');
-    background-position: center;
-    background-size: cover;
-
     &__top {
-        padding: 2rem;
+        padding: 3rem;
 
         &--images {
             display: flex;
             justify-content: space-around;
-            align-content: center;
-            flex: 1 1 40%;
-        //   & > * {
-        //       width: 30%;
-        //   }
+            align-items: center;
+
+            & .left {
+                max-width: 25%;
+            }
+
+            & .right {
+                width: 30%;
+                max-width: 50rem;
+            }
         }
     }
 

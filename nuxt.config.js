@@ -13,7 +13,8 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Oswald|Roboto&display=swap' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Oswald|Roboto&display=swap' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Homemade+Apple&display=swap' }
     ]
   },
   /*
@@ -38,17 +39,25 @@ export default {
   /*
   ** Nuxt.js modules
   */
-  modules: ["@nuxtjs/axios","@nuxtjs/style-resources"],
+  modules: ["@nuxtjs/axios","@nuxtjs/style-resources","@nuxtjs/proxy"],
     styleResources: {
       scss: [
         "~assets/scss/variables.scss"
       ]
     },
+    proxy: {
+      '/map/api': {
+        target: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyA7XF3a9PWX6ApyqWcnzaQuH7PL49Pb82k',
+        }
+    },
+
+    
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    proxy: true
   },
   /*
   ** Build configuration
