@@ -2,7 +2,7 @@
   <div>
     <TopBar />
     <TopNav />
-    <Map />
+    <Map class="map" />
     <Events />
     <nuxt />
     <!-- <BotBar /> -->
@@ -14,7 +14,7 @@ import TopBar from '@/components/TopBar'
 import TopNav from '@/components/TopNav'
 import Events from '@/components/Events'
 import BotBar from '@/components/BottomBar'
-import Map from '@/components/sub/Map'
+import Map from '@/components/Map'
 
 export default {
   components: {
@@ -55,5 +55,9 @@ ul {
 a {
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.map {
+  height: 700px;
 }
 </style>

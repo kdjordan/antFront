@@ -13,7 +13,7 @@ export default {
     },
 mounted() {
     
-        console.log('calling fetchhh')
+        console.log('calling fetchhh from map')
         this.$axios.get('/map/api').
         then((res) => {
             this.initMap();

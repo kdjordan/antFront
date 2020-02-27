@@ -47,7 +47,7 @@ export default {
     },
     proxy: {
       '/map/api': {
-        target: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyA7XF3a9PWX6ApyqWcnzaQuH7PL49Pb82k',
+        target: `https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_KEY}`,
         }
     },
 
@@ -77,4 +77,7 @@ export default {
     }
 
   },
+  buildModules: [
+    '@nuxtjs/dotenv'
+  ]
 }
