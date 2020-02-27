@@ -1,8 +1,8 @@
 <template>
     <GoogleMapLoader
         :mapConfig="mapConfig"
-        apiKey="AIzaSyA7XF3a9PWX6ApyqWcnzaQuH7PL49Pb82k"
-    >
+        apiKey="AIzaSyA7XF3a9PWX6ApyqWcnzaQuH7PL49Pb82k">
+
         <template slot-scope="{ google, map }">
             <GoogleMapMarker
                 v-for="marker in markers"
@@ -13,6 +13,7 @@
             />
         </template>
     </GoogleMapLoader>
+    
 </template>
 
 <script>

@@ -58,6 +58,9 @@ a {
 }
 
 .map {
-  height: 700px;
+  height: 75rem;
+  padding: 2rem 0;
+  border-top: 12px dotted #a6d0bc;
+  margin-top: 2rem;
 }
 </style>

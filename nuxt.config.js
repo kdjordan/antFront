@@ -42,7 +42,8 @@ export default {
   modules: ["@nuxtjs/axios","@nuxtjs/style-resources","@nuxtjs/proxy"],
     styleResources: {
       scss: [
-        "~assets/scss/variables.scss"
+        "~assets/scss/variables.scss",
+        "~assets/scss/animations.scss"
       ]
     },
     proxy: {

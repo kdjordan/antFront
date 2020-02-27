@@ -36,7 +36,7 @@ const LINE_SYMBOL_CONFIG = {
 };
 
 const LINE_PATH_CONFIG = {
-  clickable: false,
+  clickable: true,
   geodesic: false,
   strokeOpacity: 0,
   strokeColor: COLORS.LINE,
