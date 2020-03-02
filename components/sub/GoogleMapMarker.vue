@@ -1,5 +1,5 @@
 <script>
-import { POINT_MARKER_ICON_CONFIG } from "@/static/constants/mapSettings";
+import { POINT_MARKER_ICON_CONFIG } from "@/static/constants/mapSettings"
 
 export default {
   props: {
@@ -18,8 +18,8 @@ export default {
   },
 
   mounted() {
-    const { Marker } = this.google.maps;
-    const { infoWindow } = this.google.maps;
+    const { Marker } = this.google.maps
+    const { infoWindow } = this.google.maps
 
     let contentString = '<div class="content">'+
       `<h1 class="content__name">${this.marker.info.name}</h1>`+
@@ -33,15 +33,38 @@ export default {
     content: contentString
   });
 
+    let markerURL
 
+    switch(this.marker.info.type) {
+      case 'shop':
+        markerURL = POINT_MARKER_ICON_CONFIG.antique
+        break;
+      case 'food':
+        markerURL = POINT_MARKER_ICON_CONFIG.food
+        break;
+      case 'winery':
+        markerURL = POINT_MARKER_ICON_CONFIG.winery
+        break;
+      case 'brewery':
+        markerURL = POINT_MARKER_ICON_CONFIG.brewery
+        break;
+      case 'lodging':
+        markerURL = POINT_MARKER_ICON_CONFIG.lodging
+        break;
+      case 'other':
+        markerURL = POINT_MARKER_ICON_CONFIG.other
+        break;
+      default :
+        markerURL = POINT_MARKER_ICON_CONFIG.other
+    }
+
+    console.log(markerURL)
     let marker = new Marker({
       position: this.marker.position,
       marker: this.marker,
       map: this.map,
-      // icon: POINT_MARKER_ICON_CONFIG
       icon: {
-        url : POINT_MARKER_ICON_CONFIG.path
-        // scaledSize: new google.maps.Size(59, 78)
+        url : markerURL
       }
     });
 

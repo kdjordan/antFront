@@ -29,7 +29,12 @@ const COLORS = {
 // };
 
 const POINT_MARKER_ICON_CONFIG = {
- path: require('~/assets/icons/brewery.png')
+  antique: require('~/assets/icons/antique.png'),
+  brewery: require('~/assets/icons/brewery.png'),
+  food: require('~/assets/icons/food.png'),
+  winery: require('~/assets/icons/winery.png'),
+  lodging: require('~/assets/icons/lodging.png'),
+  other: require('~/assets/icons/other.png'),
 };
 
 const LINE_SYMBOL_CONFIG = {

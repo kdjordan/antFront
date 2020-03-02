@@ -30,31 +30,7 @@ export default {
   },
   data() {
       return {
-          MAP_KEY: process.env.MAP_KEY,
-          markers: [
-        {
-          id: "a",
-          position: { lat: 43.286620, lng: -93.202380 },
-          info : {
-            name: "Barn Boy Antiques",
-            type: "shop",
-            address: "125 W 4th St, Grand Island, NE 68801",
-            directions: "https://www.google.com/maps/dir/125+W+4th+St,+Grand+Island,+NE+68801",
-            hours: "Open Monthly"
-          }
-        },
-        {
-          id: "b",
-          position: { lat: 42.583190, lng: -87.820270 },
-          info: {
-            name: "Lulu Birds",
-            type: "shop",
-            address: "720-58th St , Kenosha, WI 53140",
-            directions: "https://www.google.com/maps?saddr=+720-58th+St+,Kenosha,WI,53140",
-            hours: "TH: 1 to 5pm, F: 10 to 5pm, SAT: 10 to 4pm, SUN: 11 to 3pm"
-          }
-        },
-      ],
+          MAP_KEY: process.env.MAP_KEY
       }
   },
   computed: {
