@@ -35,6 +35,7 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@nuxtjs/dotenv'
   ],
   /*
   ** Nuxt.js modules
@@ -78,7 +79,7 @@ export default {
     }
 
   },
-  buildModules: [
-    '@nuxtjs/dotenv'
-  ]
+  'env': {
+    'GOOGLE_MAPS_KEY': process.env.MAP_KEY,
+  },
 }

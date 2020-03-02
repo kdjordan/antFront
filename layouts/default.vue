@@ -28,6 +28,7 @@ export default {
 }
 </script>
 <style lang="scss">
+
 *, *:before, *:after {
     padding: 0;
     margin: 0;
@@ -59,8 +60,9 @@ a {
 
 .map {
   height: 75rem;
-  padding: 2rem 0;
-  border-top: 12px dotted #a6d0bc;
-  margin-top: 2rem;
+  
+  padding-bottom: 8rem;
+  
+  
 }
 </style>
