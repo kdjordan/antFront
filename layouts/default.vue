@@ -2,7 +2,7 @@
   <div>
     <TopBar />
     <TopNav />
-    <!-- <Map class="map" /> -->
+    <Map class="map" />
     <Events />
     <nuxt />
     <Footer />
