@@ -58,7 +58,7 @@ export default {
         markerURL = POINT_MARKER_ICON_CONFIG.other
     }
 
-    console.log(markerURL)
+    
     let marker = new Marker({
       position: this.marker.position,
       marker: this.marker,

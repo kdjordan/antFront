@@ -2,10 +2,11 @@
   <div>
     <TopBar />
     <TopNav />
-    <Map class="map" />
+    <!-- <Map class="map" /> -->
     <Events />
     <nuxt />
-    <!-- <BotBar /> -->
+    <Footer />
+    <BotBar />
   </div>
 </template>
 
@@ -13,6 +14,7 @@
 import TopBar from '@/components/TopBar'
 import TopNav from '@/components/TopNav'
 import Events from '@/components/Events'
+import Footer from '@/components/Footer'
 import BotBar from '@/components/BottomBar'
 import Map from '@/components/Map'
 
@@ -22,6 +24,7 @@ export default {
     TopNav,
     Events,
     BotBar,
+    Footer,
     Map
   }
 

@@ -61,6 +61,7 @@ export default {
             align-items: center;
             font-size: 2rem;
             padding: 1.9rem 0;
+            font-family: $font4;
 
             & li {
                 margin: 0 2rem;;

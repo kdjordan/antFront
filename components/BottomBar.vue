@@ -14,6 +14,7 @@ export default {
 .bottom-bar {
     padding: 1.2rem;
     padding-left: 8%;
+    font-size: 1.3rem;
     width: 100%;
     background: $color2;
     text-transform: uppercase;

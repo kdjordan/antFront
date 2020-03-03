@@ -2,42 +2,63 @@
   <div class="topbar">
       <div class="topbar__container">
        <div class="alerts" :class="{show: active, hide: !active}">       
-            <span class="alerts__type large" :class="{orange: getMssg.type == 'shop'}">New {{getMssg.type}}</span>
-            <span class="alerts__mssg">{{getMssg.mssg}}</span>
-            <!-- <span class="alerts__details">
-                <a :href="`${getMssg.ref}`" _target="blank">DETAILS</a>
-                </span> -->
+            <div class="alerts__container">
+                <a :href="`${getMessage.ref}`" target="_blank">
+                <div class="alerts__container--button" :style="{background: getBackground}">
+                    <div class="alerts__type">
+                        New {{getMessage.type}} Alert :&nbsp;&nbsp;
+                    </div>
+                    <div class="alerts__mssg">
+                         <i>{{getMessage.mssg}}</i>
+                    </div>
+                </div>
+                    </a>
+            </div>
        </div>
       </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
     data() {
         return {
-            index: 0,
-            active: true,
-            alerts: [
-                {
-                    id: 1,
-                    type: 'shop',
-                    ref: 'https://google.com',
-                    mssg: "Jerry'\s Collectables"
-        
-                },
-                {
-                    id: 2,
-                    type: 'event',
-                    ref: 'https://google.com',
-                    mssg: "Caroline'\s Antique Show"
-                }
-            ]
+            active: true
         }
     },
     computed: {
-        getMssg() {
-            return this.alerts[this.index]
+        ...mapGetters({ 
+            getNews: 'news/getNews',
+            getMessage: 'news/getMessage'
+        }),
+        getBackground() {
+            switch (this.getMessage.type) {
+                case 'shop':
+                    return '#a53b2d'
+                    break
+                case 'event':
+                    return '#5397C2'
+                    break
+                case 'winery':
+                    return '#56b4a6'
+                    break
+                case 'brewery':
+                    return '#f79f24'
+                    break
+                case 'lodging':
+                    return '#6bb487'
+                    break
+                case 'other':
+                    return '#2da56a'
+                    break
+                case 'food':
+                    return '#d96536'
+                    break
+                default:
+                    return 'transparent'
+            }
         }
     },
     methods: {
@@ -45,12 +66,9 @@ export default {
             setInterval(() => {
                 this.active = !this.active;
                 setTimeout(() => {
-                    if(this.index == this.alerts.length-1) {
-                        this.index = 0;
-                    } else {
-                        this.index++;
-                    }
-                this.active = !this.active;
+                    console.log('huh')
+                    this.$store.commit('news/getNextMessage')
+                    this.active = !this.active
                 }, 500)
             }, 5000)
         }
@@ -64,10 +82,6 @@ export default {
 
 <style lang="scss" scoped>
 
-.orange {
-    background: $colorOrange !important;
-}
-
 .show {
     opacity: 1;
     transition: all .4s;
@@ -79,78 +93,46 @@ export default {
 }
 
 .alerts {
-    color: white;
-    text-align: center;
     padding: 1rem 0;
-    font-size: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    &__details {
-        border: 2px solid $color1;
-        padding: .2rem .5rem;
-        border-radius: .3rem;
-        font-size: 1rem;
-        transition: all .4s;
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
 
-        & a {
-            color: $color1;
-        }
-
-        &:hover, &:hover a{
-            background: transparent;
+        &--button {
+            padding: 1rem 2rem;
+            background: $shop;
             color: white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border: 2px solid white;
+            border-radius: 2rem;
+            transition: all .4s;
+
+            &:hover {
+                color: $liteGrey;
+            }
         }
 
-    }
-
-    &__mssg {
-        margin-right: 1rem;
     }
 
     &__type {
-        text-transform: uppercase;
-        background: $color1;
-        color: white;
-        padding: .2rem .5rem;
-        border-radius: .3rem;
-        margin: 0 .5rem;
-        font-size: 1.2rem;
-        transition: all .4s;
-
-         & a {
-            color: white;
-        }
-
-        &:hover, &:hover a{
-            background: transparent;
-            color: $color1;
-        }
-
+        font-family: $font2;
     }
 
-}
-
-.large {
-    font-size: 2rem;
-    margin-right: 2rem;
-    padding: .5rem 1rem;
+    &__mssg {
+        font-family: $font4;
+        text-transform: none;
+    }
 }
 
 .topbar {
     width: 100%;
     padding: 3px 0;
-    background: $color2;
-    border-bottom: 4px solid #b2cfc4;
     font-family: $font1;
-
-    // &__container {
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    // }
-
 }
 
 .topbar::after {
