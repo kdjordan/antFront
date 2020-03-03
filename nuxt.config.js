@@ -13,7 +13,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Oswald|Roboto&display=swap' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Homemade+Apple&display=swap' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Cabin+Sketch&display=swap'}
     ]
@@ -26,11 +26,13 @@ export default {
   ** Global CSS
   */
   css: [
+    '@fortawesome/fontawesome-svg-core/styles.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/fontawesome.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -53,8 +55,6 @@ export default {
         target: `https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_KEY}`,
         }
     },
-
-    
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
