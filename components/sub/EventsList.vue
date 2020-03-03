@@ -45,7 +45,7 @@ export default {
 .list {
     display: flex;
     flex-direction: column;
-    border-bottom: 12px dotted #a6d0bc;
+    
     padding-bottom: 3rem;
 }
 
@@ -53,17 +53,13 @@ export default {
 .listings {
     width: 80%;
     margin: 0 auto;
-    // border: 1px solid red;
 }
 
 .card {
-    // border: 1px solid red;
-    width: 50%;
     font-family: $font2;
     display: flex;
     color: $color2;
     margin: .2rem 0;
-    // border: 2px solid $color2;
 
     &__date {
         display: flex;
