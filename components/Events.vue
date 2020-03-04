@@ -7,16 +7,18 @@
                 <h2>Upcoming Events</h2>
             </div>
             <div class="events__container--bottom">
-                <img src="~assets/images/left.svg" alt="">
+                <!-- <img src="~assets/images/left.svg" alt=""> -->
                 <div class="events__container--bottom-container">
                     <List :events="getEvents" />
                 </div>
                 <div class="events__container--bottom-container">
                     <List :events="getEvents" />
                 </div>
-                <img src="~assets/images/right.svg" alt="">
+                <!-- <img src="~assets/images/right.svg" alt=""> -->
             </div>
-            
+            <div>
+                content
+            </div>
         </div>
     </div>
 </div>
@@ -48,12 +50,13 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 img {
     max-height: 12rem;
     cursor: pointer;
     transition: all .4s;
+
     &:hover {
         filter: opacity(50%);
     }
@@ -104,10 +107,7 @@ img {
                 }
             }
 
-           
-        
-        
-    }
+        }
     }
 
     

@@ -66,7 +66,6 @@ export default {
             setInterval(() => {
                 this.active = !this.active;
                 setTimeout(() => {
-                    console.log('huh')
                     this.$store.commit('news/getNextMessage')
                     this.active = !this.active
                 }, 500)
