@@ -2,18 +2,21 @@
 <div>
     <div class="events">
         <div class="events__container">
-            <div class="events__list">
-                <div class="events__list--top">
-                    <img src="~assets/svg/bullhorn.svg" alt="">
-                    <h2>Upcoming Events</h2>
-                </div>
-                <div class="events__list--bottom">
+            <div class="events__container--top">
+                <img src="~assets/svg/bullhorn-grn.svg" alt="">
+                <h2>Upcoming Events</h2>
+            </div>
+            <div class="events__container--bottom">
+                <img src="~assets/images/left.svg" alt="">
+                <div class="events__container--bottom-container">
                     <List :events="getEvents" />
                 </div>
+                <div class="events__container--bottom-container">
+                    <List :events="getEvents" />
+                </div>
+                <img src="~assets/images/right.svg" alt="">
             </div>
-            <div class="events__sponsers">
-                <Sponsers :sponsers="getSponsers" />
-            </div>
+            
         </div>
     </div>
 </div>
@@ -47,6 +50,15 @@ export default {
 
 <style lang="scss">
 
+img {
+    max-height: 12rem;
+    cursor: pointer;
+    transition: all .4s;
+    &:hover {
+        filter: opacity(50%);
+    }
+}
+
 .events {
     display: flex;
     align-items: center;
@@ -57,35 +69,48 @@ export default {
     
     &__container {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
         max-width: 120rem;
         width: 100%;
-    }
+        // border: 1px solid red;
+        padding-bottom: 4rem;
 
-    &__list {
+            &--top {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: $font3;
+                color: $color2;
+                font-size: 3rem;
+                margin: 3rem 0;
+                
 
-        &--top {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: $font3;
-            color: $color2;
-            font-size: 3rem;
-            margin: 3rem 0;
-            flex: 3 1 75%;
-
-            & img {
-                width: 10%;
-                margin-right: 3rem;
+                & img {
+                    width: 10%;
+                    margin-right: 3rem;
+                }
             }
-        }
 
-        &--bottom {
-            flex: 1 1 25%;
-        }
+            &--bottom {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                width: 100%;
+
+                &-container {
+                    margin: 0 1.5rem;
+                }
+            }
+
+           
+        
+        
     }
+    }
+
     
-}
+
 
 </style>

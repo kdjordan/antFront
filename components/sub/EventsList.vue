@@ -45,13 +45,11 @@ export default {
 .list {
     display: flex;
     flex-direction: column;
-    
-    padding-bottom: 3rem;
 }
 
 
 .listings {
-    width: 80%;
+    // width: 80%;
     margin: 0 auto;
 }
 

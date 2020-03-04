@@ -1,6 +1,6 @@
 <template>
-  <div class="topbar">
-      <div class="topbar__container">
+  <div class="alerts">
+      <div class="alerts__container">
        <div class="alerts" :class="{show: active, hide: !active}">       
             <div class="alerts__container">
                 <a :href="`${getMessage.ref}`" target="_blank">
@@ -102,7 +102,7 @@ export default {
         
 
         &--button {
-            padding: 1rem 2rem;
+            padding: .7rem 2rem;
             background: $shop;
             color: white;
             display: flex;
@@ -116,7 +116,6 @@ export default {
                 color: $liteGrey;
             }
         }
-
     }
 
     &__type {
@@ -129,18 +128,11 @@ export default {
     }
 }
 
-.topbar {
+.alerts {
     width: 100%;
     padding: 3px 0;
     font-family: $font1;
 }
 
-.topbar::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #6b9f8b;
-}
 
 </style>

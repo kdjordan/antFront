@@ -4,7 +4,7 @@ export const state = () => ({
             month: 'MAR',
             day: 6,
             title: 'Judy\'s Open House',
-            desc: 'Join us for a day of antiquing in out great shop ! We will have games and drawings, and special guests.',
+            desc: 'Join us for a day of antiquing in out great shop !',
             timeStart: '12:00',
             timeEnd: '4:00'
         },
@@ -28,7 +28,7 @@ export const state = () => ({
             month: 'MAR',
             day: 15,
             title: 'Judy\'s Open House',
-            desc: 'Join us for a day of antiquing in out great shop ! We will have games and drawings, and special guests.',
+            desc: 'Join us for a day of antiquing in out great shop !',
             timeStart: '12:00',
             timeEnd: '4:00'
         },

@@ -1,8 +1,10 @@
 <template>
   <div>
-    <!-- <TopBar />  -->
+    
     <TopNav />
-    <!-- <Map class="map" /> -->
+    <BannerAds />
+    <AlertBar />
+    <Map class="map" />
     <Events />
     <nuxt />
     <Footer />
@@ -11,8 +13,9 @@
 </template>
 
 <script>
-import TopBar from '@/components/TopBar'
 import TopNav from '@/components/TopNav'
+import BannerAds from '@/components/BannerAds'
+import AlertBar from '@/components/AlertBar'
 import Events from '@/components/Events'
 import Footer from '@/components/Footer'
 import BotBar from '@/components/BottomBar'
@@ -20,7 +23,8 @@ import Map from '@/components/Map'
 
 export default {
   components: {
-    TopBar,
+    BannerAds,
+    AlertBar,
     TopNav,
     Events,
     BotBar,
@@ -62,12 +66,7 @@ a {
 }
 
 .map {
-  border-top: 8rem solid $color1;
-
   height: 75rem;
-  
   padding-bottom: 8rem;
-  
-  
 }
 </style>
