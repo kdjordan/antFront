@@ -1,26 +1,31 @@
 <template>
-  <div class="topnav">
-      <div class="topnav__top">
-        <div class="topnav__top--images">
-            
-              <img src="~/assets/images/logo.png" class="left" alt="iowa antique network logo">
-            
-            
-              <img src="~/assets/images/this-is-iowa.jpg" class="right" alt="iowa antique network logo">
-            
-        </div>
-      </div>
-      <nav>
-          <ul>
-              <li><a href="#">home</a></li>
-              <li><a href="#">find dealers</a></li>
-              <li><a href="#">upcoming events</a></li>
-              <li><a href="#">daily news</a></li>
-              <li><a href="#">vendors needed</a></li>
-              <li><a href="#">advertise</a></li>
-              <li><a href="#">contact</a></li>
-          </ul>
-      </nav>
+  <div class="topnav">  
+    <div class="topnav__left">
+            <img src="~/assets/images/logo.png" class="left" alt="iowa antique network logo">
+    </div>
+    
+    <nav class="topnav__right">
+        <ul>
+            <!-- <li>
+                <img src="~assets/svg/satellite.svg" alt=""><a href="#">home</a>
+            </li> -->
+            <li>
+                <img src="~assets/svg/satellite.svg" alt=""><a href="#">find dealers</a>
+            </li>
+            <li>
+                <img src="~assets/svg/radio.svg" alt=""><a href="#">upcoming events</a>
+            </li>
+            <li>
+                <img src="~assets/svg/newstv.svg" alt=""><a href="#">daily news</a>
+            </li>
+            <li>
+                <img src="~assets/svg/bullhorn.svg" alt=""><a href="#">vendors needed</a>
+            </li>
+            <li>
+                <img src="~assets/svg/tower.svg" alt=""><a href="#">advertise</a>
+            </li>
+        </ul>
+    </nav>
   </div>
 </template>
 
@@ -31,58 +36,64 @@ export default {
 </script>
 
 <style lang="scss">
+
 .topnav {
-    &__top {
-        padding: 3rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid#cbcbcb;
 
-        &--images {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
+   &__left {
+       flex: 1 1 30%;
+       height: 20rem;
 
-            & .left {
-                max-width: 25%;
+       & img {
+           width: 100%;
+           max-width: 35rem;
+           padding: 2rem;
+       }
+   }
+
+   &__right {
+        flex: 1 1 100%;
+        height: 20rem;
+        padding: 0 2rem;
+
+            & ul {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: baseline;
+                font-family: $font4;
+
+                & li {
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    height: 20rem;
+                    flex: 1 1 10%;
+                    transition: all .4s ease;
+
+                    & img {
+                        margin-bottom: 2rem;
+                        max-height: 7rem;
+                    }
+                }
+
+                & a {
+                    color: #777777;
+                    font-size: 1.5rem;
+                }
+
+                & li:hover {
+                    transform: translateY(-1rem);
+                }
+    
             }
-
-            & .right {
-                width: 30%;
-                max-width: 50rem;
-            }
-        }
-    }
-
-    & nav {
-        width: 100%;
-        background: $color1;
-
-        & ul {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            padding: 1.9rem 0;
-            font-family: $font4;
-
-            & li {
-                margin: 0 2rem;;
-            }
-            & a {
-                color: white;
-            }
-
-            & a::after {
-                content: '';
-                display: block;
-                width: 0;
-                height: 2px;
-                background: white;
-                transition: width .3s;
-            }
-            & a:hover::after {
-                width: 100%;
-            }
-        }
-    }
+   }
+    
+        
+    
    
 
 }

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <TopBar />
+    <!-- <TopBar />  -->
     <TopNav />
-    <Map class="map" />
+    <!-- <Map class="map" /> -->
     <Events />
     <nuxt />
     <Footer />
@@ -62,6 +62,8 @@ a {
 }
 
 .map {
+  border-top: 8rem solid $color1;
+
   height: 75rem;
   
   padding-bottom: 8rem;
