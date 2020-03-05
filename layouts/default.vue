@@ -3,9 +3,10 @@
     <TopNav />
     <BannerAds />
     <AlertBar />
-    <!-- <Map class="map" /> -->
+    <Map class="map" />
     <Events />
     <nuxt />
+    <Sponsers />
     <Footer />
     <BotBar />
   </div>
@@ -19,6 +20,7 @@ import Events from '@/components/Events'
 import Footer from '@/components/Footer'
 import BotBar from '@/components/BottomBar'
 import Map from '@/components/Map'
+import Sponsers from '@/components/Sponsers'
 
 export default {
   components: {
@@ -28,7 +30,8 @@ export default {
     Events,
     BotBar,
     Footer,
-    Map
+    Map,
+    Sponsers
   }
 
 }

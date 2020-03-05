@@ -7,17 +7,14 @@
                 <h2>Upcoming Events</h2>
             </div>
             <div class="events__container--bottom">
-                <!-- <img src="~assets/images/left.svg" alt=""> -->
+                <img src="~assets/images/left.svg" alt="">
                 <div class="events__container--bottom-container">
                     <List :events="getEvents" />
                 </div>
                 <div class="events__container--bottom-container">
                     <List :events="getEvents" />
                 </div>
-                <!-- <img src="~assets/images/right.svg" alt=""> -->
-            </div>
-            <div>
-                content
+                <img src="~assets/images/right.svg" alt="">
             </div>
         </div>
     </div>
@@ -26,19 +23,17 @@
 
 <script>
 import List from '@/components/sub/EventsList'
-import Sponsers from '@/components/sub/Sponsers'
 
 import { mapGetters } from 'vuex'
 
 export default {
     components: {
-        List,
-        Sponsers
+        List
     },
     computed: {
         ...mapGetters({
             getEvents: 'events/getEvents',
-            getSponsers: 'sponsers/getSponsers'
+            
         })
     },
     data() {
