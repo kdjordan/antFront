@@ -1,93 +1,73 @@
+import data from '../static/data/event-data.js'
+
 export const state = () => ({
-    events: [
-        {
-            month: 'MAR',
-            day: 6,
-            title: 'Judy\'s Open House',
-            desc: 'Join us for a day of antiquing in out great shop !',
-            timeStart: '12:00',
-            timeEnd: '4:00'
-        },
-        {
-            month: 'MAR',
-            day: 8,
-            title: 'Marty\'s Junk Parade',
-            desc: 'Join us for a day of antiquing in out great shop !',
-            timeStart: '12:00',
-            timeEnd: '4:00'
-        },
-        {
-            month: 'MAR',
-            day: 12,
-            title: 'Gary\'s Antique Festival',
-            desc: 'Join us for a day of antiquing in out great shop !',
-            timeStart: '12:00',
-            timeEnd: '4:00'
-        },
-        {
-            month: 'MAR',
-            day: 15,
-            title: 'Judy\'s Open House',
-            desc: 'Join us for a day of antiquing in out great shop !',
-            timeStart: '12:00',
-            timeEnd: '4:00'
-        },
-        {
-            month: 'MAR',
-            day: 22-25,
-            title: 'Marty\'s Junk Parade',
-            desc: 'Join us for a day of antiquing in out great shop !',
-            timeStart: '12:00',
-            timeEnd: '4:00'
-        },
-        // {
-        //     month: 'MAR',
-        //     day: 28,
-        //     title: 'Gary\'s Antique Festival',
-        //     desc: 'Join us for a day of antiquing in out great shop !',
-        //     timeStart: '12:00',
-        //     timeEnd: '4:00'
-        // },
-        // {
-        //     month: 'APR',
-        //     day: 2,
-        //     title: 'Judy\'s Open House',
-        //     desc: 'Join us for a day of antiquing in out great shop !',
-        //     timeStart: '12:00',
-        //     timeEnd: '4:00'
-        // },
-        // {
-        //     month: 'APR',
-        //     day: 12,
-        //     title: 'Marty\'s Junk Parade',
-        //     desc: 'Join us for a day of antiquing in out great shop !',
-        //     timeStart: '12:00',
-        //     timeEnd: '4:00'
-        // },
-        // {
-        //     month: 'APR',
-        //     day: 24,
-        //     title: 'Gary\'s Antique Festival',
-        //     desc: 'Join us for a day of antiquing in out great shop !',
-        //     timeStart: '12:00',
-        //     timeEnd: '4:00'
-        // },
-    ]
+    firstPage: 0,
+    secondPage: 1,
+    numPages: null,
+    events: [],
+    pagedEvents: []
 });
 
-export const getters = {    
-    getEvents(state) {
-        return state.events
+export const getters = {   
+    getNumPages(state) {
+        return state.numPages 
     },
-    getChunkedEvents(state) {
-
+    getFirstPage(state) {
+        return state.firstPage 
+    }, 
+    getSecondPage(state) {
+        return state.secondPage 
+    },
+    getPageRightDisabled(state) {
+        return state.secondPage == state.numPages-1
+    },
+    getPageLeftDisabled(state) {
+        return state.firstPage == 0
+    },
+    getPagedEvents(state) {
+        return state.pagedEvents
     }
 };
 
 export const mutations = {
-   
+    addEvents(state, payload) {
+        state.events.push(payload)
+    },
+    setPagedEvents(state, payload) {
+        let data = [...state.events]
+        let index = payload * 5
+        let returnArr = []
+        for(let i = index ; (i < index + 5 && i < state.events.length) ; i++){
+            returnArr.push(data[i])
+        }
+        state.pagedEvents.push(returnArr)
+    },
+    pageRight(state) {
+        state.firstPage++
+        state.secondPage++
+    },
+    pageLeft(state) {
+        state.firstPage--
+        state.secondPage--
+    },
+    setNumPages(state, payload) {
+        state.numPages = payload
+    }
 };
 
 export const actions = {
-
+    async loadData ({commit, state}) {
+        try {    
+            data.sort().forEach((event)=> {
+                commit('addEvents', event)
+            })
+            let numPages = Math.ceil(data.length / 5)
+            commit('setNumPages',  numPages)
+            for (let i=0; i<numPages; i ++) {
+                commit('setPagedEvents', i)
+            }
+        } catch(e) {
+            console.log(e)
+        }
+    }
 };

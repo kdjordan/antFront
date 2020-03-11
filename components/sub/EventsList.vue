@@ -1,9 +1,6 @@
 <template>
   <div class="list">
-      <!-- <img src="~assets/images/left.svg" class="controls" alt=""> -->
-      
         <div v-for="(event, index) in events" :key="index" class="listings">
-            <!-- {{event}} -->
             <div class="card">
                 <div class="card__date">
                     <div class="card__date--month">
@@ -21,22 +18,31 @@
                         {{event.desc}}
                     </div>
                     <div class="card__details--time">
-                        START: {{event.timeStart}} pm ::
-                        END: {{event.timeEnd}} pm
+                        START: <span>{{event.timeStart}} pm</span> ::
+                        END: <span>{{event.timeEnd}} pm</span>
                     </div>
                 </div>
-                <div class="card__more">
-                    MORE
+                <div class="card__more" @click="showEvent(event.id)">
+                    MORE{{event.id}}
                 </div>
             </div>
          </div>
-        <!-- <img src="~assets/images/right.svg" class="controls" alt=""> -->
     </div>
 </template>
 
 <script>
 export default {
-    props: ['events']
+    props: ['events'],
+    data() {
+        return {
+
+        }
+    },
+    methods: {
+        showEvent(id) {
+            console.log(id)
+        }
+    }
 }
 </script>
 
@@ -75,6 +81,7 @@ export default {
         }
 
         &--day {
+            margin-top: .4rem;
             color: $color2;
         }
     }
@@ -89,13 +96,28 @@ export default {
             color: $color1;
             align-items: flex-start;
         }
+
+        &--time {
+            color: $color2;
+            
+            & span {
+                color: $color1;
+            }
+        }
     }
 
     &__more {
+        cursor: pointer;
         font-size: 1rem;
         border: 2px solid $color3;
         align-self: flex-start;
         padding: 0 .5rem;
+        transition: all .4s;
+    }
+
+    &__more:hover {
+        background: $color1;
+        color: white;
     }
 }
 

@@ -3,7 +3,7 @@
     <TopNav />
     <BannerAds />
     <AlertBar />
-    <Map class="map" />
+    <!-- <Map class="map" /> -->
     <Events />
     <nuxt />
     <Sponsers />

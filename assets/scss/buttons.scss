@@ -1,0 +1,26 @@
+.button {
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: $color2;
+    border: 2px solid $color2;
+    border-radius: 2rem;
+    width: 60%;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+    transition: all .4s;
+
+    
+    
+    &:hover {
+        background: $color2;
+        color: white;
+    }
+}
+
+.events-button {
+    width: 15%;
+    text-align: center;
+    margin-top: 0;
+}
