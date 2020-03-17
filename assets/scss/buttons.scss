@@ -5,22 +5,46 @@
     color: $color2;
     border: 2px solid $color2;
     border-radius: 2rem;
-    width: 60%;
-    margin: 0 auto;
     padding: 1rem 2rem;
-    margin-top: 2rem;
     transition: all .4s;
 
-    
-    
     &:hover {
         background: $color2;
         color: white;
     }
 }
 
-.events-button {
+.events-btn {
     width: 15%;
     text-align: center;
-    margin-top: 0;
+    margin: 2rem 0;
+    border: 2px solid $color1;
+    color: $color1;
+    transition: all .4s ease;
+
+    &:hover {
+        background: $color1;
+        color:white;
+    }
+
+}
+
+.banner-btn {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+
+.signup-btn {
+    width: 15rem;
+    background: white;
+    text-align: center;
+    color: $color2;
+    border: 2px solid white;
+    transition: all .4s ease;
+
+    &:hover {
+        background: transparent;
+        color: white;
+    }
 }

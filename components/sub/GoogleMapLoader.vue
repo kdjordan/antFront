@@ -91,8 +91,9 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 9rem;
+  height: 11rem;
   font-family: $font2;
+  padding-bottom: 1rem;
 
 
   &__flags-container {

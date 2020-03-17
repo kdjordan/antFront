@@ -1,31 +1,41 @@
 import data from '../static/data/event-data.js'
 
 export const state = () => ({
-    firstPage: 0,
-    secondPage: 1,
+    calPage: 0,
     numPages: null,
     events: [],
-    pagedEvents: []
+    pagedEvents: [],
+    eventPage: 0,
+    featuredEvents: []
 });
 
 export const getters = {   
-    getNumPages(state) {
-        return state.numPages 
-    },
-    getFirstPage(state) {
-        return state.firstPage 
+    getCalPage(state) {
+        return state.calPage 
     }, 
-    getSecondPage(state) {
-        return state.secondPage 
+    getCalPageRightDisabled(state) {
+        return state.calPage == state.numPages - 1
     },
-    getPageRightDisabled(state) {
-        return state.secondPage == state.numPages-1
-    },
-    getPageLeftDisabled(state) {
-        return state.firstPage == 0
+    getCalPageLeftDisabled(state) {
+        return state.calPage == 0
     },
     getPagedEvents(state) {
         return state.pagedEvents
+    },
+    getEventPageLeftDisabled(state) {
+        return state.eventPage == 0
+    },
+    getEventPageRightDisabled(state) {
+        return state.eventPage == state.featuredEvents.length - 1
+    },
+    getFeaturedEvents(state) {
+        return state.featuredEvents
+    },
+    getFeaturedEvent(state) {
+        return state.featuredEvents[state.eventPage];
+    },
+    getEventPage(state) {
+        return state.eventPage
     }
 };
 
@@ -42,13 +52,29 @@ export const mutations = {
         }
         state.pagedEvents.push(returnArr)
     },
-    pageRight(state) {
-        state.firstPage++
-        state.secondPage++
+    addFeaturedEvent(state, payload) {
+        state.featuredEvents.push(payload)
     },
-    pageLeft(state) {
-        state.firstPage--
-        state.secondPage--
+    setNextEvent(state) {
+        if(state.eventPage == state.featuredEvents.length - 1){
+            state.eventPage = 0
+        } else {
+            state.eventPage++
+        }
+    },
+    pageRight(state, payload) {
+        if(payload == "cal") {
+            state.calPage++
+        } else {
+            state.eventPage++
+        }
+    },
+    pageLeft(state, payload) {
+        if(payload == "cal") {
+            state.calPage--
+        } else {
+            state.eventPage--
+        }
     },
     setNumPages(state, payload) {
         state.numPages = payload
@@ -56,7 +82,7 @@ export const mutations = {
 };
 
 export const actions = {
-    async loadData ({commit, state}) {
+    async loadData ({ commit }) {
         try {    
             data.sort().forEach((event)=> {
                 commit('addEvents', event)
@@ -66,8 +92,16 @@ export const actions = {
             for (let i=0; i<numPages; i ++) {
                 commit('setPagedEvents', i)
             }
+            return true;
         } catch(e) {
             console.log(e)
+            return e
         }
+    },
+    loadFeaturedEvents({ commit, state }) {
+            const featuredArr = state.events.filter((event) => event.featured == true)
+            featuredArr.forEach((event) => {
+                commit('addFeaturedEvent', event)
+            })
     }
 };

@@ -1,21 +1,17 @@
 <template>
   <div class="alerts">
-      <div class="alerts__container">
-       <div class="alerts" :class="{show: active, hide: !active}">       
-            <div class="alerts__container">
-                <a :href="`${getMessage.ref}`" target="_blank">
-                <div class="alerts__container--button" :style="{background: getBackground}">
-                    <div class="alerts__type">
-                        New {{getMessage.type}} Alert :&nbsp;&nbsp;
-                    </div>
-                    <div class="alerts__mssg">
-                         <i>{{getMessage.mssg}}</i>
-                    </div>
+    <div class="alerts" :class="{show: active, hide: !active}">       
+        <a :href="`${getMessage.ref}`" target="_blank">
+            <div class="alerts__button" :style="{background: getBackground}">
+                <div class="alerts__type">
+                    New {{getMessage.type}} Alert : &nbsp;
                 </div>
-                    </a>
+                <div class="alerts__mssg">
+                    <i>{{getMessage.mssg}}</i>
+                </div>
             </div>
-       </div>
-      </div>
+        </a> 
+    </div>
   </div>
 </template>
 
@@ -92,33 +88,27 @@ export default {
 }
 
 .alerts {
-    padding: 1rem 0;
-
-    &__container {
+    &__button {
+        padding: .7rem 2rem;
+        background: $shop;
+        color: white;
         display: flex;
         justify-content: center;
         align-items: center;
-        
+        border: 2px solid white;
+        border-radius: 2rem;
+        transition: all .4s;
 
-        &--button {
-            padding: .7rem 2rem;
-            background: $shop;
-            color: white;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            border: 2px solid white;
-            border-radius: 2rem;
-            transition: all .4s;
-
-            &:hover {
-                color: $liteGrey;
-            }
+        &:hover {
+            color: $liteGrey;
         }
     }
 
     &__type {
+        text-transform: uppercase;
         font-family: $font2;
+        font-size: 1.3rem;
+        font-weight: bold;
     }
 
     &__mssg {
@@ -126,12 +116,4 @@ export default {
         text-transform: none;
     }
 }
-
-.alerts {
-    width: 100%;
-    padding: 3px 0;
-    font-family: $font1;
-}
-
-
 </style>

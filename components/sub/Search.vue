@@ -13,18 +13,12 @@ export default {
 
 <style lang="scss" scoped>
 
-// ::placeholder {
-//     padding-left: 2rem;
-//     font-family: $font4;
-//     font-size: 1.4rem;
-// }
-
-
-
 .search {
+    width: 100%;
 
     & input {
-        width: 80%;
+        width: 30rem;
+        float: right;
         border-radius: 2rem;
         outline: none;
         border: none;
@@ -37,8 +31,8 @@ export default {
         width: 2.2rem;
         z-index: 1;
         position: relative;
-        top: .4rem;
-        right: 4rem;
+        top: 1rem;
+        left: 38rem;
     }
 }
 </style>

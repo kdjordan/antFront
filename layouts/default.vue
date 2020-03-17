@@ -1,42 +1,34 @@
 <template>
   <div>
     <TopNav />
-    <BannerAds />
-    <AlertBar />
-    <!-- <Map class="map" /> -->
-    <Events />
     <nuxt />
-    <Sponsers />
     <Footer />
     <BotBar />
+    <transition name="fade">
+      <Modals />
+    </transition>
   </div>
 </template>
 
 <script>
 import TopNav from '@/components/TopNav'
-import BannerAds from '@/components/BannerAds'
-import AlertBar from '@/components/AlertBar'
-import Events from '@/components/Events'
 import Footer from '@/components/Footer'
 import BotBar from '@/components/BottomBar'
-import Map from '@/components/Map'
-import Sponsers from '@/components/Sponsers'
+import Modals from '@/components/Modals'
+
 
 export default {
   components: {
-    BannerAds,
-    AlertBar,
     TopNav,
-    Events,
     BotBar,
     Footer,
-    Map,
-    Sponsers
+    Modals
   }
 
 }
 </script>
 <style lang="scss">
+@import '../assets/scss/animations.scss';
 
 *, *:before, *:after {
     padding: 0;
@@ -64,7 +56,10 @@ ul {
 
 a {
   text-decoration: none;
-  text-transform: uppercase;
+}
+
+p {
+  line-height: 2.4rem;
 }
 
 .map {

@@ -2,7 +2,7 @@
   <div class="banner-ads">
       <div class="banner-ads__left">
         <div class="banner-ads__left--text">Say Hello to Our Sponsers !</div>
-        <div class="button">
+        <div class="button banner-btn" @click.stop="doModal">
             advertise with us
         </div>
       </div>
@@ -14,6 +14,12 @@
 
 <script>
 export default {
+    methods: {
+        doModal() {
+            this.$store.commit('modal/setModalActive')
+            this.$store.commit('modal/setModalType', 'banner')
+        }
+    }
 
 }
 </script>

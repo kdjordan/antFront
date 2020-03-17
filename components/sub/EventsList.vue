@@ -4,10 +4,10 @@
             <div class="card">
                 <div class="card__date">
                     <div class="card__date--month">
-                        {{event.month}}
+                        {{event.dates[0].month}}
                     </div>
                     <div class="card__date--day">
-                        {{event.day}}
+                        {{event.dates[0].day}}<span v-if="event.dates.length > 1">-</span>
                     </div>
                 </div>
                 <div class="card__details">
@@ -15,15 +15,15 @@
                         {{event.title}}
                     </div>
                     <div class="card__details--desc">
-                        {{event.desc}}
+                        {{event.desc.slice(0, 40)}}...
                     </div>
                     <div class="card__details--time">
-                        START: <span>{{event.timeStart}} pm</span> ::
-                        END: <span>{{event.timeEnd}} pm</span>
+                        START: <span class="card__details--time-details">{{event.dates[0].start}}</span> -
+                        END: <span class="card__details--time-details">{{event.dates[0].end}}</span>
                     </div>
                 </div>
-                <div class="card__more" @click="showEvent(event.id)">
-                    MORE{{event.id}}
+                <div class="card__more" @click="showEvent(event)">
+                    MORE
                 </div>
             </div>
          </div>
@@ -39,8 +39,11 @@ export default {
         }
     },
     methods: {
-        showEvent(id) {
-            console.log(id)
+        showEvent(event) {
+            console.log(event)
+            this.$store.commit('modal/setModalActive')
+            this.$store.commit('modal/setModalType', 'event')
+            this.$store.commit('modal/setEventModal', event)
         }
     }
 }
@@ -69,20 +72,19 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
-        border: 2px solid $color2;
-        // height: 50%;
-        
+        border: 2px solid $color1;
         margin-right: 1rem;
 
         &--month {
+            text-transform: uppercase;
             color: white;
-            background: $color2;
+            background: $color1;
             padding: .2rem .4rem;
         }
 
         &--day {
-            margin-top: .4rem;
-            color: $color2;
+            margin-top: 1rem;
+            color: $color1;
         }
     }
 
@@ -90,18 +92,25 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: stretch;
+        color: $color1;
         
 
         &--title {
-            color: $color1;
             align-items: flex-start;
+            font-size: 1.9rem;
+            margin-bottom: .2rem;
         }
 
         &--time {
-            color: $color2;
+            color: $color1;
+            font-size: 1.2rem;
             
             & span {
                 color: $color1;
+            }
+
+            &-details {
+                font-size: 1.8rem;
             }
         }
     }
@@ -109,7 +118,8 @@ export default {
     &__more {
         cursor: pointer;
         font-size: 1rem;
-        border: 2px solid $color3;
+        color: $color1;
+        border: 2px solid $color1;
         align-self: flex-start;
         padding: 0 .5rem;
         transition: all .4s;

@@ -1,47 +1,70 @@
 <template>
 <div>
     <div class="events">
-        <div class="events__container">
-            <div class="events__container--top">
-                <img src="~assets/svg/bullhorn-grn.svg" alt="">
+
+        <div class="events-container">
+
+            <div class="events-container__top">
+                <img src="~assets/svg/bullhorn-red.svg" alt="">
                 <h2>Upcoming Events</h2>
             </div>
-            <div class="button events-button">
+            <div class="button events-btn">
                 add my event
             </div>
-            <div class="events__container--bottom">
-                <img src="~assets/images/left.svg" alt=""  :class="{disabled: getPageLeftDisabled}" @click="pageLeft">
-                <div class="inner-container">
-                    <div class="events__container--bottom-container">
-                        
-                        <List :events="getPagedEvents[getFirstPage]" :class="{hide: active}"/>
-                        
+        
+            <div class="events-container__bottom">
+
+                <div class="events-container__bottom--left">
+                    <h3>Events Calendar</h3>
+                    <div class="events-container__bottom--calendar">
+                        <List :events="getPagedEvents[getCalPage]" :class="{hide: calActive}"/>  
                     </div>
-                    <div v-if="getNumPages > 1" class="events__container--bottom-container">
-                        
-                        <List :events="getPagedEvents[getSecondPage]" :class="{hide: active}"/>
-                        
+
+                    <div class="events__indicators">
+                        <img src="~assets/svg/minus.svg" alt=""  :class="{disabled: getCalPageLeftDisabled}" @click="pageLeft('cal')">
+                        <div class="events__indicators--block-container">
+                            <div v-for="(num, index) in getPagedEvents.slice(0, getPagedEvents.length)" 
+                                :key="index" 
+                                class="events__indicators--block"  
+                                :class="{indicator: getCalPage == `${index}`}">
+                            </div>
+                    
+                        </div>
+                        <img src="~assets/svg/plus.svg" alt="" :class="{disabled: getCalPageRightDisabled}" @click="pageRight('cal')">
+                    </div>
+
+                </div>
+
+                <div class="events-container__bottom--right" style="width: 50rem;">
+                    <h3>Featured Events</h3>
+                    <div>
+                        <a :href="`${getFeaturedEvent.featuredLink}`" target="_blank">
+                            <img :src="`${getFeaturedEvent.featuredImgUrl}`" alt="">
+                        </a>
+                    </div>
+                    <div class="events__indicators">
+                        <img src="~assets/svg/minus.svg" alt=""  :class="{disabled: getEventPageLeftDisabled}" @click="pageLeft('event')">
+                        <div class="events__indicators--block-container">
+                            <div v-for="(num, index) in getFeaturedEvents.slice(0, getFeaturedEvents.length)" 
+                                :key="index" 
+                                class="events__indicators--block"  
+                                :class="{indicator: getEventPage == `${index}`}">
+                            </div>
+
+                        </div>
+                        <img src="~assets/svg/plus.svg" alt="" :class="{disabled: getEventPageRightDisabled}" @click="pageRight('event')">
                     </div>
                 </div>
-                <img src="~assets/images/right.svg" alt="" :class="{disabled: getPageRightDisabled}" @click="pageRight">
+        
             </div>
-            <div class="events__indicators">
-                <div v-for="(num, index) in getPagedEvents.slice(0, getPagedEvents.length - 1)" 
-                    :key="index" 
-                    class="events__indicators--block"  
-                    :class="{indicator: getFirstPage == `${index}`}"
-                >
-                </div>
-            </div>
-        </div>
+        </div>     
     </div>
-   <div>
-   </div>
 </div>
 </template>
 
 <script>
 import List from '@/components/sub/EventsList'
+
 
 import { mapGetters } from 'vuex'
 
@@ -51,44 +74,67 @@ export default {
     },
     data() {
         return {
-            active: false
+            calActive: false,
+            eventActive: false,
+            imgName: 'As.jpg'
         }
     },
     computed: {
         ...mapGetters({
-            getNumPages: 'events/getNumPages',
-            getFirstPage: 'events/getFirstPage',
-            getSecondPage: 'events/getSecondPage',
-            getPageRightDisabled: 'events/getPageRightDisabled',
-            getPageLeftDisabled: 'events/getPageLeftDisabled',        
+            getCalPage: 'events/getCalPage',
+            getCalPageRightDisabled: 'events/getCalPageRightDisabled',
+            getCalPageLeftDisabled: 'events/getCalPageLeftDisabled',        
             getPagedEvents: 'events/getPagedEvents',        
-        }),
-        getOffsetNumPages() {
-            return this.indicators = this.getNumPages - 1
-        }
+            getEventPageLeftDisabled: 'events/getEventPageLeftDisabled',
+            getEventPageRightDisabled: 'events/getEventPageRightDisabled',
+            getFeaturedEvents: 'events/getFeaturedEvents',              
+            getFeaturedEvent: 'events/getFeaturedEvent',        
+            getEventPage: 'events/getEventPage'        
+        })
     },
     methods: {
-        pageRight() {
-            if(!(this.getPageRightDisabled)) {
-                this.active = true
+        pageRight(type) {
+            if(!(this.getCalPageRightDisabled) && type == 'cal') {
+                this.calActive = true
                 setTimeout(() => {
-                    this.$store.commit('events/pageRight') 
+                    this.$store.commit('events/pageRight', type) 
+                    this.calActive = false
+                }, 500)
+            }   else if (!(this.getCalEventRightDisabled) && type == 'event'){
+                this.eventActive = true
+                setTimeout(() => {
+                    this.$store.commit('events/pageRight', type) 
                     this.active = false
+                }, 500)
+            }
+        },
+        pageLeft(type) {
+            if(!(this.getCalPageLeftDisabled) && type == 'cal') {
+                this.calActive = true
+                setTimeout(() => {
+                    this.$store.commit('events/pageLeft', type) 
+                    this.calActive = false
+                }, 500)
+            } else if (!(this.getEventPageLeftDisabled) && type == 'event') {
+                this.eventActive = true
+                setTimeout(() => {
+                    this.$store.commit('events/pageLeft', type) 
+                    this.eventActive = false
                 }, 500)
             }   
         },
-        pageLeft() {
-            if(!(this.getPageLeftDisabled)) {
-                this.active = true
+         cycleNews() {
+            setInterval(() => {
+                this.eventActive = true
                 setTimeout(() => {
-                    this.$store.commit('events/pageLeft') 
-                    this.active = false
+                    this.$store.commit('events/setNextEvent')
+                    this.eventActive = false
                 }, 500)
-            }   
+            }, 5000)
         }
     },
     mounted() {
-        this.$store.dispatch('events/loadData')
+        this.cycleNews();
     }
 
 }
@@ -96,6 +142,13 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/scss/buttons.scss';
+
+h3 {
+    font-size: 3rem;
+    font-family: $font4;
+    margin-bottom: 2rem;
+    color: $color1;
+}
 
 .indicator {
     background: $color1 !important;
@@ -107,23 +160,8 @@ export default {
 }
 
 
-img {
-    max-height: 12rem;
-    cursor: pointer;
-    transition: all .4s;
-
-    &:hover {
-        filter: opacity(50%);
-    }
-}
-
 .disabled {
     filter: opacity(50%);
-}
-
-.inner-container {
-    display: flex;
-    justify-content: space-between;
 }
 
 .events {
@@ -134,7 +172,7 @@ img {
     margin-top: 2rem;
     border-bottom: 12px dotted #a6d0bc;
     
-    &__container {
+    &-container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -143,14 +181,14 @@ img {
         width: 100%;
         padding-bottom: 4rem;
 
-            &--top {
+            &__top {
+                margin-top: 2rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 font-family: $font3;
-                color: $color2;
+                color: $color1;
                 font-size: 3rem;
-                margin: 3rem 0 1rem 0;
                 
                 & img {
                     width: 10%;
@@ -158,36 +196,68 @@ img {
                 }
             }
 
-            &--bottom {
+            &__bottom {
                 display: flex;
                 justify-content: space-around;
-                align-items: center;
+                align-items: top;
                 width: 100%;
                 margin-top: 3rem;
 
-                &-container {
-                    margin: 0 1.5rem;
-                    align-items: top;
+                &--left {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
                 }
-            }
 
+                &--calendar {
+                    height: 33rem;
+                    margin-bottom: 1rem;
+                }
+
+                &--right {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    & img {
+                        max-width: 50rem;
+                        margin-bottom: 1rem;
+                    }
+                }
+
+            }
     }
 
     &__indicators {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        & img {
+            height: 3rem;
+            cursor: pointer;
+            transition: all .4s;
+
+            &:hover {
+                filter: opacity(50%);
+            }
+        }
+
+        &--block-container {
+            display: flex;
+            margin-bottom: 2rem;
+        }
         
         &--block {
             display: block;
-            width: 5rem;
-            height: 1rem;
-            border-radius: 5px;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 2rem;
             background: $color2;
             margin: 0rem .5rem;
             margin-top: 2rem;
         }
-        // &:last-child {
-        //     display: none;
-        // }
     }
 
 
