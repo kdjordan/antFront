@@ -8,7 +8,7 @@
                 <img src="~assets/svg/bullhorn-red.svg" alt="">
                 <h2>Upcoming Events</h2>
             </div>
-            <div class="button events-btn">
+            <div class="button events-btn gold" @click.stop="doModal">
                 add my event
             </div>
         
@@ -35,11 +35,15 @@
 
                 </div>
 
-                <div class="events-container__bottom--right" style="width: 50rem;">
+                <div class="events-container__bottom--right">
                     <h3>Featured Events</h3>
-                    <div>
+                    <div class="events-container__bottom--right__container">
                         <a :href="`${getFeaturedEvent.featuredLink}`" target="_blank">
-                            <img :src="`${getFeaturedEvent.featuredImgUrl}`" alt="">
+                            <transition name="fade" mode="out-in">
+                                <img :src="`${getFeaturedEvent.featuredImgUrl}`" 
+                                alt="" class="events-container__bottom--right-img" 
+                                :key="`${getEventPage}`">
+                            </transition>
                         </a>
                     </div>
                     <div class="events__indicators">
@@ -55,7 +59,6 @@
                         <img src="~assets/svg/plus.svg" alt="" :class="{disabled: getEventPageRightDisabled}" @click="pageRight('event')">
                     </div>
                 </div>
-        
             </div>
         </div>     
     </div>
@@ -75,8 +78,7 @@ export default {
     data() {
         return {
             calActive: false,
-            eventActive: false,
-            imgName: 'As.jpg'
+            theInterval: null
         }
     },
     computed: {
@@ -100,12 +102,9 @@ export default {
                     this.$store.commit('events/pageRight', type) 
                     this.calActive = false
                 }, 500)
-            }   else if (!(this.getCalEventRightDisabled) && type == 'event'){
-                this.eventActive = true
-                setTimeout(() => {
+            }   else if (!(this.getEventPageRightDisabled) && type == 'event'){
                     this.$store.commit('events/pageRight', type) 
-                    this.active = false
-                }, 500)
+                    this.stopInterval()
             }
         },
         pageLeft(type) {
@@ -116,25 +115,28 @@ export default {
                     this.calActive = false
                 }, 500)
             } else if (!(this.getEventPageLeftDisabled) && type == 'event') {
-                this.eventActive = true
-                setTimeout(() => {
-                    this.$store.commit('events/pageLeft', type) 
-                    this.eventActive = false
-                }, 500)
+                this.$store.commit('events/pageLeft', type) 
+                this.stopInterval()
             }   
         },
-         cycleNews() {
-            setInterval(() => {
-                this.eventActive = true
-                setTimeout(() => {
-                    this.$store.commit('events/setNextEvent')
-                    this.eventActive = false
-                }, 500)
-            }, 5000)
+         cycleEvents() {  
+            this.theInterval = setInterval(() => {
+                this.$store.commit('events/setNextCycledEvent')
+                }, 5000)
+        },
+        stopInterval() {
+            clearInterval(this.theInterval)
+            setTimeout(() => {
+                this.cycleEvents()
+            }, 50)
+        },
+        doModal() {
+            this.$store.commit('modal/setModalActive')
+            this.$store.commit('modal/setModalType', 'event')
         }
     },
     mounted() {
-        this.cycleNews();
+        this.cycleEvents();
     }
 
 }
@@ -142,6 +144,8 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/scss/buttons.scss';
+@import '../assets/scss/animations.scss';
+
 
 h3 {
     font-size: 3rem;
@@ -219,8 +223,16 @@ h3 {
                     flex-direction: column;
                     align-items: center;
 
-                    & img {
-                        max-width: 50rem;
+                    &__container {
+                        width: 50rem;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                    }
+
+                    &-img {
+                        height: 27rem;
                         margin-bottom: 1rem;
                     }
                 }

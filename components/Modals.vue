@@ -1,13 +1,6 @@
 <template>
   <div v-if="getModalActive" class="modal" @click.stop="closeModalish($event)">
 
-      <div v-if="getModalType == 'event'">
-          <div class="modal__container">
-            <EventModal />
-            <div class="modal__close" @click="closeModal">close</div>
-          </div>
-      </div>
-
       <div v-if="getModalType == 'banner'">
           <div class="modal__container">
             <BannerModal />
@@ -17,7 +10,14 @@
 
       <div v-if="getModalType == 'map'">
           <div class="modal__container">
-            <BannerModal />
+            <MapModal />
+            <div class="modal__close" @click="closeModal">close</div>
+          </div>
+      </div>
+
+      <div v-if="getModalType == 'event'">
+          <div class="modal__container">
+            <EventsModal />
             <div class="modal__close" @click="closeModal">close</div>
           </div>
       </div>
@@ -28,12 +28,16 @@
 <script>
 import { mapGetters } from 'vuex'
 import EventModal from '@/components/modals/EventModal'
-import BannerModal from '@/components/modals/BannerModal'
+import BannerModal from '@/components/modals/_bannerModal'
+import MapModal from '@/components/modals/_mapModal'
+import EventsModal from '@/components/modals/_eventsModal'
 
 export default {
     components: {
         EventModal,
-        BannerModal
+        BannerModal,
+        MapModal,
+        EventsModal
     },
     computed: {
         ...mapGetters({
@@ -89,16 +93,18 @@ export default {
         text-transform: uppercase;
         cursor: pointer;
         font-size: 1.2rem;
-        color: $color1;
-        border: 1px solid $color1;
+        color: white;
+        background: $color1;
+        border: 2px solid $color1;
         border-radius: 2rem;
         padding: .3rem .9rem;
         margin-bottom: 1rem;
         transition: all .4s;
 
         &:hover {
-            background: $color1;
-            color: white;
+            background: transparent;
+            color: $color1;
+            border: 2px sold $color2;
         }
     }
     

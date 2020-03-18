@@ -2,12 +2,16 @@
   <div class="footer">
       <div class="footer__container">
           <div class="col center">
-              <h4 class="col__title">BECOME A DEALER</h4>   
-                <div class="dealer-button">
-                    FIND DEALERS
-                </div>
+              <h4 class="col__title">JOIN THE NETWORK</h4>   
+                <ul class="footer__links">
+                    <li class="footer__link"><a href="">Get A Banner Ad</a></li>
+                    <li class="footer__link"><a href="">Get A Map Pin</a></li>
+                    <li class="footer__link"><a href="">Add Your Event</a></li>
+                    <li class="footer__link"><a href="">Become a Sponser</a></li>
+                </ul>
               <div class="social-container">
-                <h4 class="col__title">SOCIAL MEDIA</h4>
+                  
+                <h4 class="col__title social">SOCIAL MEDIA</h4>
                 <div class="social-container__items">
                     <a href="#"><font-awesome-icon :icon="['fab', 'facebook-square']" class="social-container__item" /></a>
                     <a href="#"><font-awesome-icon :icon="['fab', 'twitter']" class="social-container__item" /></a>
@@ -75,9 +79,13 @@ export default {
 
 <style lang="scss" scoped>
 
+.social {
+    margin-bottom: 1rem;
+}
+
 h4 {
     font-weight: bold;
-    margin-bottom: 2rem;
+    margin-bottom: 1.6rem;
 }
 
 .col {
@@ -109,8 +117,6 @@ h4 {
 }
 
 .footer {
-    // width: 80%;
-    margin: 0 auto;
     font-size: 1.4rem;
     
     &__container {
@@ -125,7 +131,7 @@ h4 {
     }
 
     &__links {
-        margin: 1.3rem 0;
+        margin: 1.1rem 0;
         
     }
 

@@ -47,7 +47,7 @@ export const mutations = {
         let data = [...state.events]
         let index = payload * 5
         let returnArr = []
-        for(let i = index ; (i < index + 5 && i < state.events.length) ; i++){
+        for (let i = index ; (i < index + 5 && i < state.events.length) ; i++) {
             returnArr.push(data[i])
         }
         state.pagedEvents.push(returnArr)
@@ -55,8 +55,8 @@ export const mutations = {
     addFeaturedEvent(state, payload) {
         state.featuredEvents.push(payload)
     },
-    setNextEvent(state) {
-        if(state.eventPage == state.featuredEvents.length - 1){
+    setNextCycledEvent(state) {
+        if(state.eventPage == state.featuredEvents.length - 1) {
             state.eventPage = 0
         } else {
             state.eventPage++

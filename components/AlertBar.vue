@@ -26,7 +26,8 @@ export default {
     },
     methods: {
         doModal() {
-            console.log('launching')
+            this.$store.commit('modal/setModalActive')
+            this.$store.commit('modal/setModalType', 'map')
         }
     }
 
@@ -45,6 +46,8 @@ export default {
         justify-content: space-evenly;
         align-items: center;
         height: 6rem;
+        max-width: 180rem;
+        margin: 0 auto;
     }
 
     &__left {

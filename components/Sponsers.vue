@@ -5,9 +5,7 @@
       </div>
       <div class="sponsers__bottom">
         <div v-for="(sponser, index) in getSponsers" :key="index">
-            <img :src="`${sponser.url}`" :alt="`${sponser.name}`" class="sponsers__image">
-                <!-- <h3>{{sponser.name}}</h3> -->
-            
+            <img :src="`${sponser.url}`" :alt="`${sponser.name}`" class="sponsers__image">        
         </div>
       </div>
     

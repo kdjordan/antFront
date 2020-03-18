@@ -1,16 +1,31 @@
 .button {
     text-transform: uppercase;
+    text-align: center;
     font-size: 1.3rem;
     cursor: pointer;
-    color: $color2;
-    border: 2px solid $color2;
     border-radius: 2rem;
     padding: 1rem 2rem;
+    border: 2px solid transparent;
     transition: all .4s;
 
-    &:hover {
-        background: $color2;
-        color: white;
+}
+
+.gold {
+    background: $colorGold;
+    color: white;
+    border: 2px solid white;
+    transition: all .4s;
+
+    &--banner-ads {
+        margin: 0 auto;
+        margin-top: 1rem;
+        width: 60%;
+
+        &:hover {
+            background: transparent;
+            color: $color1;
+            border: 2px solid $color1;
+        }
     }
 }
 
@@ -18,8 +33,8 @@
     width: 15%;
     text-align: center;
     margin: 2rem 0;
-    border: 2px solid $color1;
-    color: $color1;
+    border: 2px solid white;
+    color: white;
     transition: all .4s ease;
 
     &:hover {
@@ -29,11 +44,6 @@
 
 }
 
-.banner-btn {
-    width: 60%;
-    margin: 0 auto;
-    margin-top: 1rem;
-}
 
 .signup-btn {
     width: 15rem;
@@ -47,4 +57,25 @@
         background: transparent;
         color: white;
     }
+}
+
+.buy-button {
+    width: 25%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    background: $colorGold;
+    color: white;
+    border: 2px solid white;
+    transition: all .4s;
+
+    &:hover {
+        background: transparent;
+        color: $colorGold;
+        border: 2px solid $colorGold;
+    }
+    
+}
+
+.full{
+    width: 100%;
 }

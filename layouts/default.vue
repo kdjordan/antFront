@@ -59,7 +59,7 @@ a {
 }
 
 p {
-  line-height: 2.4rem;
+  line-height: 2.6rem;
 }
 
 .map {

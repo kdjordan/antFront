@@ -1,8 +1,8 @@
 <template>
-  <div class="search">
-      <input type="text" placeholder="Search for a shop or event...">
-      <img src="~assets/svg/mag-glass.svg" alt="">
-  </div>
+  <div class="search">  
+    <input type="text" placeholder="Search for a shop or event...">
+    <img role="img" src="~assets/svg/mag-glass.svg" alt="">
+    </div>
 </template>
 
 <script>
@@ -15,6 +15,8 @@ export default {
 
 .search {
     width: 100%;
+    position: relative;
+
 
     & input {
         width: 30rem;
@@ -30,9 +32,9 @@ export default {
     & img {
         width: 2.2rem;
         z-index: 1;
-        position: relative;
-        top: 1rem;
-        left: 38rem;
+        position: absolute;
+        top: .8rem;
+        right: 1.2rem;
     }
 }
 </style>
