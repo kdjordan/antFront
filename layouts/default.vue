@@ -2,6 +2,7 @@
   <div>
     <TopNav />
     <nuxt />
+    <Sponsers />
     <Footer />
     <BotBar />
     <transition name="fade">
@@ -15,6 +16,7 @@ import TopNav from '@/components/TopNav'
 import Footer from '@/components/Footer'
 import BotBar from '@/components/BottomBar'
 import Modals from '@/components/Modals'
+import Sponsers from '@/components/Sponsers'
 
 
 export default {
@@ -22,6 +24,7 @@ export default {
     TopNav,
     BotBar,
     Footer,
+    Sponsers,
     Modals
   }
 

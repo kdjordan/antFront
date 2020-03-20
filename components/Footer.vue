@@ -37,32 +37,34 @@
           <div class="col">
               <h4 class="col__title">LINKS WE LIKE</h4>
               <ul class="footer__links">
-                  <li class="footer__link"><a href="#">Collectors Journal</a></li>
-                  <li class="footer__link"><a href="#">This is Iowa</a></li>
-                  <li class="footer__link"><a href="#">Iowa Freedom Rocks</a></li>
-                  <li class="footer__link"><a href="#">Travel Iowa</a></li>
-                  <li class="footer__link"><a href="#">Iowa Adventurer</a></li>
-                  <li class="footer__link"><a href="#">Iowa Road Trip</a></li>
+                  <li class="footer__link"><a href="http://www.collectorsjournal.com/" target="_blank">Collectors Journal</a></li>
+                  <li class="footer__link"><a href="https://www.thisisiowa.com/" target="_blank">This is Iowa</a></li>
+                  <li class="footer__link"><a href="https://www.thefreedomrock.com" target="_blank">Iowa Freedom Rocks</a></li>
+                  <li class="footer__link"><a href="https://www.traveliowa.com/" target="_blank">Travel Iowa</a></li>
+                  <li class="footer__link"><a href="https://www.iowaadventurer.com/" target="_blank">Iowa Adventurer</a></li>
+                  <li class="footer__link"><a href="https://www.facebook.com/iowaroadtrip/" target="_blank">Iowa Road Trip</a></li>
               </ul>
           </div>
           <div class="col">
               <h4 class="col__title">ROAD TRIP INFO</h4>
               <ul class="footer__links">
-                  <li class="footer__link"><a href="#">Iowa Gas Prices</a></li>
-                  <li class="footer__link"><a href="#">Iowa Weather</a></li>
-                  <li class="footer__link"><a href="#">Road Conditions</a></li>
-                  <li class="footer__link"><a href="#">Lincoln Highway 30</a></li>
-                  <li class="footer__link"><a href="#">Iowa Highway 6</a></li>
+                  <li class="footer__link"><a href="http://www.iowastategasprices.com/" target="_blank">Iowa Gas Prices</a></li>
+                  <li class="footer__link"><a href="https://www.weather.gov/dmx/" target="_blank">Iowa Weather</a></li>
+                  <li class="footer__link"><a href="https://lb.511ia.org/ialb/" target="_blank">Road Conditions</a></li>
+                  <li class="footer__link"><a href="https://www.lincolnhighwayassoc.org/info/ia/" target="_blank">Lincoln Highway 30</a></li>
+                  <li class="footer__link"><a href="https://www.facebook.com/HistoricUSRoute20IA/" target="_blank">Historic Route 20</a></li>
+                  <li class="footer__link"><a href="http://usroute6iowa.org" target="_blank">Iowa Highway 6</a></li>
               </ul>
           </div>
           <div class="col">
               <h4 class="col__title">NETWORK SITES</h4>
               <ul class="footer__links">
-                  <li class="footer__link"><a href="#">Wisconsin Antique Network</a></li>
-                  <li class="footer__link"><a href="#">Minnesota Antique Network</a></li>
-                  <li class="footer__link"><a href="#">Nebraska Antique Network</a></li>
-                  <li class="footer__link"><a href="#">Missouri Antique Network</a></li>
-                  <li class="footer__link"><a href="#">South Dakota Antique Network</a></li>
+                  <li class="footer__link"><a href="http://www.wisconsinantiquenetwork.com/" target="_blank">Wisconsin Antique Network</a></li>
+                  <li class="footer__link"><a href="http://minnesotaantiquenetwork.com/" target="_blank">Minnesota Antique Network</a></li>
+                  <li class="footer__link"><a href="http://www.nebraskaantiquenetwork.com/" target="_blank">Nebraska Antique Network</a></li>
+                  <li class="footer__link"><a href="http://www.illinoisantiquenetwork.com/" target="_blank">Illinois Antique Network</a></li>
+                  <li class="footer__link"><a href="http://www.missouriantiquenetwork.com/" target="_blank">Missouri Antique Network</a></li>
+                  <li class="footer__link"><a href="http://www.southdakotaantiquenetwork.com/" target="_blank">South Dakota Antique Network</a></li>
               </ul>
           </div>
       </div>

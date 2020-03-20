@@ -2,7 +2,7 @@
   <div class="topnav">  
       <div class="topnav__container">
         <div class="topnav__left">
-                <img src="~/assets/images/logo-solo.png" class="left" alt="iowa antique network logo">
+                <NuxtLink to="/"><img src="~/assets/images/logo-solo.png" class="left" alt="iowa antique network logo"></NuxtLink>
         </div>
         
         <nav class="topnav__right">
@@ -11,25 +11,25 @@
                     <img src="~assets/svg/home.svg" alt=""><a href="#">home</a>
                 </li> -->
                 <li>
-                    <img src="~assets/svg/satellite.svg" alt=""><a href="#">find dealers</a>
+                    <a href="#"><img src="~assets/svg/satellite.svg" alt="">find dealers</a>
                 </li>
                 <li>
-                    <img src="~assets/svg/radio.svg" alt=""><a href="#">upcoming events</a>
+                    <a href="#"><img src="~assets/svg/radio.svg" alt="">upcoming events</a>
                 </li>
                 <li>
-                    <img src="~assets/svg/newstv.svg" alt=""><a href="#">daily news</a>
+                    <a href="#"><img src="~assets/svg/newstv.svg" alt="">daily news</a>
                 </li>
                 <li>
-                    <img src="~assets/svg/bullhorn.svg" alt=""><a href="#">vendors needed</a>
+                    <a href="#"><img src="~assets/svg/bullhorn.svg" alt="">vendors needed</a>
                 </li>
                 <li>
-                    <img src="~assets/svg/tower.svg" alt=""><a href="#">advertise</a>
+                    <NuxtLink to="/advertise"><img src="~assets/svg/tower.svg" alt="">advertise</NuxtLink>
                 </li>
                 <li>
-                    <img src="~assets/svg/contact.svg" alt=""><a href="#">contact</a>
+                    <a href="#" @click.prevent="doModal"><img src="~assets/svg/contact.svg" alt="">contact</a>
                 </li>
                 <li>
-                    <img src="~assets/svg/lock.svg" alt=""><a href="#">login</a>
+                    <a href="#"><img src="~assets/svg/lock.svg" alt="">login</a>
                 </li>
             </ul>
         </nav>
@@ -40,6 +40,12 @@
 
 <script>
 export default {
+    methods: {
+        doModal() {
+             this.$store.commit('modal/setModalActive')
+            this.$store.commit('modal/setModalType', 'contact')
+        }
+    }
 
 }
 </script>
@@ -60,11 +66,16 @@ export default {
 
    &__left {
        flex: 1 1 30%;
+       transition: all .4s;
 
        & img {
            width: 90%;
            max-width: 35rem;
            padding-left: 4rem;
+       }
+
+       &:hover {
+           transform: translateY(-.3rem);
        }
    }
 

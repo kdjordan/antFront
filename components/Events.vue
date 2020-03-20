@@ -232,7 +232,7 @@ h3 {
                     }
 
                     &-img {
-                        height: 27rem;
+                        height: 30rem;
                         margin-bottom: 1rem;
                     }
                 }

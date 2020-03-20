@@ -4,7 +4,6 @@
     <AlertBar />
     <!-- <Map class="map" /> -->
     <Events />
-    <Sponsers />
   </div>
 </template>
 
@@ -16,6 +15,7 @@ import Map from '@/components/Map'
 import Sponsers from '@/components/Sponsers'
 
 export default {
+  transition: 'fade',
   fetch({store}) {
        store.dispatch('news/loadNews').then((res) => {
                 store.dispatch('events/loadData')

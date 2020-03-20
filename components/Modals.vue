@@ -22,6 +22,20 @@
           </div>
       </div>
 
+      <div v-if="getModalType == 'sponser'">
+          <div class="modal__container">
+            <SponserModal />
+            <div class="modal__close" @click="closeModal">close</div>
+          </div>
+      </div>
+
+      <div v-if="getModalType == 'contact'">
+          <div class="modal__container">
+            <ContactModal />
+            <div class="modal__close" @click="closeModal">close</div>
+          </div>
+      </div>
+
   </div>
 </template>
 
@@ -31,13 +45,17 @@ import EventModal from '@/components/modals/EventModal'
 import BannerModal from '@/components/modals/_bannerModal'
 import MapModal from '@/components/modals/_mapModal'
 import EventsModal from '@/components/modals/_eventsModal'
+import SponserModal from '@/components/modals/_sponserModal'
+import ContactModal from '@/components/modals/_contactModal'
 
 export default {
     components: {
         EventModal,
         BannerModal,
         MapModal,
-        EventsModal
+        EventsModal,
+        SponserModal,
+        ContactModal
     },
     computed: {
         ...mapGetters({

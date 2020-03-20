@@ -1,14 +1,14 @@
 <template>
   <div class="sponsers">
       <div class="sponsers__top">
-          Make Sure to Visit Our Sponsers !
+          <div class="sponsers__top--title">Make Sure to Visit Our Sponsers !</div>
+          <div class="button gold" @click.stop="doModal">I want to be a sponser</div>
       </div>
       <div class="sponsers__bottom">
         <div v-for="(sponser, index) in getSponsers" :key="index">
             <img :src="`${sponser.url}`" :alt="`${sponser.name}`" class="sponsers__image">        
         </div>
       </div>
-    
   </div>
 </template>
 
@@ -23,18 +23,19 @@ computed: {
     ...mapGetters({
         getSponsers: 'sponsers/getSponsers'
     }),
+     
 },
-    data() {
-        return {
-          
+methods: {
+        doModal() {
+            this.$store.commit('modal/setModalActive')
+            this.$store.commit('modal/setModalType', 'sponser')
         }
     }
-
-
 }
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/scss/buttons.scss';
 
 .sponsers {
     padding: 5rem 0;
@@ -43,12 +44,17 @@ computed: {
 
         &__top {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: white;
-            font-size: 4rem;
-            font-family: $font4;
-            margin-bottom: 5rem;
+            margin-bottom: 2rem;
+
+            &--title {
+                color: white;
+                font-size: 4rem;
+                font-family: $font4;
+                margin-bottom: 2rem;
+            }
         }
 
         &__bottom {
@@ -58,7 +64,6 @@ computed: {
         }
 
     & h3 {
-        // text-align: center;
         font-family: $font4;
     }
 

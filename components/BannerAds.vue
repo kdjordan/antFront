@@ -2,7 +2,7 @@
   <div class="banner-ads">
       <div class="banner-ads__left">
         <div class="banner-ads__left--text">Say Hello to Our Sponsers !</div>
-        <div class="button gold gold--banner-ads" @click.stop="doModal">
+        <div class="button gold--banner-ads" @click.stop="doModal">
             advertise with us
         </div>
       </div>
