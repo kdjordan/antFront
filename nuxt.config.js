@@ -47,7 +47,9 @@ export default {
     styleResources: {
       scss: [
         "~assets/scss/variables.scss",
-        "~assets/scss/animations.scss"
+        "~assets/scss/animations.scss",
+        "~assets/scss/modals.scss",
+        "~assets/scss/buttons.scss"
       ]
     },
     proxy: {

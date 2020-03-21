@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/buttons.scss';
+
 
 .banner-ads {
     height: 20rem;

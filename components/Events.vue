@@ -143,9 +143,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/buttons.scss';
-@import '../assets/scss/animations.scss';
-
 
 h3 {
     font-size: 3rem;

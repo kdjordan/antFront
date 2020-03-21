@@ -54,7 +54,6 @@ export default {
 
 .topnav {
     border-bottom: 12px dotted #a6d0bc;
-    
 
     &__container {
         display: flex;

@@ -22,6 +22,13 @@
           </div>
       </div>
 
+      <div v-if="getModalType == 'singleEvent'">
+          <div class="modal__container">
+            <SingleEventModal />
+            <div class="modal__close" @click="closeModal">close</div>
+          </div>
+      </div>
+
       <div v-if="getModalType == 'sponser'">
           <div class="modal__container">
             <SponserModal />
@@ -41,7 +48,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import EventModal from '@/components/modals/EventModal'
+import SingleEventModal from '@/components/modals/_singleEventModal'
+import EventModal from '@/components/modals/_eventsModal'
 import BannerModal from '@/components/modals/_bannerModal'
 import MapModal from '@/components/modals/_mapModal'
 import EventsModal from '@/components/modals/_eventsModal'
@@ -50,7 +58,7 @@ import ContactModal from '@/components/modals/_contactModal'
 
 export default {
     components: {
-        EventModal,
+        SingleEventModal,
         BannerModal,
         MapModal,
         EventsModal,

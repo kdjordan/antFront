@@ -42,14 +42,14 @@ export default {
         showEvent(event) {
             console.log(event)
             this.$store.commit('modal/setModalActive')
-            this.$store.commit('modal/setModalType', 'event')
+            this.$store.commit('modal/setModalType', 'singleEvent')
             this.$store.commit('modal/setEventModal', event)
         }
     }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 .list {
     display: flex;
@@ -58,7 +58,6 @@ export default {
 
 
 .listings {
-    // width: 80%;
     margin: 0 auto;
 }
 

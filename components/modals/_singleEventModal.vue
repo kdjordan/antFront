@@ -30,8 +30,8 @@
         </a>
     </div>
     <div class="event__button-container">
-        <div class="button">Visit Profile</div>
-        <div class="button">Visit Website</div>
+        <div class="button gold--banner-ads small">Visit Profile</div>
+        <div class="button gold--banner-ads small">Visit Website</div>
     </div>
         
     </div>
@@ -53,7 +53,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/scss/buttons.scss';
+
+.small {
+    width: 35%;
+}
 
 .event {
     &__title {

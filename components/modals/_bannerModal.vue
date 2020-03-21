@@ -10,7 +10,3 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
-@import '../../assets/scss/buttons.scss';
-@import '../../assets/scss/modals.scss';
-</style>

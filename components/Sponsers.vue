@@ -35,7 +35,6 @@ methods: {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/buttons.scss';
 
 .sponsers {
     padding: 5rem 0;
