@@ -6,7 +6,8 @@
     <h2 class="inner-modal__pricing">Pricing</h2>
       <div class="underline"></div>
       <h1 class="inner-modal__cost"><span class="inner-modal__cost--dollar">$</span>50<span class="inner-modal__cost--yr">/mo</span></h1>
-      <div class="button buy-button margin-btm">BUY NOW</div>
+      <div class="button buy-button margin-btm-2">BUY NOW</div>
+      </div>
   </div>
 </template>
 
