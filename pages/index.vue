@@ -17,12 +17,13 @@ import Sponsers from '@/components/Sponsers'
 export default {
   transition: 'fade',
   fetch({store}) {
-       store.dispatch('news/loadNews').then((res) => {
-                store.dispatch('events/loadData')
-                store.dispatch('events/loadFeaturedEvents')
-            }).catch((e) => {
-                console.log(e)
-            })
+    store.dispatch('news/loadNews').then((res) => {
+              store.dispatch('events/loadData')
+              store.dispatch('events/loadFeaturedEvents')
+              this.first = false
+          }).catch((e) => {
+              console.log(e)
+          })
   },
   components: {
     BannerAds,
@@ -30,8 +31,7 @@ export default {
     Events,
     Map,
     Sponsers,
-  }
-  
+  },
 }
 </script>
 
