@@ -5,7 +5,9 @@
             <div class="button white-btn size-50" @click.stop="doModal()">Add My Business</div>
         </div>
         <div class="alert__middle">
-            <Alerts />
+            <transition name="fade" mode="out-in">
+                <Alerts />
+            </transition>
         </div>
         <div class="alert__right">
             <Search />

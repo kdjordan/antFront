@@ -1,6 +1,6 @@
 <template>
   <div class="alerts">
-    <div class="alerts" :class="{show: active, hide: !active}">       
+    <div class="alerts">       
         <a :href="`${getAlerts.ref}`" target="_blank">
             <div class="alerts__button" :style="{background: getBackground}">
                 <div class="alerts__type">
@@ -19,11 +19,6 @@
 import { mapGetters } from 'vuex'
 
 export default {
-    data() {
-        return {
-            active: true
-        }
-    },
     computed: {
         ...mapGetters({ 
             getAlerts: 'alerts/getAlerts'
