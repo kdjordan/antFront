@@ -67,7 +67,7 @@ export default {
 
   async mounted() {
     const googleMapApi = await GoogleMapsApiLoader({
-      apiKey: 'AIzaSyBr9RajMX0ewIohkObQw91vSByCdW1OkgU'
+      apiKey: ''
     });
     
     this.google = googleMapApi;

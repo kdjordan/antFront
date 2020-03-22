@@ -55,7 +55,7 @@ export default {
     },
     proxy: {
       '/map/api': {
-        target: `https://maps.googleapis.com/maps/api/js?key=AIzaSyBr9RajMX0ewIohkObQw91vSByCdW1OkgU`
+        target: `https://maps.googleapis.com/maps/api/js?key=`
         }
     },
   /*
