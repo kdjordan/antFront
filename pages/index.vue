@@ -2,7 +2,7 @@
   <div>
    <BannerAds />
     <AlertBar />
-    <!-- <Map class="map" /> -->
+    <Map class="map" />
     <Events />
   </div>
 </template>
