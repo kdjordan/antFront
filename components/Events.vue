@@ -59,6 +59,8 @@
                         <img src="~assets/svg/plus.svg" alt="" :class="{disabled: getEventPageRightDisabled}" @click="pageRight('event')">
                     </div>
                 </div>
+
+
             </div>
         </div>     
     </div>
@@ -78,7 +80,6 @@ export default {
     data() {
         return {
             calActive: false,
-            theInterval: null
         }
     },
     computed: {
@@ -104,7 +105,7 @@ export default {
                 }, 500)
             }   else if (!(this.getEventPageRightDisabled) && type == 'event'){
                     this.$store.commit('events/pageRight', type) 
-                    this.stopInterval()
+                    this.$store.commit('timers/stopEventsCycle')
             }
         },
         pageLeft(type) {
@@ -115,20 +116,9 @@ export default {
                     this.calActive = false
                 }, 500)
             } else if (!(this.getEventPageLeftDisabled) && type == 'event') {
-                this.$store.commit('events/pageLeft', type) 
-                this.stopInterval()
+                this.$store.commit('events/pageLeft', type)             
+                this.$store.commit('timers/stopEventsCycle')             
             }   
-        },
-         cycleEvents() {  
-            this.theInterval = setInterval(() => {
-                this.$store.commit('events/setNextCycledEvent')
-                }, 5000)
-        },
-        stopInterval() {
-            clearInterval(this.theInterval)
-            setTimeout(() => {
-                this.cycleEvents()
-            }, 50)
         },
         doModal() {
             this.$store.commit('modal/setModalActive')
@@ -136,7 +126,9 @@ export default {
         }
     },
     mounted() {
-        this.cycleEvents();
+        if(!(this.$store.state.timers.events.running)) {
+            this.$store.dispatch('timers/startCycleEvents')
+        }
     }
 
 }

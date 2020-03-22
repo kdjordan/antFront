@@ -1,22 +1,22 @@
 <template>
-  <div class="advertise">
-      <h1 class="advertise__title">Advertise With Us</h1>
+  <div class="page">
+      <h1 class="page__title">Advertise With Us</h1>
       <div class="underline"></div>
-      <div class="advertise__pitch">
-        <div class="advertise__pitch--headline">Thanks for Interest in Joining the Iowa Antique Network ! 
+      <div class="page__pitch">
+        <div class="page__pitch--headline">Thanks for Interest in Joining the Iowa Antique Network ! 
         </div>
-        <div class="advertise__pitch--desc">
+        <div class="page__pitch--desc">
           <p><strong>Our mission is to bring folks who love antiques together.</strong> For Us, that not only means putting a buyer together with a seller, but also to help create an experience behind what at the end of the day, is just an thing. Antiques have meaning and reverence not only because of where they came from and how they were made, but becuase of the journey that comes along with deiscovering the them. Antiques are special to us becuase they tell a story. There like old friends that we discover, that we never knew we had. They are a part of us, even before we posses them.</p>
         </div>
       </div>
-      <h3 class="advertise__title advertise__title--sub">Just a Few Of the Benefits</h3>
-      <ul class="advertise__ul">
-          <li class="advertise__li">Your shop will receive a second to none Dealer profile page.</li>
-          <li class="advertise__li">Show items, vendors, shop pictures etc with descriptions & picture uploads. Even YouTube videos.</li>
-          <li class="advertise__li">Unlimited item changes anytime in real time.</li>
-          <li class="advertise__li">Effective branding and results at an affordable cost.</li>
-          <li class="advertise__li">Outstanding exposure to new potential buyers.</li>
-          <li class="advertise__li">Be in the same place your Iowa peers are!</li>
+      <h3 class="page__title page__title--sub">Just a Few Of the Benefits</h3>
+      <ul class="page__ul">
+          <li class="page__li">Your shop will receive a second to none Dealer profile page.</li>
+          <li class="page__li">Show items, vendors, shop pictures etc with descriptions & picture uploads. Even YouTube videos.</li>
+          <li class="page__li">Unlimited item changes anytime in real time.</li>
+          <li class="page__li">Effective branding and results at an affordable cost.</li>
+          <li class="page__li">Outstanding exposure to new potential buyers.</li>
+          <li class="page__li">Be in the same place your Iowa peers are!</li>
       </ul>
       <div class="pricing">
           <div class="pricing__container">
@@ -148,50 +148,5 @@ export default {
     margin-bottom: 3rem;
 }
 
-.advertise {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 4rem;
-    color: $color1;
-    border-bottom: 12px dotted #a6d0bc;
-
-
-    &__title {
-        text-align: center;
-        margin-top: 4rem;
-        margin-bottom: 1rem;
-        color: $color1;
-        font-family: $font4;
-        font-size: 5rem;
-
-        &--sub {
-            font-size: 3rem;
-        }
-    }
-
-    &__ul {
-        list-style: circle;
-        margin-bottom: 4rem;
-    }
-
-    & li {
-        margin: .5rem 0;
-        line-height: 1.5;
-    }
-
-
-    &__pitch {
-        width: 70%;
-        margin: 0 auto;
-
-        &--headline {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-
-        }
-    }
-}
 
 </style>

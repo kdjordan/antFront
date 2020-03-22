@@ -17,7 +17,7 @@
                     <a href="#"><img src="~assets/svg/radio.svg" alt="">upcoming events</a>
                 </li>
                 <li>
-                    <a href="#"><img src="~assets/svg/newstv.svg" alt="">daily news</a>
+                    <NuxtLink to="/daily-news"><img src="~assets/svg/newstv.svg" alt="">daily news</NuxtLink>
                 </li>
                 <li>
                     <a href="#"><img src="~assets/svg/bullhorn.svg" alt="">vendors needed</a>

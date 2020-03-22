@@ -1,8 +1,6 @@
 import data from '../static/data/event-data.js'
 
 export const state = () => ({
-    initialLoadData: true,
-    initialLoadFeatured: true,
     calPage: 0,
     numPages: null,
     events: [],
@@ -80,18 +78,11 @@ export const mutations = {
     },
     setNumPages(state, payload) {
         state.numPages = payload
-    },
-    setInitialLoad(state){
-        state.initialLoadData = false
-    },
-    setInitialFeatured(state){
-        state.initialLoadFeatured = false
     }
 };
 
 export const actions = {
     async loadData ({ commit, state }) {
-        if(state.initialLoadData) {
             try {    
                 data.sort().forEach((event)=> {
                     commit('addEvents', event)
@@ -101,21 +92,17 @@ export const actions = {
                 for (let i=0; i<numPages; i ++) {
                     commit('setPagedEvents', i)
                 }
-                commit('setInitialLoad')
                 return true;
             } catch(e) {
                 console.log(e)
                 return e
             }
-        }
     },
     loadFeaturedEvents({ commit, state }) {
-        if(state.initialLoadFeatured) {
             const featuredArr = state.events.filter((event) => event.featured == true)
             featuredArr.forEach((event) => {
                 commit('addFeaturedEvent', event)
             })
-            commit('setInitialFeatured')
-        }
+            return true;
     }
 };

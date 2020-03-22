@@ -1,0 +1,45 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 4rem;
+    color: $color1;
+    border-bottom: 12px dotted #a6d0bc;
+
+
+    &__title {
+        text-align: center;
+        margin-top: 4rem;
+        margin-bottom: 1rem;
+        color: $color1;
+        font-family: $font4;
+        font-size: 5rem;
+
+        &--sub {
+            font-size: 3rem;
+        }
+    }
+
+    &__ul {
+        list-style: circle;
+        margin-bottom: 4rem;
+    }
+
+    & li {
+        margin: .5rem 0;
+        line-height: 1.5;
+    }
+
+
+    &__pitch {
+        width: 70%;
+        margin: 0 auto;
+
+        &--headline {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+
+        }
+    }
+}

@@ -1,13 +1,13 @@
 <template>
   <div class="alerts">
     <div class="alerts" :class="{show: active, hide: !active}">       
-        <a :href="`${getMessage.ref}`" target="_blank">
+        <a :href="`${getAlerts.ref}`" target="_blank">
             <div class="alerts__button" :style="{background: getBackground}">
                 <div class="alerts__type">
-                    New {{getMessage.type}} Alert : &nbsp;
+                    New {{getAlerts.type}} Alert : &nbsp;
                 </div>
                 <div class="alerts__mssg">
-                    <i>{{getMessage.mssg}}</i>
+                    <i>{{getAlerts.mssg}}</i>
                 </div>
             </div>
         </a> 
@@ -26,11 +26,10 @@ export default {
     },
     computed: {
         ...mapGetters({ 
-            getNews: 'news/getNews',
-            getMessage: 'news/getMessage'
+            getAlerts: 'alerts/getAlerts'
         }),
         getBackground() {
-            switch (this.getMessage.type) {
+            switch (this.getAlerts.type) {
                 case 'shop':
                     return '#a53b2d'
                     break
@@ -57,19 +56,10 @@ export default {
             }
         }
     },
-    methods: {
-        cycleAlerts() {
-            setInterval(() => {
-                this.active = !this.active;
-                setTimeout(() => {
-                    this.$store.commit('news/getNextMessage')
-                    this.active = !this.active
-                }, 500)
-            }, 5000)
-        }
-    },
     mounted() {
-        this.cycleAlerts();
+        if(!(this.$store.state.timers.events.running)) {
+            this.$store.dispatch('timers/startCycleAlerts')
+        }
     }
 
 }
