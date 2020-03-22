@@ -6,7 +6,7 @@
         <div class="page__pitch--headline">Thanks for Interest in Joining the Iowa Antique Network ! 
         </div>
         <div class="page__pitch--desc">
-          <p><strong>Our mission is to bring folks who love antiques together.</strong> For Us, that not only means putting a buyer together with a seller, but also to help create an experience behind what at the end of the day, is just an thing. Antiques have meaning and reverence not only because of where they came from and how they were made, but becuase of the journey that comes along with deiscovering the them. Antiques are special to us becuase they tell a story. There like old friends that we discover, that we never knew we had. They are a part of us, even before we posses them.</p>
+          <p><strong>Our mission is to bring folks who love antiques together.</strong> For Us, that not only means putting a buyer together with a seller, but also to help create an experience behind what at the end of the day, is just an thing. Antiques have meaning and reverence not only because of where they came from and how they were made, but becuase of the journey that comes along with discovering them. Antiques are special to us becuase they tell a story. There like old friends that we discover, that we never knew we had... they are a part of us, even before we meet them.</p>
         </div>
       </div>
       <h3 class="page__title page__title--sub">Just a Few Of the Benefits</h3>
