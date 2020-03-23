@@ -37,7 +37,7 @@ export const mutations = {
         if(payload == 'events') {
             state.events.running = true
         }
-        if(payload == 'news') {
+        if(payload == 'alerts') {
             state.alerts.running = true
         }
     }
@@ -57,6 +57,6 @@ export const actions = {
             this.commit('alerts/getNextAlert')
             }, 5000)
             commit('setAlertInterval', theInterval)
-            commit('alerts/getNextAlert')
+            commit('setRunning', 'alerts')
     }
 };
