@@ -57,7 +57,7 @@ export default {
     },
     proxy: {
       '/map/api': {
-        target: 'https://maps.googleapis.com/maps/api/js?key=' + process.env.MAP_KEY
+        
         }
     },
   /*
