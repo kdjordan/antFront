@@ -5,11 +5,11 @@
         <div class="events-container">
 
             <div class="events-container__top">
-                <img src="~assets/svg/bullhorn-red.svg" alt="">
-                <h2>Upcoming Events</h2>
-            </div>
-            <div class="button events-btn gold" @click.stop="doModal">
-                add my event
+                    <img src="~assets/svg/bullhorn-wht.svg" alt="">
+                <div>
+                    <h2>Upcoming Events</h2>
+                </div>
+                <div class="button events-btn adjust" @click.stop="doModal">Add my event</div>
             </div>
         
             <div class="events-container__bottom">
@@ -36,27 +36,22 @@
                 </div>
 
                 <div class="events-container__bottom--right">
-                    <h3>Featured Events</h3>
-                    <div class="events-container__bottom--right__container">
-                        <a :href="`${getFeaturedEvent.featuredLink}`" target="_blank">
-                            <transition name="fade" mode="out-in">
-                                <img :src="`${getFeaturedEvent.featuredImgUrl}`" 
-                                alt="" class="events-container__bottom--right-img" 
-                                :key="`${getEventPage}`">
-                            </transition>
-                        </a>
+                    <h3>Events Calendar</h3>
+                    <div class="events-container__bottom--calendar">
+                        <List :events="getPagedEvents[getCalPage]" :class="{hide: calActive}"/>  
                     </div>
+
                     <div class="events__indicators">
-                        <img src="~assets/svg/minus.svg" alt=""  :class="{disabled: getEventPageLeftDisabled}" @click="pageLeft('event')">
+                        <img src="~assets/svg/minus.svg" alt=""  :class="{disabled: getCalPageLeftDisabled}" @click="pageLeft('cal')">
                         <div class="events__indicators--block-container">
-                            <div v-for="(num, index) in getFeaturedEvents.slice(0, getFeaturedEvents.length)" 
+                            <div v-for="(num, index) in getPagedEvents.slice(0, getPagedEvents.length)" 
                                 :key="index" 
                                 class="events__indicators--block"  
-                                :class="{indicator: getEventPage == `${index}`}">
+                                :class="{indicator: getCalPage == `${index}`}">
                             </div>
-
+                    
                         </div>
-                        <img src="~assets/svg/plus.svg" alt="" :class="{disabled: getEventPageRightDisabled}" @click="pageRight('event')">
+                        <img src="~assets/svg/plus.svg" alt="" :class="{disabled: getCalPageRightDisabled}" @click="pageRight('cal')">
                     </div>
                 </div>
 
@@ -103,7 +98,7 @@ export default {
                     this.$store.commit('events/pageRight', type) 
                     this.calActive = false
                 }, 500)
-            }   else if (!(this.getEventPageRightDisabled) && type == 'event'){
+            } else if (!(this.getEventPageRightDisabled) && type == 'event') {
                     this.$store.commit('events/pageRight', type) 
                     this.$store.commit('timers/stopEventsCycle')
             }
@@ -136,10 +131,14 @@ export default {
 
 <style lang="scss" scoped>
 
+.adjust {
+    font-family: $font2;
+}
+
 h3 {
     font-size: 3rem;
+    margin: 2rem 0 1rem 0;
     font-family: $font4;
-    margin-bottom: 2rem;
     color: $color1;
 }
 
@@ -161,27 +160,41 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top: 12px dotted #a6d0bc;
     margin-top: 2rem;
-    border-bottom: 12px dotted #a6d0bc;
+    width: 100%;
     
     &-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
-        max-width: 120rem;
         width: 100%;
         padding-bottom: 4rem;
 
             &__top {
+                width: 100%;
+                background: $color2;
                 margin-top: 2rem;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                font-family: $font3;
-                color: $color1;
+                font-family: $font4;
+                color: white;
+                padding: 2rem 0;
                 font-size: 3rem;
+                border-top: 12px dotted #a6d0bc;
+                border-bottom: 12px dotted #a6d0bc;
+
+                & > div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    & h2 {
+                        font-size: 6rem;
+                    }
+                }
                 
                 & img {
                     width: 10%;

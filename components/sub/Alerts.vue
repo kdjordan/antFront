@@ -1,18 +1,17 @@
 <template>
-  <div class="alerts">
-    <div class="alerts">       
-        <a :href="`${getAlerts.ref}`" target="_blank">
-            <div class="alerts__button" :style="{background: getBackground}">
-                <div class="alerts__type">
-                    New {{getAlerts.type}} Alert : &nbsp;
-                </div>
-                <div class="alerts__mssg">
-                    <i>{{getAlerts.mssg}}</i>
-                </div>
+<div class="alerts">       
+    <a :href="`${getAlerts.ref}`" target="_blank">
+        <div class="alerts__button" :style="{background: getBackground}">
+            <div class="alerts__type">
+                New {{getAlerts.type}} Alert : &nbsp;
             </div>
-        </a> 
-    </div>
-  </div>
+            <div class="alerts__mssg">
+                <i>{{getAlerts.mssg}}</i>
+            </div>
+        </div>
+    </a> 
+</div>
+  
 </template>
 
 <script>
@@ -62,17 +61,9 @@ export default {
 
 <style lang="scss" scoped>
 
-.show {
-    opacity: 1;
-    transition: all .4s;
-}
-
-.hide {
-    opacity: 0;
-    transition: all .4s;
-}
-
 .alerts {
+    width: 80%;
+    margin: 0 auto;
     &__button {
         padding: .7rem 2rem;
         background: $shop;

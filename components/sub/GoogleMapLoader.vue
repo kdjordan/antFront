@@ -1,6 +1,8 @@
 <template>
   <div>
-      <h3>PLan Your Road Trip</h3>
+      <h3 class="m__b--2">Plan Your Road Trip</h3>
+      <div class="button button--primary w-50 m__b--2" @click.stop="doModal()">Add My Business</div>
+      <div class="button button--primary w-50 m__b--2" @click.stop="doModal()">View Full Map</div>
     <div
       class="google-map"
       ref="googleMap"
@@ -65,34 +67,42 @@ export default {
       map: null
     };
   },
-
-  async mounted() {
-    const googleMapApi = await GoogleMapsApiLoader({
-      apiKey: 'AIzaSyBr9RajMX0ewIohkObQw91vSByCdW1OkgU'
-    });
-    
-    this.google = googleMapApi;
-    this.initializeMap();
-  },
-
-  methods: {
+   methods: {
     initializeMap() {
       const mapContainer = this.$refs.googleMap;
       this.map = new this.google.maps.Map(mapContainer, this.mapConfig);
-    }
-  }
+    },
+    doModal() {
+        this.$store.commit('modal/setModalActive')
+        this.$store.commit('modal/setModalType', 'map')
+      }
+    },
+    async mounted() {
+      const googleMapApi = await GoogleMapsApiLoader({
+        apiKey: 'AIzaSyBr9RajMX0ewIohkObQw91vSByCdW1OkgU'
+      });
+      
+      this.google = googleMapApi;
+      this.initializeMap();
+    },
 };
 </script>
 
 <style lang="scss" scoped>
+
+.w-50 {
+  display: inline-block;
+  width: 30%;
+  margin-left: 12%;
+}
+
 img {
-  width: 4rem;
+  width: 3.5rem;
 }
 
 h3 {
     font-size: 3rem;
     font-family: $font4;
-    margin: 2rem;
     color: $color1;
     text-align: center;
 }
@@ -117,7 +127,7 @@ h3 {
     }
 
     &--title {
-      margin-left: 1rem;
+      margin-left: .3rem;
       font-size: 1.5rem;
     }
   }

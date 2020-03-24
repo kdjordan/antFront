@@ -1,8 +1,6 @@
 <template>
 <div class="banner-ads">
     <img src="~assets/banners/dixie-banner.png" alt="">
-        <!-- <div class="button gold--banner-ads" @click.stop="doModal">
-        advertise with us -->
 </div>
 </template>
 

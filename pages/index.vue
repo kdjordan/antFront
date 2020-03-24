@@ -41,17 +41,17 @@ export default {
 
 .map-container {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
   padding-bottom: 8rem;
 
   &__left {
+    padding: 2rem 0;
     flex-grow: 1;
     width: 45%;
     margin-left: 5%;
   }
 
   &__right {
+    padding: 2rem 0;
     flex: 1 1 50%;
   }
 }

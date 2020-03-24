@@ -19,8 +19,9 @@ export default {
 
 
     & input {
-        width: 30rem;
+        width: 80%;
         float: right;
+        margin-right: 2rem;
         border-radius: 2rem;
         outline: none;
         border: none;
@@ -34,7 +35,7 @@ export default {
         z-index: 1;
         position: absolute;
         top: .8rem;
-        right: 1.2rem;
+        right: 3.2rem;
     }
 }
 </style>

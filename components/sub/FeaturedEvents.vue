@@ -1,6 +1,7 @@
 <template>
 <div class="events-container">
   <h3>Featured Events</h3>
+  <div class="button button--primary w-50 m__b--2 m__t--2" @click.stop="doModal()">Add My Event</div>
     <div class="events-container__bottom--right__container">
         <a :href="`${getFeaturedEvent.featuredLink}`" target="_blank">
             <transition name="fade" mode="out-in">
@@ -81,7 +82,6 @@ export default {
 h3 {
     font-size: 3rem;
     font-family: $font4;
-    margin-bottom: 2rem;
     color: $color1;
 }
 

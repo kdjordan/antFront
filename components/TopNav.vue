@@ -53,7 +53,8 @@ export default {
 <style lang="scss">
 
 .topnav {
-    border-bottom: 12px dotted #a6d0bc;
+    // border-bottom: 12px dotted #a6d0bc;
+    border-bottom: 1px solid $colorGrey;
 
     &__container {
         display: flex;
