@@ -2,7 +2,7 @@
 <div class="events-container">
   <h3>Featured Events</h3>
   <div class="button button--primary w-50 m__b--2 m__t--2" @click.stop="doModal()">Add My Event</div>
-    <div class="events-container__bottom--right__container">
+    <div class="events-container__bottom--right__container  m__t--3">
         <a :href="`${getFeaturedEvent.featuredLink}`" target="_blank">
             <transition name="fade" mode="out-in">
                 <img :src="`${getFeaturedEvent.featuredImgUrl}`" 

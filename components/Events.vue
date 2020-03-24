@@ -13,49 +13,23 @@
             </div>
         
             <div class="events-container__bottom">
-
-                <div class="events-container__bottom--left">
-                    <h3>Events Calendar</h3>
-                    <div class="events-container__bottom--calendar">
-                        <List :events="getPagedEvents[getCalPage]" :class="{hide: calActive}"/>  
-                    </div>
-
-                    <div class="events__indicators">
-                        <img src="~assets/svg/minus.svg" alt=""  :class="{disabled: getCalPageLeftDisabled}" @click="pageLeft('cal')">
-                        <div class="events__indicators--block-container">
-                            <div v-for="(num, index) in getPagedEvents.slice(0, getPagedEvents.length)" 
-                                :key="index" 
-                                class="events__indicators--block"  
-                                :class="{indicator: getCalPage == `${index}`}">
-                            </div>
-                    
-                        </div>
-                        <img src="~assets/svg/plus.svg" alt="" :class="{disabled: getCalPageRightDisabled}" @click="pageRight('cal')">
-                    </div>
-
+                <h3>Events Calendar</h3>
+                <div class="events-container__bottom--calendar">
+                    <List :events="getPagedEvents[getCalPage]" :class="{hide: calActive}"/>  
                 </div>
 
-                <div class="events-container__bottom--right">
-                    <h3>Events Calendar</h3>
-                    <div class="events-container__bottom--calendar">
-                        <List :events="getPagedEvents[getCalPage]" :class="{hide: calActive}"/>  
-                    </div>
-
-                    <div class="events__indicators">
-                        <img src="~assets/svg/minus.svg" alt=""  :class="{disabled: getCalPageLeftDisabled}" @click="pageLeft('cal')">
-                        <div class="events__indicators--block-container">
-                            <div v-for="(num, index) in getPagedEvents.slice(0, getPagedEvents.length)" 
-                                :key="index" 
-                                class="events__indicators--block"  
-                                :class="{indicator: getCalPage == `${index}`}">
-                            </div>
-                    
+                <div class="events__indicators">
+                    <img src="~assets/svg/minus.svg" alt=""  :class="{disabled: getCalPageLeftDisabled}" @click="pageLeft">
+                    <div class="events__indicators--block-container">
+                        <div v-for="(num, index) in getPagedEvents.slice(0, getPagedEvents.length)" 
+                            :key="index" 
+                            class="events__indicators--block"  
+                            :class="{indicator: getCalPage == `${index}`}">
                         </div>
-                        <img src="~assets/svg/plus.svg" alt="" :class="{disabled: getCalPageRightDisabled}" @click="pageRight('cal')">
+                
                     </div>
+                    <img src="~assets/svg/plus.svg" alt="" :class="{disabled: getCalPageRightDisabled}" @click="pageRight">
                 </div>
-
-
             </div>
         </div>     
     </div>
@@ -82,38 +56,27 @@ export default {
             getCalPage: 'events/getCalPage',
             getCalPageRightDisabled: 'events/getCalPageRightDisabled',
             getCalPageLeftDisabled: 'events/getCalPageLeftDisabled',        
-            getPagedEvents: 'events/getPagedEvents',        
-            getEventPageLeftDisabled: 'events/getEventPageLeftDisabled',
-            getEventPageRightDisabled: 'events/getEventPageRightDisabled',
-            getFeaturedEvents: 'events/getFeaturedEvents',              
-            getFeaturedEvent: 'events/getFeaturedEvent',        
-            getEventPage: 'events/getEventPage'        
+            getPagedEvents: 'events/getPagedEvents'    
         })
     },
     methods: {
         pageRight(type) {
-            if(!(this.getCalPageRightDisabled) && type == 'cal') {
+            if(!(this.getCalPageRightDisabled)) {
                 this.calActive = true
                 setTimeout(() => {
                     this.$store.commit('events/pageRight', type) 
                     this.calActive = false
                 }, 500)
-            } else if (!(this.getEventPageRightDisabled) && type == 'event') {
-                    this.$store.commit('events/pageRight', type) 
-                    this.$store.commit('timers/stopEventsCycle')
             }
         },
         pageLeft(type) {
-            if(!(this.getCalPageLeftDisabled) && type == 'cal') {
+            if(!(this.getCalPageLeftDisabled)) {
                 this.calActive = true
                 setTimeout(() => {
                     this.$store.commit('events/pageLeft', type) 
                     this.calActive = false
                 }, 500)
-            } else if (!(this.getEventPageLeftDisabled) && type == 'event') {
-                this.$store.commit('events/pageLeft', type)             
-                this.$store.commit('timers/stopEventsCycle')             
-            }   
+            } 
         },
         doModal() {
             this.$store.commit('modal/setModalActive')
@@ -204,41 +167,16 @@ h3 {
 
             &__bottom {
                 display: flex;
+                flex-direction: column;
                 justify-content: space-around;
                 align-items: top;
-                width: 100%;
+                width: 80%;
                 margin-top: 3rem;
-
-                &--left {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                }
 
                 &--calendar {
                     height: 33rem;
                     margin-bottom: 1rem;
                 }
-
-                &--right {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-
-                    &__container {
-                        width: 50rem;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-
-                    }
-
-                    &-img {
-                        height: 30rem;
-                        margin-bottom: 1rem;
-                    }
-                }
-
             }
     }
 
@@ -246,7 +184,8 @@ h3 {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 100%;
+        width: 50%;
+        margin: 0 auto;
 
         & img {
             height: 3rem;
