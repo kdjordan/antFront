@@ -56,8 +56,7 @@ export default {
     },
     proxy: {
       '/map/api': {
-        target: `https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_KEY}`
-        // target: 'https://maps.googleapis.com/maps/api/js?key=' + ENV['MAP_KEY']
+        target: 'https://maps.googleapis.com/maps/api/js?key=' + process.env.MAP_KEY
         }
     },
   /*
