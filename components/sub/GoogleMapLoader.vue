@@ -1,5 +1,6 @@
 <template>
   <div>
+      <h3>PLan Your Road Trip</h3>
     <div
       class="google-map"
       ref="googleMap"
@@ -85,23 +86,28 @@ export default {
 
 <style lang="scss" scoped>
 img {
-  width: 5rem;
+  width: 4rem;
+}
+
+h3 {
+    font-size: 3rem;
+    font-family: $font4;
+    margin: 2rem;
+    color: $color1;
+    text-align: center;
 }
 
 .legend {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 11rem;
-  font-family: $font2;
-  padding-bottom: 1rem;
+  margin-top: 1rem;
+  font-family: $font1;
+  margin-bottom: 1rem;
 
 
   &__flags-container {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      width: 70%;
+      width: 100%;
 
     &--entry {
       display: flex;
@@ -112,7 +118,7 @@ img {
 
     &--title {
       margin-left: 1rem;
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
   }
 }
