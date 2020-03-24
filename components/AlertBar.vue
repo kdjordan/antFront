@@ -1,4 +1,6 @@
 <template>
+<div>
+<div class="wave-top"></div>
   <div class="alert">
       <div class="alert__container">
         <div class="alert__left">
@@ -11,6 +13,8 @@
         </div>
       </div>
   </div>
+  <div class="wave-bottom"></div>
+</div>
 </template>
 
 <script>
@@ -32,6 +36,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.wave-top {
+    @include wavy(-7px, 2rem, $color1);
+}
+
+.wave-bottom {
+    @include wavy(27px, 2rem, $color1);
+}
 
 .alert {
     height: 6rem;

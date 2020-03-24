@@ -1,4 +1,6 @@
 <template>
+<div>
+<div class="wave-top"></div>
   <div class="sponsers">
       <div class="sponsers__top">
           <div class="sponsers__top--title">Make Sure to Visit Our Sponsers !</div>
@@ -10,6 +12,8 @@
         </div>
       </div>
   </div>
+<div class="wave-bottom"></div>
+</div>
 </template>
 
 <script>
@@ -36,10 +40,16 @@ methods: {
 
 <style lang="scss" scoped>
 
+.wave-top {
+    @include wavy(-7px, 2rem, $color2);
+}
+.wave-bottom {
+    @include wavy(27px, 2rem, $color2);
+}
+
 .sponsers {
     padding: 5rem 0;
     background: $color2;
-    margin-top: 2rem;
 
         &__top {
             display: flex;

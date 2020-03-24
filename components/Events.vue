@@ -3,21 +3,21 @@
     <div class="events">
 
         <div class="events-container">
-
+            <div class="wave-top"></div>
             <div class="events-container__top">
-                    <img src="~assets/svg/bullhorn-wht.svg" alt="">
-                <div>
-                    <h2>Upcoming Events</h2>
-                </div>
-                <div class="button events-btn adjust" @click.stop="doModal">Add my event</div>
+                <img src="~assets/svg/bullhorn-wht.svg" alt="">
+                <h3>Upcoming Events</h3>
             </div>
+            <div class="wave-bottom"></div>
+            
         
             <div class="events-container__bottom">
                 <h3>Events Calendar</h3>
+            <!-- <div class="button button--primary adjust" @click.stop="doModal">Add my event</div> -->
                 <div class="events-container__bottom--calendar">
                     <List :events="getPagedEvents[getCalPage]" :class="{hide: calActive}"/>  
                 </div>
-
+        
                 <div class="events__indicators">
                     <img src="~assets/svg/minus.svg" alt=""  :class="{disabled: getCalPageLeftDisabled}" @click="pageLeft">
                     <div class="events__indicators--block-container">
@@ -94,15 +94,23 @@ export default {
 
 <style lang="scss" scoped>
 
+.wave-top {
+    @include wavy(-5px, 4rem, $color1);
+}
+.wave-bottom {
+    @include wavy(46px, 4rem, $color1);
+}
+
 .adjust {
     font-family: $font2;
 }
 
 h3 {
-    font-size: 3rem;
+    font-size: 5rem;
     margin: 2rem 0 1rem 0;
-    font-family: $font4;
-    color: $color1;
+    font-family: $font3;
+    color: white;
+    text-align: center;
 }
 
 .indicator {
@@ -123,42 +131,21 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 2rem;
     width: 100%;
     
     &-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 100%;
-        padding-bottom: 4rem;
+       width: 100%;
 
             &__top {
-                width: 100%;
-                background: $color2;
-                margin-top: 2rem;
+                // width: 100%;
+                background: $color1;
                 display: flex;
-                flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                font-family: $font4;
+                font-family: $font2;
                 color: white;
-                padding: 2rem 0;
                 font-size: 3rem;
-                border-top: 12px dotted #a6d0bc;
-                border-bottom: 12px dotted #a6d0bc;
-
-                & > div {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-
-                    & h2 {
-                        font-size: 6rem;
-                    }
-                }
-                
+        
                 & img {
                     width: 10%;
                     margin-right: 3rem;
