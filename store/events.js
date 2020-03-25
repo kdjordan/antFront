@@ -10,6 +10,9 @@ export const state = () => ({
 });
 
 export const getters = {   
+    getEvents(state) {
+        return state.events
+    },
     getCalPage(state) {
         return state.calPage 
     }, 

@@ -1,12 +1,9 @@
 <template>
 <div class="alerts">       
     <a :href="`${getAlerts.ref}`" target="_blank">
-        <div class="alerts__button" :style="{background: getBackground}">
-            <div class="alerts__type">
-                New {{getAlerts.type}} Alert : &nbsp;
-            </div>
-            <div class="alerts__mssg">
-                <i>{{getAlerts.mssg}}</i>
+        <div class="alerts__container">
+            <div class="alerts__button" :style="{background: getBackground}">
+                New {{getAlerts.type}} Alert : <span class="alerts__button--name">{{getAlerts.mssg}}</span>
             </div>
         </div>
     </a> 
@@ -62,34 +59,34 @@ export default {
 <style lang="scss" scoped>
 
 .alerts {
-    width: 80%;
-    margin: 0 auto;
-    &__button {
-        padding: .7rem 2rem;
-        background: $shop;
-        color: white;
+    &__container {
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: 0 auto;
+    }
+    &__button {
+        text-align: center;
+        padding: .8rem 1.5rem;
+        background: $shop;
+        color: white;
         border: 2px solid white;
         border-radius: 2rem;
-        transition: all .4s;
-
-        &:hover {
-            color: $liteGrey;
-        }
-    }
-
-    &__type {
         text-transform: uppercase;
         font-family: $font2;
         font-size: 1.3rem;
         font-weight: bold;
-    }
+        transition: all .4s;
 
-    &__mssg {
-        font-family: $font4;
-        text-transform: none;
+        &--name {
+            text-transform: none;
+            font-style: italic;
+            font-size: 1.6rem;
+        }
+
+        &:hover {
+            color: $liteGrey;
+        }
     }
 }
 </style>

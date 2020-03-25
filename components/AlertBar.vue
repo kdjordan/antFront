@@ -35,35 +35,24 @@ export default {
 
 <style lang="scss" scoped>
 
-.wave-top {
-    @include wavy(-7px, 2rem, $color2);
-}
-
-.wave-bottom {
-    @include wavy(27px, 2rem, $color2);
-}
-
 .alert {
-    height: 6rem;
     background: $color1;
 
     &__container {
-        display: flex;
-        justify-content: space-evenly;
+         display: flex;
+        justify-content: space-between;
         align-items: center;
-        height: 6rem;
         max-width: 180rem;
         margin: 0 auto;
+        height: 6rem;
     }
 
     &__left {
-        flex: 1 1 50%;
-        margin-left: 2rem
+        width: 60%;
     }
 
     &__right {
-        margin-right: 2rem;
-        flex: 1 1 50%;
+        width: 40%;
     }
 }
 </style>

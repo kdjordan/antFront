@@ -3,7 +3,7 @@
   <div class="sponsers">
       <div class="sponsers__top">
           <div class="sponsers__top--title">Make Sure to Visit Our Sponsers !</div>
-          <div class="button gold" @click.stop="doModal">I want to be a sponser</div>
+          <div class="button gold" @click.stop="doModal">become a sponser</div>
       </div>
       <div class="sponsers__bottom">
         <div v-for="(sponser, index) in getSponsers" :key="index">
@@ -40,7 +40,9 @@ methods: {
 
 .sponsers {
     padding: 5rem 0;
-    background: $color2;
+    box-shadow: 0 2px 8px -4px rgba(0, 0, 0, 0.75);
+
+    // background: $color2;
 
         &__top {
             display: flex;
@@ -50,7 +52,7 @@ methods: {
             margin-bottom: 2rem;
 
             &--title {
-                color: white;
+                color: $color1;
                 font-size: 4rem;
                 font-family: $font4;
                 margin-bottom: 2rem;

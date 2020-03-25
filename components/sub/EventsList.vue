@@ -15,7 +15,7 @@
                         {{event.title}}
                     </div>
                     <div class="card__details--desc">
-                        {{event.desc.slice(0, 40)}}...
+                        {{event.desc}}
                     </div>
                     <div class="card__details--time">
                         START: <span class="card__details--time-details">{{event.dates[0].start}}</span> -
@@ -56,14 +56,18 @@ export default {
     flex-direction: column;
 }
 
-
 .listings {
+    width: 95%;
     margin: 0 auto;
+
 }
 
 .card {
     font-family: $font2;
     display: flex;
+    // justify-content: space-around;
+    
+    
     color: $color2;
     margin: .2rem 0;
 
@@ -98,6 +102,10 @@ export default {
             align-items: flex-start;
             font-size: 1.9rem;
             margin-bottom: .2rem;
+        }
+
+        &--desc {
+            max-width: 80%;
         }
 
         &--time {

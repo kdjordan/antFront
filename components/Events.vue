@@ -4,19 +4,19 @@
 
         <div class="events-container">
             <div class="events-container__top">
-                <img src="~assets/svg/bullhorn-red.svg" alt="">
+                <!-- <img src="~assets/svg/bullhorn-red.svg" alt=""> -->
                 <h3>Upcoming Events</h3>
-                <img src="~assets/svg/bullhorn-red.svg" class="flip" alt="">
+                <div class="button button--primary">add my event</div>
             </div>
 
             <div class="events-container__bottom">
                 <!-- <h3>Events Calendar</h3> -->
             <!-- <div class="button button--primary adjust" @click.stop="doModal">Add my event</div> -->
                 <div class="events-container__bottom--calendar">
-                    <List :events="getPagedEvents[getCalPage]" :class="{hide: calActive}"/>  
+                    <List :events="getEvents" :class="{hide: calActive}"/>  
                 </div>
         
-                <div class="events__indicators">
+                <!-- <div class="events__indicators">
                     <img src="~assets/svg/minus.svg" alt=""  :class="{disabled: getCalPageLeftDisabled}" @click="pageLeft">
                     <div class="events__indicators--block-container">
                         <div v-for="(num, index) in getPagedEvents.slice(0, getPagedEvents.length)" 
@@ -27,7 +27,7 @@
                 
                     </div>
                     <img src="~assets/svg/plus.svg" alt="" :class="{disabled: getCalPageRightDisabled}" @click="pageRight">
-                </div>
+                </div> -->
             </div>
         </div>     
     </div>
@@ -54,7 +54,8 @@ export default {
             getCalPage: 'events/getCalPage',
             getCalPageRightDisabled: 'events/getCalPageRightDisabled',
             getCalPageLeftDisabled: 'events/getCalPageLeftDisabled',        
-            getPagedEvents: 'events/getPagedEvents'    
+            getPagedEvents: 'events/getPagedEvents',
+            getEvents: 'events/getEvents'    
         })
     },
     methods: {
@@ -96,15 +97,15 @@ export default {
     transform: scaleX(-1);
 }
 
-.adjust {
-    font-family: $font2;
-}
-
 h3 {
-    font-size: 7rem;
-    font-family: $font3;
+    font-size: 6rem;
+    font-family: $font4;
     color: $color1;
     text-align: center;
+    border: 4px solid $color1;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    border-radius: .5rem;
 }
 
 .indicator {
@@ -126,20 +127,20 @@ h3 {
     align-items: center;
     justify-content: center;
     width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 6rem;
+    box-shadow: 0 2px 8px -4px rgba(0, 0, 0, 0.75);
     
     &-container {
-    //    width: 100%;
 
             &__top {
-                // background: $color1;
-                padding: 1rem 0;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 justify-content: center;
+                padding: 3rem 0 3rem 0;
                 font-family: $font2;
-                color: white;
-                font-size: 3rem;
-        
+                
                 & img {
                     width: 6%;
                     margin: 0 5rem;
@@ -151,12 +152,15 @@ h3 {
                 flex-direction: column;
                 justify-content: space-around;
                 align-items: top;
-                width: 80%;
-                margin-top: 3rem;
 
                 &--calendar {
-                    height: 33rem;
-                    margin-bottom: 1rem;
+                    padding: 1rem 0;
+                    height: 40rem;
+                    width: 80%;
+                    margin: 0 auto;
+                    overflow: auto;
+                    border-radius: .5rem;
+                    border: .5rem solid $liteGrey;
                 }
             }
     }

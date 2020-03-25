@@ -41,27 +41,28 @@ export default {
 <style lang="scss" scoped>
 
 .map-container {
-  
-  padding: 1rem;
-  padding-bottom: 8rem;
+  padding: 3rem 1rem 9rem 1rem;
   width: 100%;
-  box-shadow: 0 2px 8px -4px rgba(0,0,0,.75);
+  box-shadow: 0 2px 8px -4px rgba(0, 0, 0, 0.75);
 
   &__inner {
     display: flex;
     justify-content: space-between;
     align-items: top;
+    max-width: 180rem;
     margin: 0 auto;
-    max-width: 120rem;
   }
   
 
   &__left {
     width: 60%;
+    margin: 0 .5rem;
   }
 
   &__right {
-    width: 30%;
+    width: 40%;
+    min-width: 40rem;
+    margin: 0 .5rem;
   }
 }
 

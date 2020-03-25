@@ -1,3 +1,7 @@
+.disabled {
+    filter: opacity(50%);
+}
+
 .m {
     &__t {
         &--1 {

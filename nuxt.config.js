@@ -48,7 +48,6 @@ export default {
       scss: [
         "~assets/scss/variables.scss",
         "~assets/scss/utilities.scss",
-        "~assets/scss/mixins.scss",
         "~assets/scss/page.scss",
         "~assets/scss/animations.scss",
         "~assets/scss/modals.scss",

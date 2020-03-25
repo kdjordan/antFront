@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div
-      class="google-map"
-      ref="googleMap"
-    ></div>
+    <div class="google-map" ref="googleMap"></div>
     <template v-if="Boolean(this.google) && Boolean(this.map)">
       <slot
         :google="google"
@@ -46,8 +43,10 @@
        
       </div>
     </div>
-    <div class="button button--primary w-50 m__b--2" @click.stop="doModal()">Add My Business</div>
-      <div class="button button--primary w-50 m__b--2" @click.stop="doModal()">View Full Map</div>
+    <div class="button-container">
+      <div class="button button--primary" @click.stop="doModal()">Add My Business</div>
+      <div class="button button--primary" @click.stop="doModal()">View Full Map</div>
+    </div>
   </div>
 </template>
 
@@ -89,10 +88,10 @@ export default {
 
 <style lang="scss" scoped>
 
-.w-50 {
-  display: inline-block;
-  width: 30%;
-  margin-left: 12%;
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 img {
@@ -109,9 +108,8 @@ h3 {
 .legend {
   margin-top: 1rem;
   font-family: $font1;
-  margin-bottom: 1rem;
-  padding-bottom: .1rem;
-    
+  margin-bottom: 3rem;
+  
   &__flags-container {
       display: flex;
       justify-content: space-around;
@@ -122,7 +120,6 @@ h3 {
       display: flex;
       justify-content: center;
       align-items: center;
-
     }
 
     &--title {
@@ -131,6 +128,7 @@ h3 {
     }
   }
 }
+
 .google-map {
   width: 100%;
   min-height: 100%;

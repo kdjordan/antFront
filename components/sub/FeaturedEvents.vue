@@ -1,29 +1,32 @@
 <template>
-<div class="events-container">
-  <h3>Featured Events</h3>
-    <div class="events-container__bottom--right__container  m__t--3">
-        <a :href="`${getFeaturedEvent.featuredLink}`" target="_blank">
+<div>
+    <div class="events__container">
+      <h3>Featured Events</h3>
+      <div class="events__container--image-container">
+        <a :href="`${getFeaturedEvent.featuredLink}`" target="_blank"> 
             <transition name="fade" mode="out-in">
                 <img :src="`${getFeaturedEvent.featuredImgUrl}`" 
-                alt="" class="events-container__bottom--right-img" 
+                alt="" class="events__container--img" 
                 :key="`${getEventPage}`">
-            </transition>
+            </transition> 
         </a>
-    </div>
-    <div class="events__indicators">
-        <!-- <img src="~assets/svg/minus.svg" alt=""  :class="{disabled: getEventPageLeftDisabled}" @click="pageLeft('event')"> -->
-        <div class="events__indicators--block-container">
-            <div v-for="(num, index) in getFeaturedEvents.slice(0, getFeaturedEvents.length)" 
-                :key="index" 
-                class="events__indicators--block"  
-                :class="{indicator: getEventPage == `${index}`}">
-            </div>
+      </div>
+    
+        <div class="events__indicators">
+            <!-- <img src="~assets/svg/minus.svg" alt=""  :class="{disabled: getEventPageLeftDisabled}" @click="pageLeft('event')"> -->
+            <div class="events__indicators--block-container">
+                <div v-for="(num, index) in getFeaturedEvents.slice(0, getFeaturedEvents.length)" 
+                    :key="index" 
+                    class="events__indicators--block"  
+                    :class="{indicator: getEventPage == `${index}`}">
+                </div>
 
+            </div>
+            <!-- <img src="~assets/svg/plus.svg" alt="" :class="{disabled: getEventPageRightDisabled}" @click="pageRight('event')"> -->
         </div>
-        <!-- <img src="~assets/svg/plus.svg" alt="" :class="{disabled: getEventPageRightDisabled}" @click="pageRight('event')"> -->
-    </div>
     
     <div class="button button--primary w-50 m__b--2 p__t--3" @click.stop="doModal()">Add My Event</div>
+    </div>
 </div>
 </template>
 
@@ -79,85 +82,39 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.auto-top {
-    margin-top: auto;
-}
+
 h3 {
     font-size: 3rem;
     font-family: $font4;
     color: $color1;
+    text-align: center;
 }
 
 .indicator {
     background: $color1 !important;
 }
 
-.hide {
-    opacity: 0;
-    transition: all .4s ease;
-}
-
-
-.disabled {
-    filter: opacity(50%);
-}
-
-
 .events {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top: 12px dotted #a6d0bc;
-    margin-top: 2rem;
-    border-bottom: 12px dotted #a6d0bc;
-    
-    &-container {
+
+    &__container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
-        max-width: 120rem;
-        width: 100%;
+        // width: 100%;
+        
+        &--image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            height: 35rem;
+        }
 
-            &__bottom {
-                display: flex;
-                justify-content: space-around;
-                align-items: top;
-                width: 100%;
-                
+        // &--img {
+        //     width: 98%;
+        //     margin-left: 1%;
+        // }
 
-                &--left {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                }
-
-                &--calendar {
-                    height: 33rem;
-                    margin-bottom: 1rem;
-                }
-
-                &--right {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-
-                    &__container {
-                        width: 50rem;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-
-                    }
-
-                    &-img {
-                        height: 30rem;
-                        // width: 100%;
-                        margin-bottom: 1rem;
-                    }
-                }
-
-            }
     }
 
     &__indicators {
@@ -165,6 +122,7 @@ h3 {
         justify-content: space-between;
         align-items: center;
         margin-bottom: 2rem;
+        margin: 0 auto;
 
         & img {
             height: 3rem;
