@@ -1,8 +1,5 @@
 <template>
   <div>
-      <h3 class="m__b--2">Plan Your Road Trip</h3>
-      <div class="button button--primary w-50 m__b--2" @click.stop="doModal()">Add My Business</div>
-      <div class="button button--primary w-50 m__b--2" @click.stop="doModal()">View Full Map</div>
     <div
       class="google-map"
       ref="googleMap"
@@ -49,6 +46,8 @@
        
       </div>
     </div>
+    <div class="button button--primary w-50 m__b--2" @click.stop="doModal()">Add My Business</div>
+      <div class="button button--primary w-50 m__b--2" @click.stop="doModal()">View Full Map</div>
   </div>
 </template>
 
@@ -111,8 +110,8 @@ h3 {
   margin-top: 1rem;
   font-family: $font1;
   margin-bottom: 1rem;
-
-
+  padding-bottom: .1rem;
+    
   &__flags-container {
       display: flex;
       justify-content: space-around;

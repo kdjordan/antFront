@@ -7,9 +7,6 @@
         
         <nav class="topnav__right">
             <ul>
-                <!-- <li>
-                    <img src="~assets/svg/home.svg" alt=""><a href="#">home</a>
-                </li> -->
                 <li>
                     <a href="#"><img src="~assets/svg/satellite.svg" alt="">find dealers</a>
                 </li>
@@ -53,25 +50,26 @@ export default {
 <style lang="scss">
 
 .topnav {
-    // border-bottom: 12px dotted #a6d0bc;
-    border-bottom: 1px solid $colorGrey;
+    padding-bottom: .1rem;
+    box-shadow: 0 2px 8px -4px rgba(0,0,0,.75);
 
     &__container {
         display: flex;
         align-items: center;
-        margin: 0 auto;
+        justify-content: space-around;
+        margin: 2rem auto;
         max-width: 120rem;
         width: 100%;
    }
 
    &__left {
-       flex: 1 1 30%;
+       width: 15%;
+       padding: 0 1rem;
        transition: all .4s;
 
        & img {
-           width: 90%;
-           max-width: 35rem;
-           padding-left: 4rem;
+           width: 100%;
+           max-width: 20rem;
        }
 
        &:hover {
@@ -80,48 +78,40 @@ export default {
    }
 
    &__right {
-        flex: 1 1 90%;
-        padding: 0 2rem;
+       width: 80%;
+        & ul {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: baseline;
+            font-family: $font4;
 
-            & ul {
+            & li {
+                cursor: pointer;
                 display: flex;
-                justify-content: space-evenly;
-                align-items: baseline;
-                font-family: $font4;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex: 1 1 10%;
+                transition: all .4s ease;
 
-                & li {
-                    cursor: pointer;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    height: 20rem;
-                    flex: 1 1 10%;
-                    transition: all .4s ease;
-
-                    & img {
-                        margin-bottom: 2rem;
-                        max-height: 6rem;
-                    }
+                & img {
+                    margin-bottom: 2rem;
+                    max-height: 5rem;
                 }
-
-                & a {
-                    color: black;
-                    font-size: 1.3rem;
-                    text-align: center;
-                }
-
-                & li:hover {
-                    transform: translateY(-1rem);
-                }
-    
             }
-   }
-    
-        
-    
-   
 
+            & a {
+                color: black;
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            & li:hover {
+                transform: translateY(-1rem);
+            }
+
+        }
+   }
 }
 
 </style>

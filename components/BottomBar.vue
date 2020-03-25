@@ -19,7 +19,6 @@ export default {
     background: $color1;
     text-transform: uppercase;
     color: white;
-    border-top: 6px solid #b2cfc4;
 }
 
 

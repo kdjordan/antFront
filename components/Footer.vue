@@ -101,7 +101,7 @@ h4 {
 .social-container__item {
     cursor: pointer;
     font-size: 3rem;
-    color: $color2;
+    color: $color1;
     transition: all .4s;
 
     &:hover {

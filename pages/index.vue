@@ -3,13 +3,14 @@
    <BannerAds />
     <AlertBar />
     <div class="map-container">
-      <div class="map-container__left">
-        <Map class="map" />
+      <div class="map-container__inner">
+        <div class="map-container__left">
+          <Map class="map" />
+        </div>
+        <div class="map-container__right">
+          <FeaturedEvents />
+        </div>
       </div>
-      <div class="map-container__right">
-        <FeaturedEvents />
-      </div>
-
     </div>
     <Events />
   </div>
@@ -40,19 +41,27 @@ export default {
 <style lang="scss" scoped>
 
 .map-container {
-  display: flex;
+  
+  padding: 1rem;
   padding-bottom: 8rem;
+  width: 100%;
+  box-shadow: 0 2px 8px -4px rgba(0,0,0,.75);
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+    margin: 0 auto;
+    max-width: 120rem;
+  }
+  
 
   &__left {
-    padding: 2rem 0;
-    flex-grow: 1;
-    width: 45%;
-    margin-left: 5%;
+    width: 60%;
   }
 
   &__right {
-    padding: 2rem 0;
-    flex: 1 1 50%;
+    width: 30%;
   }
 }
 

@@ -3,16 +3,14 @@
     <div class="events">
 
         <div class="events-container">
-            <div class="wave-top"></div>
             <div class="events-container__top">
-                <img src="~assets/svg/bullhorn-wht.svg" alt="">
+                <img src="~assets/svg/bullhorn-red.svg" alt="">
                 <h3>Upcoming Events</h3>
+                <img src="~assets/svg/bullhorn-red.svg" class="flip" alt="">
             </div>
-            <div class="wave-bottom"></div>
-            
-        
+
             <div class="events-container__bottom">
-                <h3>Events Calendar</h3>
+                <!-- <h3>Events Calendar</h3> -->
             <!-- <div class="button button--primary adjust" @click.stop="doModal">Add my event</div> -->
                 <div class="events-container__bottom--calendar">
                     <List :events="getPagedEvents[getCalPage]" :class="{hide: calActive}"/>  
@@ -94,11 +92,8 @@ export default {
 
 <style lang="scss" scoped>
 
-.wave-top {
-    @include wavy(-5px, 4rem, $color1);
-}
-.wave-bottom {
-    @include wavy(46px, 4rem, $color1);
+.flip {
+    transform: scaleX(-1);
 }
 
 .adjust {
@@ -106,10 +101,9 @@ export default {
 }
 
 h3 {
-    font-size: 5rem;
-    margin: 2rem 0 1rem 0;
+    font-size: 7rem;
     font-family: $font3;
-    color: white;
+    color: $color1;
     text-align: center;
 }
 
@@ -134,11 +128,11 @@ h3 {
     width: 100%;
     
     &-container {
-       width: 100%;
+    //    width: 100%;
 
             &__top {
-                // width: 100%;
-                background: $color1;
+                // background: $color1;
+                padding: 1rem 0;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -147,8 +141,8 @@ h3 {
                 font-size: 3rem;
         
                 & img {
-                    width: 10%;
-                    margin-right: 3rem;
+                    width: 6%;
+                    margin: 0 5rem;
                 }
             }
 

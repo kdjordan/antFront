@@ -1,20 +1,18 @@
 <template>
-<div>
-<div class="wave-top"></div>
-  <div class="alert">
-      <div class="alert__container">
-        <div class="alert__left">
-            <transition name="fade" mode="out-in">
-                <Alerts />
-            </transition>
-        </div>
-        <div class="alert__right">
-            <Search />
-        </div>
-      </div>
-  </div>
-  <div class="wave-bottom"></div>
+
+<div class="alert">
+    <div class="alert__container">
+    <div class="alert__left">
+        <transition name="fade" mode="out-in">
+            <Alerts />
+        </transition>
+    </div>
+    <div class="alert__right">
+        <Search />
+    </div>
+    </div>
 </div>
+
 </template>
 
 <script>
@@ -38,11 +36,11 @@ export default {
 <style lang="scss" scoped>
 
 .wave-top {
-    @include wavy(-7px, 2rem, $color1);
+    @include wavy(-7px, 2rem, $color2);
 }
 
 .wave-bottom {
-    @include wavy(27px, 2rem, $color1);
+    @include wavy(27px, 2rem, $color2);
 }
 
 .alert {

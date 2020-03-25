@@ -21,7 +21,7 @@ export default {
 
 .banner-ads {
     // height: 20rem;
-    padding: 2rem 0;
+    padding: 4rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
