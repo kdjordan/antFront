@@ -41,7 +41,7 @@ export default {
 <style lang="scss" scoped>
 
 .map-container {
-  padding: 3rem 1rem 9rem 1rem;
+  padding: 3rem 1rem 4rem 1rem;
   width: 100%;
   box-shadow: 0 2px 8px -4px rgba(0, 0, 0, 0.75);
 

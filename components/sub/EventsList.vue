@@ -69,6 +69,7 @@ export default {
 .card {
     font-family: $font2;
     display: flex;
+    align-items: center;
     color: $color2;
     padding: 0 .5rem;
     margin: .5rem 0;
@@ -79,6 +80,7 @@ export default {
         align-items: center;
         border: 2px solid $color1;
         margin-right: 1rem;
+        align-self: flex-start;
 
         &--month {
             text-transform: uppercase;
@@ -88,7 +90,7 @@ export default {
         }
 
         &--day {
-            margin-top: 1rem;
+            margin: .5rem 0;
             color: $color1;
         }
     }

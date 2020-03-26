@@ -5,7 +5,7 @@ export default [
         featuredImgUrl: require('assets/images/featured-events/fx-back-roads.png'),
         featuredLink:'https://www.facebook.com/BackRoadsJunkItTrail',
         title: 'Back Roads Junk It',
-        desc: 'This would be the even description and could very long or very short. This text represents filler text for the event and is intended  to fill up space to show readability',
+        desc: 'This would be the even description and could very long or very short. This text represents filler text.',
         location: '539 Bedford Rd, Morris, IL 60450',
         locationLink: 'https://www.google.com/maps?saddr=539+Bedford+Rd,Morris,IL,60450',
         profileLink: '',

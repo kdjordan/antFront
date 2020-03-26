@@ -88,7 +88,11 @@ h3 {
     font-family: $font4;
     color: $color1;
     text-align: center;
-    margin-bottom: 1rem;
+    border-top: 4px solid $color1;
+    border-bottom: 4px solid $color1;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .indicator {
@@ -122,8 +126,8 @@ h3 {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 2rem;
         margin: 0 auto;
+        margin-bottom: 1rem;
 
         & img {
             height: 3rem;
