@@ -3,7 +3,7 @@
   <div class="sponsers">
       <div class="sponsers__top">
           <div class="sponsers__top--title">Make Sure to Visit Our Sponsers !</div>
-          <div class="button gold" @click.stop="doModal">become a sponser</div>
+          <div class="button button--primary" @click.stop="doModal">become a sponser</div>
       </div>
       <div class="sponsers__bottom">
         <div v-for="(sponser, index) in getSponsers" :key="index">
@@ -54,9 +54,14 @@ methods: {
             &--title {
                 color: $color1;
                 font-size: 4rem;
+                padding: 1rem 2rem;
                 font-family: $font4;
                 margin-bottom: 2rem;
+                border-top: 4px solid $color1;
+                border-bottom: 4px solid $color1;
+                border-radius: 1rem;
             }
+            
         }
 
         &__bottom {
@@ -67,6 +72,7 @@ methods: {
 
     & h3 {
         font-family: $font4;
+       
     }
 
     &__image {

@@ -6,7 +6,7 @@
             <div class="events-container__top">
                 <!-- <img src="~assets/svg/bullhorn-red.svg" alt=""> -->
                 <h3>Upcoming Events</h3>
-                <div class="button button--primary">add my event</div>
+                <div class="button button--primary" @click.stop="doModal">add my event</div>
             </div>
 
             <div class="events-container__bottom">
@@ -15,19 +15,6 @@
                 <div class="events-container__bottom--calendar">
                     <List :events="getEvents" :class="{hide: calActive}"/>  
                 </div>
-        
-                <!-- <div class="events__indicators">
-                    <img src="~assets/svg/minus.svg" alt=""  :class="{disabled: getCalPageLeftDisabled}" @click="pageLeft">
-                    <div class="events__indicators--block-container">
-                        <div v-for="(num, index) in getPagedEvents.slice(0, getPagedEvents.length)" 
-                            :key="index" 
-                            class="events__indicators--block"  
-                            :class="{indicator: getCalPage == `${index}`}">
-                        </div>
-                
-                    </div>
-                    <img src="~assets/svg/plus.svg" alt="" :class="{disabled: getCalPageRightDisabled}" @click="pageRight">
-                </div> -->
             </div>
         </div>     
     </div>
@@ -102,10 +89,11 @@ h3 {
     font-family: $font4;
     color: $color1;
     text-align: center;
-    border: 4px solid $color1;
+    border-top: 4px solid $color1;
+    border-bottom: 4px solid $color1;
     padding: 1rem 2rem;
     margin-bottom: 2rem;
-    border-radius: .5rem;
+    border-radius: 1rem;
 }
 
 .indicator {
@@ -164,41 +152,6 @@ h3 {
                 }
             }
     }
-
-    &__indicators {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 50%;
-        margin: 0 auto;
-
-        & img {
-            height: 3rem;
-            cursor: pointer;
-            transition: all .4s;
-
-            &:hover {
-                filter: opacity(50%);
-            }
-        }
-
-        &--block-container {
-            display: flex;
-            margin-bottom: 2rem;
-        }
-        
-        &--block {
-            display: block;
-            width: 1.5rem;
-            height: 1.5rem;
-            border-radius: 2rem;
-            background: $color2;
-            margin: 0rem .5rem;
-            margin-top: 2rem;
-        }
-    }
-
-
 }
 
     

@@ -17,10 +17,10 @@
                     <div class="card__details--desc">
                         {{event.desc}}
                     </div>
-                    <div class="card__details--time">
+                    <!-- <div class="card__details--time">
                         START: <span class="card__details--time-details">{{event.dates[0].start}}</span> -
                         END: <span class="card__details--time-details">{{event.dates[0].end}}</span>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="card__more" @click="showEvent(event)">
                     MORE
@@ -100,12 +100,13 @@ export default {
 
         &--title {
             align-items: flex-start;
-            font-size: 1.9rem;
+            font-size: 2.2rem;
             margin-bottom: .2rem;
+            font-weight: bold;
         }
 
         &--desc {
-            max-width: 80%;
+            width: 95%;
         }
 
         &--time {
@@ -125,16 +126,19 @@ export default {
     &__more {
         cursor: pointer;
         font-size: 1rem;
-        color: $color1;
-        border: 2px solid $color1;
+        color: white;
+        background: $color2;
+        border: 2px solid $color2;
+        border-radius: 1rem;
         align-self: flex-start;
         padding: 0 .5rem;
         transition: all .4s;
     }
 
     &__more:hover {
-        background: $color1;
-        color: white;
+        background: transparent;
+        color: $color2;
+        border: 2px solid $color2;
     }
 }
 

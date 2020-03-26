@@ -18,13 +18,16 @@ export default {
 
 <style lang="scss" scoped>
 
+img {
+    width: 75%;
+}
 
 .banner-ads {
-    // height: 20rem;
     padding: 4rem 0;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 100%;
     max-width: 120rem;
     margin: 0 auto;
 

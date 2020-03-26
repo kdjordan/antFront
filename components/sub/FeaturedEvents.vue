@@ -88,6 +88,7 @@ h3 {
     font-family: $font4;
     color: $color1;
     text-align: center;
+    margin-bottom: 1rem;
 }
 
 .indicator {
