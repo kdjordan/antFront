@@ -12,6 +12,9 @@
             <div class="events-container__bottom">
                 <!-- <h3>Events Calendar</h3> -->
             <!-- <div class="button button--primary adjust" @click.stop="doModal">Add my event</div> -->
+            <div class="events-container__bottom--instruct">
+              <span>click on an event for details : scroll for more events</span> 
+            </div>
                 <div class="events-container__bottom--calendar">
                     <List :events="getEvents" :class="{hide: calActive}"/>  
                 </div>
@@ -141,8 +144,23 @@ h3 {
                 justify-content: space-around;
                 align-items: top;
 
+                &--instruct {
+                    text-transform: uppercase;
+                    color: $color1;
+                    padding-bottom: .5rem;
+                    text-align: center;
+                    width: 80%;
+                    margin: 0 auto;
+
+                    & span {
+                        border-left: 4px solid $color1;
+                        border-right: 4px solid $color1;
+                        border-radius: 1rem;
+                        padding: 0 1rem;
+                    }
+                }
+
                 &--calendar {
-                    padding: 1rem 0;
                     height: 40rem;
                     width: 80%;
                     margin: 0 auto;
