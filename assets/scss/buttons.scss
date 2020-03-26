@@ -15,9 +15,10 @@
         transition: all .4s;
 
         &:hover {
-            background: white;
-            color: $color1;
-            border: 2px solid $color1;
+            background: transparent;
+            color: $color2;
+            border: 2px solid $color2;
+            font-weight: bold;
         }
     }
 
