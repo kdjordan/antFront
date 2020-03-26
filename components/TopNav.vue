@@ -11,7 +11,7 @@
                 <NuxtLink to="#" class="link">Upcoming<br />Events</NuxtLink>
                 <NuxtLink to="/daily-news" class="link">Daily<br />News</NuxtLink>
                 <NuxtLink to="#" class="link">Vendors Needed</NuxtLink>
-                <NuxtLink to="#" class="link">Advertise</NuxtLink>
+                <NuxtLink to="/advertise" class="link">Advertise</NuxtLink>
                 <NuxtLink @click.native="doModal" to="#" class="link" >Contact</NuxtLink>
                 <NuxtLink to="#" class="link" @click.prevent="doModal">Login</NuxtLink>
             </ul>
