@@ -109,6 +109,7 @@ h3 {
   margin-top: 1rem;
   font-family: $font1;
   margin-bottom: 3rem;
+  font-family: $font4;
   
   &__flags-container {
       display: flex;

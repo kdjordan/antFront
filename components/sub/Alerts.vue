@@ -81,7 +81,8 @@ export default {
         &--name {
             text-transform: none;
             font-style: italic;
-            font-size: 1.6rem;
+            font-size: 1.9rem;
+            font-family: $font4;
         }
 
         &:hover {

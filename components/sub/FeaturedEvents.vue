@@ -88,7 +88,7 @@ h3 {
     font-family: $font4;
     color: $color1;
     text-align: center;
-    border-top: 4px solid $color1;
+    // border-top: 4px solid $color1;
     border-bottom: 4px solid $color1;
     border-radius: 1rem;
     padding: 1rem 2rem;

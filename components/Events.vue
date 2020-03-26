@@ -92,7 +92,7 @@ h3 {
     font-family: $font4;
     color: $color1;
     text-align: center;
-    border-top: 4px solid $color1;
+    // border-top: 4px solid $color1;
     border-bottom: 4px solid $color1;
     padding: 1rem 2rem;
     margin-bottom: 2rem;
@@ -145,6 +145,7 @@ h3 {
                 align-items: top;
 
                 &--instruct {
+                    font-weight: bold;
                     text-transform: uppercase;
                     color: $color1;
                     padding-bottom: .5rem;

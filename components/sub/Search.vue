@@ -14,14 +14,14 @@ export default {
 <style lang="scss" scoped>
 
 .search {
-    width: 100%;
+    // width: 100%;
     position: relative;
 
 
     & input {
-        width: 80%;
-        float: right;
-        margin-right: 2rem;
+        width: 65%;
+        
+        margin-left: 15%;
         border-radius: 2rem;
         outline: none;
         border: none;
@@ -35,7 +35,7 @@ export default {
         z-index: 1;
         position: absolute;
         top: .8rem;
-        right: 3.2rem;
+        right: 23%;
     }
 }
 </style>

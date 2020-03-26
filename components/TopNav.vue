@@ -2,31 +2,31 @@
   <div class="topnav">  
       <div class="topnav__container">
         <div class="topnav__left">
-                <NuxtLink to="/"><img src="~/assets/images/logo-solo.png" class="left" alt="iowa antique network logo"></NuxtLink>
+                <NuxtLink to="/"><img src="~/assets/svg/alt-logo-red3.svg" class="left" alt="iowa antique network logo"></NuxtLink>
         </div>
         
         <nav class="topnav__right">
             <ul>
                 <li>
-                    <a href="#"><img src="~assets/svg/satellite.svg" alt="">find dealers</a>
+                    <a href="#">find dealers</a>
                 </li>
                 <li>
-                    <a href="#"><img src="~assets/svg/radio.svg" alt="">upcoming events</a>
+                    <a href="#">upcoming events</a>
                 </li>
                 <li>
-                    <NuxtLink to="/daily-news"><img src="~assets/svg/newstv.svg" alt="">daily news</NuxtLink>
+                    <NuxtLink to="/daily-news">daily news</NuxtLink>
                 </li>
                 <li>
-                    <a href="#"><img src="~assets/svg/bullhorn.svg" alt="">vendors needed</a>
+                    <a href="#">vendors needed</a>
                 </li>
                 <li>
-                    <NuxtLink to="/advertise"><img src="~assets/svg/tower.svg" alt="">advertise</NuxtLink>
+                    <NuxtLink to="/advertise">advertise</NuxtLink>
                 </li>
                 <li>
-                    <a href="#" @click.prevent="doModal"><img src="~assets/svg/contact.svg" alt="">contact</a>
+                    <a href="#" @click.prevent="doModal">contact</a>
                 </li>
                 <li>
-                    <a href="#"><img src="~assets/svg/lock.svg" alt="">login</a>
+                    <a href="#">login</a>
                 </li>
             </ul>
         </nav>
@@ -50,27 +50,23 @@ export default {
 <style lang="scss">
 
 .topnav {
-    padding-bottom: .1rem;
     box-shadow: 0 2px 8px -4px rgba(0,0,0,.75);
-    
+    padding: 1rem;
 
     &__container {
         display: flex;
         align-items: center;
-        justify-content: space-around;
-        margin: 2rem auto;
+        justify-content: space-between;
+        margin: 0 auto;
         max-width: 120rem;
-        width: 100%;
    }
 
    &__left {
-       width: 15%;
        padding: 0 1rem;
        transition: all .4s;
 
        & img {
            width: 100%;
-           max-width: 20rem;
        }
 
        &:hover {
@@ -79,7 +75,6 @@ export default {
    }
 
    &__right {
-       width: 80%;
         & ul {
             display: flex;
             justify-content: space-evenly;
@@ -92,13 +87,13 @@ export default {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                flex: 1 1 10%;
+                // flex: 1 1 15%;
                 transition: all .4s ease;
 
-                & img {
-                    margin-bottom: 2rem;
-                    max-height: 5rem;
-                }
+                // & img {
+                //     margin-bottom: 2rem;
+                //     max-height: 5rem;
+                // }
             }
 
             & a {

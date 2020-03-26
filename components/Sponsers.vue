@@ -57,7 +57,7 @@ methods: {
                 padding: 1rem 2rem;
                 font-family: $font4;
                 margin-bottom: 2rem;
-                border-top: 4px solid $color1;
+                // border-top: 4px solid $color1;
                 border-bottom: 4px solid $color1;
                 border-radius: 1rem;
             }
