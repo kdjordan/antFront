@@ -19,7 +19,7 @@ export default {
 <style lang="scss" scoped>
 
 img {
-    width: 75%;
+    width: 60%;
 }
 
 .banner-ads {

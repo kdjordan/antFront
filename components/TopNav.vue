@@ -7,27 +7,13 @@
         
         <nav class="topnav__right">
             <ul>
-                <li>
-                    <a href="#">find dealers</a>
-                </li>
-                <li>
-                    <a href="#">upcoming events</a>
-                </li>
-                <li>
-                    <NuxtLink to="/daily-news">daily news</NuxtLink>
-                </li>
-                <li>
-                    <a href="#">vendors needed</a>
-                </li>
-                <li>
-                    <NuxtLink to="/advertise">advertise</NuxtLink>
-                </li>
-                <li>
-                    <a href="#" @click.prevent="doModal">contact</a>
-                </li>
-                <li>
-                    <a href="#">login</a>
-                </li>
+                <NuxtLink to="#" class="link">Find<br />Dealers</NuxtLink>
+                <NuxtLink to="#" class="link">Upcoming<br />Events</NuxtLink>
+                <NuxtLink to="/daily-news" class="link">Daily<br />News</NuxtLink>
+                <NuxtLink to="#" class="link">Vendors Needed</NuxtLink>
+                <NuxtLink to="#" class="link">Advertise</NuxtLink>
+                <NuxtLink @click.native="doModal" to="#" class="link" >Contact</NuxtLink>
+                <NuxtLink to="#" class="link" @click.prevent="doModal">Login</NuxtLink>
             </ul>
         </nav>
     </div>
@@ -51,7 +37,7 @@ export default {
 
 .topnav {
     box-shadow: 0 2px 8px -4px rgba(0,0,0,.75);
-    padding: 1rem;
+    // padding: 1rem;
 
     &__container {
         display: flex;
@@ -75,35 +61,40 @@ export default {
    }
 
    &__right {
+       width: 80%;
+       margin-left: 10%;
         & ul {
             display: flex;
             justify-content: space-evenly;
             align-items: baseline;
             font-family: $font4;
 
-            & li {
+            & .link {
                 cursor: pointer;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                align-items: center;
-                // flex: 1 1 15%;
+                align-items: space-around;
+                padding: 2.5rem 0rem;
+                width: 100%;
+                align-self: stretch;
                 transition: all .4s ease;
-
-                // & img {
-                //     margin-bottom: 2rem;
-                //     max-height: 5rem;
-                // }
             }
 
             & a {
                 color: black;
+                line-height: 2rem;
                 font-size: 1.5rem;
                 text-align: center;
+                transition: all .4s ease;
             }
 
-            & li:hover {
-                transform: translateY(-1rem);
+            & .link:hover {
+                background: $color1;
+            } 
+            
+            & .link:hover {
+                color: white;
             }
 
         }
