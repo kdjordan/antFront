@@ -89,6 +89,7 @@ export default {
                 transition: all .4s ease;
             }
 
+            
             & .link:hover {
                 background: $color1;
             } 
