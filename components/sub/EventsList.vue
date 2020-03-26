@@ -1,7 +1,7 @@
 <template>
   <div class="list">
         <div v-for="(event, index) in events" :key="index" class="listings">
-            <div class="card">
+            <div class="card" @click="showEvent(event)">
                 <div class="card__date">
                     <div class="card__date--month">
                         {{event.dates[0].month}}
@@ -22,9 +22,9 @@
                         END: <span class="card__details--time-details">{{event.dates[0].end}}</span>
                     </div> -->
                 </div>
-                <div class="card__more" @click="showEvent(event)">
+                <!-- <div class="card__more" @click="showEvent(event)">
                     MORE
-                </div>
+                </div> -->
             </div>
          </div>
     </div>
@@ -57,19 +57,21 @@ export default {
 }
 
 .listings {
-    width: 95%;
-    margin: 0 auto;
+    cursor: pointer;
+    border-bottom: 2px solid $color1;
+    transition: all .4s;
 
+    &:hover {
+        background: rgba(205, 205, 205, .4);
+    }
 }
 
 .card {
     font-family: $font2;
     display: flex;
-    // justify-content: space-around;
-    
-    
     color: $color2;
-    margin: .2rem 0;
+    padding: 0 .5rem;
+    margin: .5rem 0;
 
     &__date {
         display: flex;
@@ -103,10 +105,6 @@ export default {
             font-size: 2.2rem;
             margin-bottom: .2rem;
             font-weight: bold;
-        }
-
-        &--desc {
-            width: 95%;
         }
 
         &--time {
