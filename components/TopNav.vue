@@ -69,18 +69,21 @@ export default {
 
         & nav {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             width: 100%;
-            max-width: 110rem;
+            max-width: 120rem;
             margin: 0 auto;
             
 
             & .link {
+                text-align: center;
                 font-family: $font4;
+                font-size: 2rem;
+                text-transform: uppercase;
                 color: white;
                 cursor: pointer;
-                padding: 1.2rem 2rem;
+                padding: 1.5rem 1.5rem;
                 align-self: stretch;
                 background: $color1;
                 transition: all .4s ease;
@@ -97,82 +100,5 @@ export default {
 
 }
 
-// .topnav {
-
-//     &__top{
-
-//         &--container {
-//             display: flex;
-//             align-items: center;
-//             justify-content: space-between;
-//             margin: 0 auto;
-            
-//             border-bottom: 2px solid $color1;
-//         }
-//    }
-
-//    &__bottom nav {
-//        width: 100%;
-//        display: flex;
-//    }
-
-//    &__left {
-//     //    width: 100%;
-//        padding: 0 1rem;
-//        transition: all .4s;
-
-//        & img {
-//            width: 60%;
-//            min-width: 10rem;
-//            padding: .5rem 0;
-           
-//        }
-
-//        &:hover {
-//            transform: translateY(-.3rem);
-//        }
-//    }
-
-//    &__right {
-//        flex-basis: 100%;
-//     //    margin-left: 10%;
-//         & ul {
-//             display: flex;
-//             justify-content: space-evenly;
-//             align-items: baseline;
-//             font-family: $font4;
-
-//             & .link {
-//                 cursor: pointer;
-//                 display: flex;
-//                 flex-direction: column;
-//                 justify-content: center;
-//                 align-items: space-around;
-//                 padding: 2.9rem 0rem;
-//                 width: 100%;
-//                 align-self: stretch;
-//                 transition: all .4s ease;
-//             }
-
-//             & a {
-//                 color: black;
-//                 line-height: 2rem;
-//                 font-size: 1.5rem;
-//                 text-align: center;
-//                 transition: all .4s ease;
-//             }
-
-            
-//             & .link:hover {
-//                 background: $color2;
-//             } 
-            
-//             & .link:hover {
-//                 color: white;
-//             }
-
-//         }
-//    }
-// }
 
 </style>
