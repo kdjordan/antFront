@@ -2,7 +2,7 @@
   <div class="topnav">  
       <div class="topnav__container">
         <div class="topnav__left">
-                <NuxtLink to="/"><img src="~/assets/svg/alt-logo-red3.svg" class="left" alt="iowa antique network logo"></NuxtLink>
+                <NuxtLink to="/"><img src="~/assets/svg/logo.svg" class="left" alt="iowa antique network logo"></NuxtLink>
         </div>
         
         <nav class="topnav__right">
@@ -52,7 +52,9 @@ export default {
        transition: all .4s;
 
        & img {
-           width: 100%;
+           width: 60%;
+           padding: .5rem 0;
+           
        }
 
        &:hover {
@@ -75,7 +77,7 @@ export default {
                 flex-direction: column;
                 justify-content: center;
                 align-items: space-around;
-                padding: 2.5rem 0rem;
+                padding: 2.9rem 0rem;
                 width: 100%;
                 align-self: stretch;
                 transition: all .4s ease;
@@ -91,7 +93,7 @@ export default {
 
             
             & .link:hover {
-                background: $color1;
+                background: $color2;
             } 
             
             & .link:hover {
