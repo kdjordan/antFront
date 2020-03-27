@@ -40,13 +40,12 @@ methods: {
 
 .sponsers {
     margin: 5rem 0;
-    box-shadow: 0 2px 8px -4px rgba(0, 0, 0, 0.75);
+    background: $color2;
 
         &__top {
             width: 100%;
-            background: $color1;
             margin: 0 auto;
-            padding: 2rem 0 ;
+            padding: 4rem 0 2rem 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
