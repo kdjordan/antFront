@@ -88,7 +88,6 @@ h3 {
     font-family: $font4;
     color: $color1;
     text-align: center;
-    // border-top: 4px solid $color1;
     border-bottom: 4px solid $color1;
     border-radius: 1rem;
     padding: 1rem 2rem;
@@ -114,12 +113,6 @@ h3 {
             justify-content: space-evenly;
             height: 35rem;
         }
-
-        // &--img {
-        //     width: 98%;
-        //     margin-left: 1%;
-        // }
-
     }
 
     &__indicators {
@@ -127,7 +120,7 @@ h3 {
         justify-content: space-between;
         align-items: center;
         margin: 0 auto;
-        margin-bottom: 1rem;
+        margin-bottom: 2.1rem;
 
         & img {
             height: 3rem;

@@ -118,7 +118,7 @@ h3 {
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding-top: 2rem;
+    padding-top: 3rem;
     padding-bottom: 6rem;
     box-shadow: 0 2px 8px -4px rgba(0, 0, 0, 0.75);
     

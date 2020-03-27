@@ -10,7 +10,7 @@
                 <NuxtLink to="#" class="link">Find<br />Dealers</NuxtLink>
                 <NuxtLink to="#" class="link">Upcoming<br />Events</NuxtLink>
                 <NuxtLink to="/daily-news" class="link">Daily<br />News</NuxtLink>
-                <NuxtLink to="#" class="link">Vendors Needed</NuxtLink>
+                <NuxtLink to="#" class="link">Vendors<br />Needed</NuxtLink>
                 <NuxtLink to="/advertise" class="link">Advertise</NuxtLink>
                 <NuxtLink @click.native="doModal" to="#" class="link" >Contact</NuxtLink>
                 <NuxtLink to="#" class="link" @click.prevent="doModal">Login</NuxtLink>
@@ -48,11 +48,13 @@ export default {
    }
 
    &__left {
+    //    width: 100%;
        padding: 0 1rem;
        transition: all .4s;
 
        & img {
            width: 60%;
+           min-width: 10rem;
            padding: .5rem 0;
            
        }
@@ -63,8 +65,8 @@ export default {
    }
 
    &__right {
-       width: 80%;
-       margin-left: 10%;
+       flex-basis: 100%;
+    //    margin-left: 10%;
         & ul {
             display: flex;
             justify-content: space-evenly;
