@@ -3,7 +3,7 @@
   <div class="sponsers">
       <div class="sponsers__top">
           <div class="sponsers__top--title">Make Sure to Visit Our Sponsers !</div>
-          <div class="button button--primary" @click.stop="doModal">become a sponser</div>
+          <div class="button button--trans" @click.stop="doModal">become a sponser</div>
       </div>
       <div class="sponsers__bottom">
         <div v-for="(sponser, index) in getSponsers" :key="index">
@@ -39,12 +39,14 @@ methods: {
 <style lang="scss" scoped>
 
 .sponsers {
-    padding: 5rem 0;
+    margin: 5rem 0;
     box-shadow: 0 2px 8px -4px rgba(0, 0, 0, 0.75);
 
-    // background: $color2;
-
         &__top {
+            width: 100%;
+            background: $color1;
+            margin: 0 auto;
+            padding: 2rem 0 ;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -52,19 +54,17 @@ methods: {
             margin-bottom: 2rem;
 
             &--title {
-                color: $color1;
+                color: white;
                 font-size: 4rem;
-                padding: 1rem 2rem;
                 font-family: $font4;
                 margin-bottom: 2rem;
-                // border-top: 4px solid $color1;
-                border-bottom: 4px solid $color1;
-                border-radius: 1rem;
+               
             }
             
         }
 
         &__bottom {
+            padding: 2rem 0 4rem 0;
             display: flex;
             justify-content: space-evenly;
             align-items: center;

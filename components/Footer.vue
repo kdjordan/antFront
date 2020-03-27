@@ -122,7 +122,7 @@ h4 {
     font-size: 1.4rem;
     
     &__container {
-        padding: 4rem 0;
+        padding-bottom: 4rem;
         display: flex;
         justify-content: space-evenly;
         align-items: top;

@@ -1,6 +1,6 @@
 <template>
   <div class="search">  
-    <input type="text" placeholder="Search for a shop or event...">
+    <input type="text" placeholder="Search for a shop...">
     <img role="img" src="~assets/svg/mag-glass.svg" alt="">
     </div>
 </template>
@@ -14,12 +14,10 @@ export default {
 <style lang="scss" scoped>
 
 .search {
-    // width: 100%;
     position: relative;
-
-
+    
     & input {
-        width: 65%;
+        width: 98%;
         
         margin-left: 15%;
         border-radius: 2rem;
@@ -34,8 +32,8 @@ export default {
         width: 2.2rem;
         z-index: 1;
         position: absolute;
-        top: .8rem;
-        right: 23%;
+        top: .6rem;
+        left: 100%;
     }
 }
 </style>

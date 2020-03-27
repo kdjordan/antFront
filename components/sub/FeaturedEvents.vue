@@ -13,7 +13,7 @@
       </div>
     
         <div class="events__indicators">
-            <!-- <img src="~assets/svg/minus.svg" alt=""  :class="{disabled: getEventPageLeftDisabled}" @click="pageLeft('event')"> -->
+            <img src="~assets/svg/minus.svg" alt=""  :class="{disabled: getEventPageLeftDisabled}" @click="pageLeft('event')">
             <div class="events__indicators--block-container">
                 <div v-for="(num, index) in getFeaturedEvents.slice(0, getFeaturedEvents.length)" 
                     :key="index" 
@@ -22,7 +22,7 @@
                 </div>
 
             </div>
-            <!-- <img src="~assets/svg/plus.svg" alt="" :class="{disabled: getEventPageRightDisabled}" @click="pageRight('event')"> -->
+            <img src="~assets/svg/plus.svg" alt="" :class="{disabled: getEventPageRightDisabled}" @click="pageRight('event')">
         </div>
     
     <div class="button button--primary w-50 m__b--2 p__t--3" @click.stop="doModal()">Add My Event</div>
@@ -84,13 +84,12 @@ export default {
 <style lang="scss" scoped>
 
 h3 {
+    background: $color2;
     font-size: 3rem;
     font-family: $font4;
-    color: $color1;
+    color: white;
     text-align: center;
-    border-bottom: 4px solid $color1;
-    border-radius: 1rem;
-    padding: 1rem 2rem;
+    padding: 1.4rem 4rem;
     margin-bottom: 2.5rem;
 }
 
@@ -99,12 +98,10 @@ h3 {
 }
 
 .events {
-
     &__container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        // width: 100%;
         
         &--image-container {
             display: flex;

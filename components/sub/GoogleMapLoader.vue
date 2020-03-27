@@ -1,5 +1,6 @@
 <template>
   <div>
+    <AlertBar /> 
     <div class="google-map" ref="googleMap"></div>
     <template v-if="Boolean(this.google) && Boolean(this.map)">
       <slot
@@ -43,17 +44,18 @@
        
       </div>
     </div>
-    <div class="button-container">
-      <div class="button button--primary" @click.stop="doModal()">Add My Business</div>
-      <div class="button button--primary" @click.stop="doModal()">View Full Map</div>
-    </div>
+    
   </div>
 </template>
 
 <script>
-import GoogleMapsApiLoader from "google-maps-api-loader";
+import GoogleMapsApiLoader from "google-maps-api-loader"
+import AlertBar from '@/components/AlertBar'
 
 export default {
+  components: {
+    AlertBar
+  },
   props: {
     mapConfig: Object,
     apiKey: String
@@ -88,15 +90,8 @@ export default {
 
 <style lang="scss" scoped>
 
-.button-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
 
-img {
-  width: 3.5rem;
-}
+
 
 h3 {
     font-size: 3rem;
@@ -106,10 +101,12 @@ h3 {
 }
 
 .legend {
-  margin-top: 1rem;
+  padding: 1rem 0;
   font-family: $font1;
   margin-bottom: 3rem;
-  font-family: $font4;
+  background: $color2;
+  border: 2px solid $color2;
+  border-top: none;
   
   &__flags-container {
       display: flex;
@@ -121,9 +118,14 @@ h3 {
       display: flex;
       justify-content: center;
       align-items: center;
+
+      & img {
+        width: 4rem;
+      }
     }
 
     &--title {
+      color: white;
       margin-left: .3rem;
       font-size: 1.5rem;
     }
