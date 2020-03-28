@@ -96,7 +96,6 @@ textarea::placeholder {
     max-width: 80%; 
     margin: 0 auto;
     border: 2px solid $color1;
-    border-radius: 2rem;
     appearance: none;
     outline: none;
     background-image: url('../../assets/images/arrow.png');
@@ -108,14 +107,12 @@ textarea::placeholder {
 input {
     width: 17rem;
     border: 2px solid $color1;
-    border-radius: 1.5rem;
     padding: 1rem 1rem;
     outline: none;
 }
 
 textarea {
     padding: 1rem;
-    border-radius: 1.5rem;
     border: 2px solid $color1;
     outline: none;
 }

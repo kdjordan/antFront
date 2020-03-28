@@ -1,0 +1,77 @@
+<template>
+  <div class="carousel">
+      <h3>Featured Events</h3>
+      <div class="underline"></div>
+      <div class="button button--primary w-50" @click.stop="doModal">add my featured event</div>
+      <div class="carousel__container">
+          <img src="~assets/svg/minus.svg" alt=""  class="indicator" :class="{disabled: getEventPageLeftDisabled}" @click="pageLeft('event')">
+          <div class="image">
+              <img src="~/assets/images/featured-events/fx-As2.png" alt="">
+          </div>
+          <div class="image">
+              <img src="~/assets/images/featured-events/fx-geneva.png" alt="">
+          </div>
+          <div class="image">
+              <img src="~/assets/images/featured-events/fx-junkwood.png" alt="">
+          </div>
+          <div class="image">
+              <img src="~/assets/images/featured-events/fx-junkin-sisters.png" alt="">
+          </div>
+          <img src="~assets/svg/plus.svg" alt=""  class="indicator" :class="{disabled: getEventPageLeftDisabled}" @click="pageLeft('event')">
+      </div>
+
+  </div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style lang="scss" scoped>
+
+.indicator {
+    width: 3rem;
+}
+
+.w-50 {
+    margin: 0 auto;
+    width: 25rem;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    margin: 0 auto;
+    font-size: 5rem;
+    font-family: $font4;
+    color: $color1;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.image {
+    margin: 0 1rem;
+
+    & img {
+        width: 100%;
+        max-width: 60rem;
+        height: 100%;
+        max-height: 40rem;
+    }
+}
+
+.carousel {
+    // border: 1px solid red;
+    width: 100%;
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+</style>

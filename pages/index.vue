@@ -1,7 +1,5 @@
 <template>
-  <div>
-   <!-- <Carousel /> -->
-    
+  <div> 
     <div class="map-container">
       <div class="map-container__inner">
         <div class="map-container__left">
@@ -12,28 +10,24 @@
         </div>
       </div>
     </div>
-    <!-- <Events />  -->
   </div>
 </template>
 
 <script>
 import AlertBar from '@/components/AlertBar'
-import Events from '@/components/Events'
 import Map from '@/components/Map'
 import Sponsers from '@/components/Sponsers'
 import FeaturedEvents from '@/components/sub/FeaturedEvents'
-import Carousel from '@/components/sub/Carousel'
+
 import { mapSettings } from '../static/constants/mapSettings'
 
 export default {
   transition: 'fade',
   components: {
     AlertBar,
-    Events,
     Map,
     Sponsers,
     FeaturedEvents,
-    Carousel
   },
 }
 </script>
@@ -54,14 +48,11 @@ export default {
   
 
   &__left {
-    width: 60%;
-    margin: 0 .5rem;
+    width: 70%;
   }
 
   &__right {
-    width: 40%;
     min-width: 40rem;
-    margin: 0 .5rem;
   }
 }
 

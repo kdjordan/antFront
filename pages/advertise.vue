@@ -96,7 +96,6 @@ export default {
     }
 
     &__card {
-        // min-height: 67rem;
         width: 25%;
         margin: 0 .7rem;
         display: flex;

@@ -4,17 +4,14 @@
 
         <div class="events-container">
             <div class="events-container__top">
-                <!-- <img src="~assets/svg/bullhorn-red.svg" alt=""> -->
                 <h3>Upcoming Events</h3>
-                
+                <div class="underline"></div>
                 <div class="button button--primary" @click.stop="doModal">add my event</div>
             </div>
 
             <div class="events-container__bottom">
-                <!-- <h3>Events Calendar</h3> -->
-            <!-- <div class="button button--primary adjust" @click.stop="doModal">Add my event</div> -->
             <div class="events-container__bottom--instruct">
-              <span>click on an event for details : scroll for more events</span> 
+              <span>"click" on an event for details : "scroll" for more events</span> 
             </div>
                 <div class="events-container__bottom--calendar">
                     <List :events="getEvents" :class="{hide: calActive}"/>  
@@ -22,18 +19,22 @@
             </div>
         </div>     
     </div>
+    <EventsCarousel />
 </div>
 </template>
 
 <script>
 import List from '@/components/sub/EventsList'
+import EventsCarousel from '@/components/sub/EventsCarousel'
 
 
 import { mapGetters } from 'vuex'
 
 export default {
+    transition: 'fade',
     components: {
-        List
+        List,
+        EventsCarousel
     },
     data() {
         return {
@@ -84,15 +85,17 @@ export default {
 
 <style lang="scss" scoped>
 
+.flip {
+    transform: scaleX(-1);
+}
+
 h3 {
     font-size: 6rem;
     font-family: $font4;
     color: $color1;
     text-align: center;
-    border-bottom: 4px solid $color1;
-    padding: 1rem 2rem;
+    padding-top: 3rem;
     margin-bottom: 2rem;
-    border-radius: 1rem;
 }
 
 .indicator {
@@ -114,61 +117,56 @@ h3 {
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding-top: 3rem;
     padding-bottom: 6rem;
     
     &-container {
 
-            &__top {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding: 3rem 0 3rem 0;
-                font-family: $font2;
-                
-                & img {
-                    width: 6%;
-                    margin: 0 5rem;
+        &__top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 0 3rem 0;
+            font-family: $font2;
+            
+            & img {
+                width: 6%;
+                margin: 0 5rem;
+            }
+        }
+
+        &__bottom {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: top;
+
+            &--instruct {
+                font-weight: bold;
+                text-transform: uppercase;
+                color: $color1;
+                padding-bottom: .5rem;
+                text-align: center;
+                width: 80%;
+                margin: 0 auto;
+
+                & span {
+                    border-left: 4px solid $color1;
+                    border-right: 4px solid $color1;
+                    border-radius: 1rem;
+                    padding: 0 1rem;
                 }
             }
 
-            &__bottom {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                align-items: top;
-
-                &--instruct {
-                    font-weight: bold;
-                    text-transform: uppercase;
-                    color: $color1;
-                    padding-bottom: .5rem;
-                    text-align: center;
-                    width: 80%;
-                    margin: 0 auto;
-
-                    & span {
-                        border-left: 4px solid $color1;
-                        border-right: 4px solid $color1;
-                        border-radius: 1rem;
-                        padding: 0 1rem;
-                    }
-                }
-
-                &--calendar {
-                    height: 40rem;
-                    width: 80%;
-                    margin: 0 auto;
-                    overflow: auto;
-                    border-radius: .5rem;
-                    border: .5rem solid $color2;
-                }
+            &--calendar {
+                height: 40rem;
+                width: 80%;
+                margin: 0 auto;
+                overflow: auto;
+                border-radius: .5rem;
+                border: .5rem solid $color2
             }
+        }
     }
 }
-
-    
-
-
 </style>

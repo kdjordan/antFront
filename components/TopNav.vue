@@ -8,8 +8,8 @@
     </div>
     <div class="nav__bottom">
         <nav>
-            <NuxtLink to="#" class="link">Find Dealers</NuxtLink>
-            <NuxtLink to="#" class="link">Upcoming Events</NuxtLink>
+            <NuxtLink to="/dealers" class="link">Find Dealers</NuxtLink>
+            <NuxtLink to="/events" class="link">Upcoming Events</NuxtLink>
             <NuxtLink to="/daily-news" class="link">Daily News</NuxtLink>
             <NuxtLink to="#" class="link">Vendors Needed</NuxtLink>
             <NuxtLink to="/advertise" class="link">Advertise</NuxtLink>
@@ -69,7 +69,7 @@ export default {
 
         & nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             width: 100%;
             max-width: 120rem;

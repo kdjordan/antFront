@@ -89,7 +89,7 @@ h3 {
     font-family: $font4;
     color: white;
     text-align: center;
-    padding: 1.4rem 4rem;
+    padding: 1.3rem 4rem;
     margin-bottom: 2.5rem;
 }
 
