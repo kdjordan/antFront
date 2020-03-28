@@ -4,7 +4,7 @@
       <div class="underline short"></div>
       <div class="button button--primary w-50  m__b--3" @click.stop="doModal">add my featured event</div>
       <div class="carousel__container">
-          <img src="~assets/svg/minus.svg" alt=""  class="indicator" :class="{disabled: getEventPageLeftDisabled}" @click="pageLeft('event')">
+          <img src="~assets/svg/minus.svg" alt=""  class="indicator"  @click="moveLeft">
           <div class="image">
               <img src="~/assets/images/featured-events/fx-ackermans.png" alt="">
           </div>
@@ -17,7 +17,7 @@
           <div class="image">
               <img src="~/assets/images/featured-events/fx-junkin-sisters.png" alt="">
           </div>
-          <img src="~assets/svg/plus.svg" alt=""  class="indicator" :class="{disabled: getEventPageLeftDisabled}" @click="pageLeft('event')">
+          <img src="~assets/svg/plus.svg" alt=""  class="indicator"  @click="moveRight">
       </div>
 
   </div>
@@ -25,6 +25,14 @@
 
 <script>
 export default {
+    methods: {
+        moveRight() {
+            console.log('clicked right')
+        },
+        moveLeft() {
+            console.log('clicked right')
+        }
+    }
 
 }
 </script>
@@ -36,6 +44,7 @@ export default {
 }
 
 .indicator {
+    cursor: pointer;
     width: 3rem;
 }
 
