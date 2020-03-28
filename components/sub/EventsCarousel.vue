@@ -1,7 +1,7 @@
 <template>
   <div class="carousel">
       <h3>Featured Events</h3>
-      <div class="underline"></div>
+      <div class="underline short"></div>
       <div class="button button--primary w-50" @click.stop="doModal">add my featured event</div>
       <div class="carousel__container">
           <img src="~assets/svg/minus.svg" alt=""  class="indicator" :class="{disabled: getEventPageLeftDisabled}" @click="pageLeft('event')">
@@ -30,6 +30,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.short {
+    width: 60%;
+}
 
 .indicator {
     width: 3rem;

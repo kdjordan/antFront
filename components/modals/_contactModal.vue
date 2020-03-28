@@ -92,6 +92,7 @@ textarea::placeholder {
     color: $color1;
     line-height: 1.3;
     padding: .5rem .5rem;
+    border-radius: 0px;
     width: 60%;
     max-width: 80%; 
     margin: 0 auto;

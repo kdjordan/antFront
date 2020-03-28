@@ -10,6 +10,7 @@
         </div>
       </div>
       <h3 class="page__title page__title--sub">Just a Few Of the Benefits</h3>
+      <div class="underline short"></div>
       <ul class="page__ul">
           <li class="page__li">Your shop will receive a second to none Dealer profile page.</li>
           <li class="page__li">Show items, vendors, shop pictures etc with descriptions & picture uploads. Even YouTube videos.</li>
@@ -75,6 +76,10 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/scss/buttons.scss';
+
+.short {
+    width: 60% !important;
+}
 
 .limited {
     font-size: 1.1rem;
