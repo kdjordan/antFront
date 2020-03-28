@@ -3,6 +3,7 @@
   <div class="sponsers">
       <div class="sponsers__top">
           <div class="sponsers__top--title">Make Sure to Visit Our Sponsers !</div>
+          <div class="underline white"></div>
           <div class="button button--trans" @click.stop="doModal">become a sponser</div>
       </div>
       <div class="sponsers__bottom">
@@ -38,6 +39,12 @@ methods: {
 
 <style lang="scss" scoped>
 
+.white {
+    width: 70%;
+    border: none;
+    border-bottom: 4px solid white !important;
+}
+
 .sponsers {
     margin: 5rem 0;
     background: $color2;
@@ -54,6 +61,7 @@ methods: {
 
             &--title {
                 color: white;
+                text-align: center;
                 font-size: 4rem;
                 font-family: $font4;
                 margin-bottom: 2rem;

@@ -2,11 +2,11 @@
   <div class="carousel">
       <h3>Featured Events</h3>
       <div class="underline short"></div>
-      <div class="button button--primary w-50" @click.stop="doModal">add my featured event</div>
+      <div class="button button--primary w-50  m__b--3" @click.stop="doModal">add my featured event</div>
       <div class="carousel__container">
           <img src="~assets/svg/minus.svg" alt=""  class="indicator" :class="{disabled: getEventPageLeftDisabled}" @click="pageLeft('event')">
           <div class="image">
-              <img src="~/assets/images/featured-events/fx-As2.png" alt="">
+              <img src="~/assets/images/featured-events/fx-ackermans.png" alt="">
           </div>
           <div class="image">
               <img src="~/assets/images/featured-events/fx-geneva.png" alt="">
@@ -55,7 +55,7 @@ h3 {
 }
 
 .image {
-    margin: 0 1rem;
+    margin: 0 1.5rem;
 
     & img {
         width: 100%;
