@@ -1,35 +1,32 @@
 import data from '../static/data/event-data.js'
 
 export const state = () => ({
-    calPage: 0,
-    numPages: null,
+    doSlideRight: false,
+    doSlideLeft: false,
     events: [],
-    pagedEvents: [],
     eventPage: 0,
-    featuredEvents: []
+    featuredEvents: [],
+    carouselIndex: 0,
+    carouselIndices: {
+        first: 0,
+        second: 1,
+        third: 2,
+        fourth: 3,
+    },
 });
 
 export const getters = {   
+    getDoSlide(state) {
+        return state.doSlideRight 
+    },
+    getSlideRight(state) {
+        return state.doSlideRight 
+    },
+    getSlideLeft(state) {
+        return state.doSlideLeft
+    },
     getEvents(state) {
         return state.events
-    },
-    getCalPage(state) {
-        return state.calPage 
-    }, 
-    getCalPageRightDisabled(state) {
-        return state.calPage == state.numPages - 1
-    },
-    getCalPageLeftDisabled(state) {
-        return state.calPage == 0
-    },
-    getPagedEvents(state) {
-        return state.pagedEvents
-    },
-    getEventPageLeftDisabled(state) {
-        return state.eventPage == 0
-    },
-    getEventPageRightDisabled(state) {
-        return state.eventPage == state.featuredEvents.length - 1
     },
     getFeaturedEvents(state) {
         return state.featuredEvents
@@ -39,62 +36,88 @@ export const getters = {
     },
     getEventPage(state) {
         return state.eventPage
+    },
+    getCarouselImages(state) {
+        return state.featuredEvents
+    },
+    getCarouselIndex(state) {
+        return state.carouselIndex
+    },
+    getCarouselIndicies(state) {
+        return state.carouselIndices
     }
 };
 
 export const mutations = {
+    toggleSlide(state, payload) {
+        if(payload == 'right') {
+            state.doSlideRight = false
+        } else {
+            state.doSlideLeft = false
+        }
+    },
     addEvents(state, payload) {
         state.events.push(payload)
-    },
-    setPagedEvents(state, payload) {
-        let data = [...state.events]
-        let index = payload * 5
-        let returnArr = []
-        for (let i = index ; (i < index + 5 && i < state.events.length) ; i++) {
-            returnArr.push(data[i])
-        }
-        state.pagedEvents.push(returnArr)
     },
     addFeaturedEvent(state, payload) {
         state.featuredEvents.push(payload)
     },
-    setNextCycledEvent(state) {
+    pageRight(state) {
         if(state.eventPage == state.featuredEvents.length - 1) {
             state.eventPage = 0
         } else {
             state.eventPage++
         }
     },
-    pageRight(state, payload) {
-        if(payload == "cal") {
-            state.calPage++
-        } else {
-            state.eventPage++
-        }
-    },
-    pageLeft(state, payload) {
-        if(payload == "cal") {
-            state.calPage--
+    pageLeft(state) {
+        if(state.eventPage ==  0) {
+            state.eventPage = state.featuredEvents.length - 1
         } else {
             state.eventPage--
         }
     },
-    setNumPages(state, payload) {
-        state.numPages = payload
+    carouselLeft(state) {
+        state.doSlideLeft = true
+        for (const index in state.carouselIndices) {
+            if(state.carouselIndices[index] == 0) {
+                state.carouselIndices[index] = state.featuredEvents.length - 1
+            } else {
+                state.carouselIndices[index]--
+            }
+          }   
+          this.dispatch('events/undoSlide', 'left')
+    },
+    carouselRight(state) {
+        state.doSlideRight = true
+        for (const index in state.carouselIndices) {
+            if(state.carouselIndices[index] == state.featuredEvents.length - 1) {
+                state.carouselIndices[index] = 0
+            } else {
+                state.carouselIndices[index]++
+            }
+        }
+        this.dispatch('events/undoSlide', 'right')
+        
     }
 };
 
 export const actions = {
+    async undoSlide({commit}, direction) {
+        if (direction == 'right') {
+            setTimeout(() => {
+                commit('toggleSlide', 'right')
+            })
+        } else {
+            setTimeout(() => {
+                commit('toggleSlide', 'left')
+            })
+        }
+    },
     async loadData ({ commit, state }) {
             try {    
                 data.sort().forEach((event)=> {
                     commit('addEvents', event)
                 })
-                let numPages = Math.ceil(data.length / 5)
-                commit('setNumPages',  numPages)
-                for (let i=0; i<numPages; i ++) {
-                    commit('setPagedEvents', i)
-                }
                 return true;
             } catch(e) {
                 console.log(e)

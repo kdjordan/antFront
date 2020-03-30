@@ -17,14 +17,7 @@
                     <div class="card__details--desc">
                         {{event.desc}}
                     </div>
-                    <!-- <div class="card__details--time">
-                        START: <span class="card__details--time-details">{{event.dates[0].start}}</span> -
-                        END: <span class="card__details--time-details">{{event.dates[0].end}}</span>
-                    </div> -->
                 </div>
-                <!-- <div class="card__more" @click="showEvent(event)">
-                    MORE
-                </div> -->
             </div>
          </div>
     </div>
@@ -33,14 +26,8 @@
 <script>
 export default {
     props: ['events'],
-    data() {
-        return {
-
-        }
-    },
     methods: {
         showEvent(event) {
-            console.log(event)
             this.$store.commit('modal/setModalActive')
             this.$store.commit('modal/setModalType', 'singleEvent')
             this.$store.commit('modal/setEventModal', event)

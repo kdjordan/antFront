@@ -8,3 +8,18 @@
   transition-delay: .4s;
 }
 
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s ease;
+}
+.slide-fade-enter {
+  opacity: 1;
+}
+ .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(-100%);
+  // opacity: 0;
+}

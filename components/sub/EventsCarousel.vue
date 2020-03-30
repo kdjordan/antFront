@@ -4,40 +4,97 @@
       <div class="underline short"></div>
       <div class="button button--primary w-50  m__b--3" @click.stop="doModal">add my featured event</div>
       <div class="carousel__container">
-          <img src="~assets/svg/minus.svg" alt=""  class="indicator"  @click="moveLeft">
-          <div class="image">
-              <img src="~/assets/images/featured-events/fx-ackermans.png" alt="">
-          </div>
-          <div class="image">
-              <img src="~/assets/images/featured-events/fx-geneva.png" alt="">
-          </div>
-          <div class="image">
-              <img src="~/assets/images/featured-events/fx-junkwood.png" alt="">
-          </div>
-          <div class="image">
-              <img src="~/assets/images/featured-events/fx-junkin-sisters.png" alt="">
-          </div>
-          <img src="~assets/svg/plus.svg" alt=""  class="indicator"  @click="moveRight">
-      </div>
+          <img src="~assets/svg/minus.svg" alt=""  class="indicator"  @click="carouselLeft">
+          <div class="carousel__container--images">
+            <div class="image" @click="showEvent(getCarouselImages[getIndicies.first])" :class="{slideLeft: getSlideLeft, slideRight: getSlideRight, slide: !getSlideRight && !getSlideLeft}">
+                
+                    <img :src="`${getCarouselImage(getIndicies.first).featuredImgUrl}`" alt="">
 
-  </div>
+            </div>
+            <div class="image" @click="showEvent(getCarouselImages[getIndicies.second])" :class="{slideLeft: getSlideLeft, slideRight: getSlideRight, slide: !getSlideRight && !getSlideLeft}">
+                
+                <img :src="`${getCarouselImage(getIndicies.second).featuredImgUrl}`" alt="">
+                
+            </div>
+            <div class="image" @click="showEvent(getCarouselImages[getIndicies.third])" :class="{slideLeft: getSlideLeft, slideRight: getSlideRight, slide: !getSlideRight && !getSlideLeft}">
+                
+                <img :src="`${getCarouselImage(getIndicies.third).featuredImgUrl}`" alt="">
+                
+            </div>
+            <div class="image" @click="showEvent(getCarouselImages[getIndicies.fourth])" :class="{slideLeft: getSlideLeft, slideRight: getSlideRight, slide: !getSlideRight && !getSlideLeft}">
+                
+                <img :src="`${getCarouselImage(getIndicies.fourth).featuredImgUrl}`" alt="">
+                
+            </div>
+          </div>
+          <img src="~assets/svg/plus.svg" alt=""  class="indicator"  @click="carouselRight">
+      </div>
+    </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-    methods: {
-        moveRight() {
-            console.log('clicked right')
+    data() {
+        return {
+        }
+    },
+    computed: {
+        ...mapGetters({
+            getCarouselImages: 'events/getCarouselImages',
+            getIndex: 'events/getCarouselIndex',
+            getIndicies: 'events/getCarouselIndicies',
+            getDoSlide: 'events/getDoSlide',
+            getSlideRight: 'events/getSlideRight',
+            getSlideLeft: 'events/getSlideLeft'
+        }),
+        getCarouselImage(index) {
+            return index => this.getCarouselImages[index]
         },
-        moveLeft() {
-            console.log('clicked right')
+    },
+    methods: {
+        carouselRight() {
+            this.$store.commit('timers/resetInterval', 'carousel')
+            this.$store.commit('events/carouselRight')
+        },
+        carouselLeft() {
+            this.$store.commit('timers/resetInterval', 'carousel')
+            this.$store.commit('events/carouselLeft')
+        },
+    
+        showEvent(event) {
+            this.$store.commit('modal/setModalActive')
+            this.$store.commit('modal/setModalType', 'singleEvent')
+            this.$store.commit('modal/setEventModal', event)
+        }
+    },
+    mounted() {
+        if(!(this.$store.state.timers.carousel.running)) {
+            this.$store.dispatch('timers/startCycleCarousel')
         }
     }
-
 }
 </script>
 
 <style lang="scss" scoped>
+
+.slide {
+    transform: translateX(0);
+    transition: all .4s;
+
+    &Right{
+        transform: translateX(100%);
+    }
+
+    &Left {
+        transform: translateX(-109%);
+    }
+}
+
+.hide {
+    display: none;
+}
 
 .short {
     width: 60%;
@@ -64,26 +121,35 @@ h3 {
 }
 
 .image {
+    cursor: pointer;
     margin: 0 1.5rem;
 
     & img {
         width: 100%;
         max-width: 60rem;
-        height: 100%;
+        height: auto;
         max-height: 40rem;
     }
 }
 
 .carousel {
-    // border: 1px solid red;
     width: 100%;
 
     &__container {
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    &__container--images {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 90%;
         margin: 0 auto;
+        overflow: hidden;
     }
 }
 

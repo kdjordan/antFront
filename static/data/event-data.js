@@ -70,7 +70,7 @@ export default [
     },
     {
         id: 3,
-        featured: false,
+        featured: true,
         featuredImgUrl: require('assets/images/featured-events/fx-carslile-pickers.png'),
         featuredLink: null,
         title: 'Carslile Pickers',

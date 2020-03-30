@@ -13,7 +13,7 @@
       </div>
     
         <div class="events__indicators">
-            <img src="~assets/svg/minus.svg" alt=""  :class="{disabled: getEventPageLeftDisabled}" @click="pageLeft('event')">
+            <img src="~assets/svg/minus.svg" alt="" @click="pageLeft">
             <div class="events__indicators--block-container">
                 <div v-for="(num, index) in getFeaturedEvents.slice(0, getFeaturedEvents.length)" 
                     :key="index" 
@@ -22,7 +22,7 @@
                 </div>
 
             </div>
-            <img src="~assets/svg/plus.svg" alt="" :class="{disabled: getEventPageRightDisabled}" @click="pageRight('event')">
+            <img src="~assets/svg/plus.svg" alt="" @click="pageRight">
         </div>
     
     <div class="button button--primary w-50 m__b--2 p__t--3" @click.stop="doModal()">Add My Event</div>
@@ -35,37 +35,19 @@ import { mapGetters } from 'vuex'
 export default {
     computed: {
     ...mapGetters({
-      getEventPageLeftDisabled: 'events/getEventPageLeftDisabled',
-            getEventPageRightDisabled: 'events/getEventPageRightDisabled',
-            getFeaturedEvents: 'events/getFeaturedEvents',              
-            getFeaturedEvent: 'events/getFeaturedEvent',        
-            getEventPage: 'events/getEventPage'        
+        getFeaturedEvents: 'events/getFeaturedEvents',              
+        getFeaturedEvent: 'events/getFeaturedEvent',        
+        getEventPage: 'events/getEventPage'        
     })
   },
   methods: {
-        pageRight(type) {
-            if(!(this.getCalPageRightDisabled) && type == 'cal') {
-                this.calActive = true
-                setTimeout(() => {
-                    this.$store.commit('events/pageRight', type) 
-                    this.calActive = false
-                }, 500)
-            }   else if (!(this.getEventPageRightDisabled) && type == 'event'){
-                    this.$store.commit('events/pageRight', type) 
-                    this.$store.commit('timers/stopEventsCycle')
-            }
+        pageRight() {
+            this.$store.commit('timers/resetInterval', 'events')
+            this.$store.commit('events/pageRight') 
         },
-        pageLeft(type) {
-            if(!(this.getCalPageLeftDisabled) && type == 'cal') {
-                this.calActive = true
-                setTimeout(() => {
-                    this.$store.commit('events/pageLeft', type) 
-                    this.calActive = false
-                }, 500)
-            } else if (!(this.getEventPageLeftDisabled) && type == 'event') {
-                this.$store.commit('events/pageLeft', type)             
-                this.$store.commit('timers/stopEventsCycle')             
-            }   
+        pageLeft() {
+            this.$store.commit('timers/resetInterval', 'events')             
+            this.$store.commit('events/pageLeft')             
         },
         doModal() {
             this.$store.commit('modal/setModalActive')
@@ -74,6 +56,7 @@ export default {
     },
     mounted() {
         if(!(this.$store.state.timers.events.running)) {
+            console.log('mounted')
             this.$store.dispatch('timers/startCycleEvents')
         }
     }
