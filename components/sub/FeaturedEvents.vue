@@ -1,7 +1,7 @@
 <template>
 <div>
-    <div class="events__container">
-      <h3>Featured Events</h3>
+    <div class="events__container p__t--2">
+      <h3 class="homepage">Featured Events</h3>
       <div class="events__container--image-container">
         <a :href="`${getFeaturedEvent.featuredLink}`" target="_blank"> 
             <transition name="fade" mode="out-in">
@@ -25,7 +25,7 @@
             <img src="~assets/svg/plus.svg" alt="" @click="pageRight">
         </div>
     
-    <div class="button button--primary w-50 m__b--2 p__t--3" @click.stop="doModal()">Add My Event</div>
+    <div class="button button--primary w-50 m__b--2 p__t--3" @click.stop="doModal">Add My Event</div>
     </div>
 </div>
 </template>
@@ -66,15 +66,14 @@ export default {
 
 <style lang="scss" scoped>
 
-h3 {
+.homepage {
     background: $color2;
     font-size: 3rem;
-    font-family: $font4;
     color: white;
-    text-align: center;
-    padding: 1.3rem 4rem;
-    margin-bottom: 2.5rem;
+    padding: 1.5rem 4rem;
+    margin-top: 0;
 }
+
 
 .indicator {
     background: $color1 !important;

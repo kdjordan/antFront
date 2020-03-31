@@ -62,11 +62,14 @@ export default {
             this.$store.commit('timers/resetInterval', 'carousel')
             this.$store.commit('events/carouselLeft')
         },
-    
         showEvent(event) {
             this.$store.commit('modal/setModalActive')
             this.$store.commit('modal/setModalType', 'singleEvent')
             this.$store.commit('modal/setEventModal', event)
+        },
+        doModal() {
+            this.$store.commit('modal/setModalActive')
+            this.$store.commit('modal/setModalType', 'event')
         }
     },
     mounted() {
@@ -111,15 +114,6 @@ export default {
     margin-bottom: 2rem;
 }
 
-h3 {
-    margin: 0 auto;
-    font-size: 5rem;
-    font-family: $font4;
-    color: $color1;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
 .image {
     cursor: pointer;
     margin: 0 1.5rem;
@@ -134,6 +128,7 @@ h3 {
 
 .carousel {
     width: 100%;
+    height: 45rem;
 
     &__container {
         display: flex;

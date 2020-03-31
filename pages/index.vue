@@ -41,7 +41,7 @@ export default {
   &__inner {
     display: flex;
     justify-content: space-between;
-    align-items: top;
+    align-items: flex-start;
     max-width: 180rem;
     margin: 0 auto;
   }
