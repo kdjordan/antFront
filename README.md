@@ -1,8 +1,8 @@
-# antiqueNetwork
+# The Antique Network
 
-> Front End for ANTnet
+> Nextjs Client Partnership
 
-## Build Setup
+## The Story
 
 ``` bash
 # install dependencies
