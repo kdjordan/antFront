@@ -1,6 +1,6 @@
 # The Antique Network
 
-> Nextjs Client Partnership
+> NuxtJS Client Partnership
 
 ## The Story
 
