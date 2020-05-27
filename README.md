@@ -9,8 +9,8 @@ I am in the process of rebuilding a network of sites for people who love antique
 It's currently a PHP site that mostly works : you can visit the current form here :  
 [Iowa Antique Network](https://www.iowaantiquenetwork.com/)
 
-I am rebuilding it with Nuxt and AWS - moving to a serverless architecture.
-AWS Resources beinf used will include :
+I am rebuilding it with Nuxt and AWS - moving to a serverless architecture.  
+AWS Resources being used will include :
 - Congnito
 - API Gateway
 - Lambda
